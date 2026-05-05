@@ -449,7 +449,7 @@ export default function App() {
                           </div>
                         </div>
                         <div style={s.breakEvenCardDesc}>
-                          Etter {breakEven} {breakEven === 1 ? "måned" : "måneder"} har du tjent inn etableringsgebyret – fra da av sparer du rent.
+                          Etter {breakEven} {breakEven === 1 ? "måned" : "måneder"} har du tjent inn etableringsgebyret.
                         </div>
                       </div>
                     )}
@@ -467,7 +467,7 @@ export default function App() {
                       Med disse tallene lønner det seg ikke å bytte nå
                     </div>
                     <div style={{ ...T.body, color: "rgba(255,255,255,0.75)", textAlign: "center", marginBottom: 16 }}>
-                      Prøv å justere renten på nytt lån – selv små endringer kan snu regnestykket.
+                      Prøv å justere renten på nytt lån, selv små endringer kan snu regnestykket.
                     </div>
                     <button style={{ ...s.primaryBtn, background: "rgba(255,255,255,0.2)", boxShadow: "none", border: "1.5px solid rgba(255,255,255,0.3)" }} onClick={() => setStep(STEP_CALC)}>
                       ← Juster tallene
@@ -485,7 +485,7 @@ export default function App() {
                       Få de 3 beste tilbudene – tilpasset ditt lån
                     </div>
                     <div style={{ ...T.body, textAlign: "center", color: "#444", marginBottom: 14 }}>
-                      Skriv inn e-posten din, så sender vi deg de tjenestene som passer best til din situasjon. Det tar 30 sekunder.
+                      Skriv inn e-posten din, så sender vi deg de tjenestene som passer best til din situasjon. 
                     </div>
                     <div style={s.microFlow}>
                       <div style={s.microFlowTitle}>💡 Slik gjør du det:</div>
@@ -541,7 +541,7 @@ export default function App() {
                       Du kan spare <strong>{monthlySaving.toLocaleString("no")} kr</strong> hver måned
                     </div>
                     <div style={{ ...T.small, color: "#6B78E5", marginTop: 2 }}>
-                      og totalt <strong>{totalSaving.toLocaleString("no")} kr</strong> – jo tidligere du starter, jo mer kan du spare
+                      og totalt <strong>{totalSaving.toLocaleString("no")} kr</strong>. Jo tidligere du starter, jo mer kan du spare.
                     </div>
                   </div>
                 </div>
@@ -551,10 +551,10 @@ export default function App() {
                 Disse 3 kan gi deg lavere rente allerede denne uken
               </div>
               <div style={{ ...T.body, color: "#444", marginBottom: 6 }}>
-                Gratis å søke – du forplikter deg ikke til noe.
+                Gratis å søke, og du forplikter deg ikke til noe.
               </div>
               <div style={s.reinforceLine}>
-                💡 Bruk disse til å hente et konkret tilbud – og test det i kalkulatoren etterpå.
+                💡 Bruk disse til å hente et konkret tilbud og test det i kalkulatoren etterpå.
               </div>
 
               {AFFILIATES.map((item, i) => (
@@ -579,14 +579,14 @@ export default function App() {
               ))}
 
               <div style={s.trustRow}>
-                {["✅ Gratis å søke", "🔒 Trygt og uforpliktende", "⚡ Svar innen 24t"].map((t) => (
+                {["✅ Gratis å søke", "🔒 Trygt og uforpliktende", "⚡ Ofte svar innen 24t"].map((t) => (
                   <div key={t} style={{ ...T.small, color: "#555", fontSize: 11 }}>{t}</div>
                 ))}
               </div>
 
               <div style={s.disclaimerBox}>
                 <div style={{ ...T.small, color: "#888", lineHeight: 1.6 }}>
-                  ⚠️ Noen lenker er affiliatelenker. Vi mottar en liten provisjon om du velger et tilbud – det koster deg ingenting ekstra.
+                  ⚠️ Noen lenker er affiliatelenker. Det koster deg ingenting ekstra, og vi mottar en liten provisjon om du velger et tilbud.
                 </div>
               </div>
 
@@ -616,10 +616,10 @@ export default function App() {
                     <div style={s.bEmailConfirm}>
                       <div style={{ fontSize: 36, marginBottom: 8 }}>✅</div>
                       <div style={{ ...T.h3, color: "#2A34B8", textAlign: "center", marginBottom: 4 }}>
-                        Sendt til deg nå!
+                       Tusen takk. 
                       </div>
                       <div style={{ ...T.body, color: "#666", textAlign: "center" }}>
-                        Sjekk innboksen – tilbudene venter på deg.
+                        Jeg sender dem til deg snart.
                       </div>
                     </div>
                   )}
