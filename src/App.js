@@ -192,9 +192,9 @@ const T = {
 
 // ─── AFFILIATE DATA ───────────────────────────────────────────────────────
 const AFFILIATES = [
-  { id: 1, name: "Sambla",     desc: "Sammenlign lån fra 20+ banker på 2 minutter",  tag: "Mest populær",   tagColor: "#2A34B8", url: "https://sambla.no",    icon: "🏆", cta: "Sjekk tilbud →" },
-  { id: 2, name: "Lendo",      desc: "Én søknad – svar fra flere banker samtidig",    tag: "Rask svar",      tagColor: "#3D47C9", url: "https://lendo.no",     icon: "⚡", cta: "Søk nå →" },
-  { id: 3, name: "Axo Finans", desc: "Refinansier og samle lån til lavere rente",     tag: "Refinansiering", tagColor: "#6B78E5", url: "https://axofinans.no", icon: "🔄", cta: "Se rente →" },
+  { id: 1, name: "Uno Finans",     desc: "Sammenlign lån fra 20+ banker på 2 minutter",  tag: "Mest populær",   tagColor: "#2A34B8", url: "https://ormedlink.com/fordelsjakten-3",    icon: "🏆", cta: "Sjekk tilbud →" },
+  { id: 2, name: "Motty",      desc: "Få kontroll på gjeldsspøkelset",    tag: "Som sett på TV",      tagColor: "#3D47C9", url: "https://ormedlink.com/fordelsjakten-11",     icon: "⚡", cta: "Søk nå →" },
+  { id: 3, name: "Zensum", desc: "Refinansier og samle lån til lavere rente",     tag: "Enkel og rask", tagColor: "#6B78E5", url: "https://ormedlink.com/fordelsjakten-10", icon: "🔄", cta: "Se rente →" },
 ];
 
 // ─── NORSK TALLFORMAT ─────────────────────────────────────────────────────
