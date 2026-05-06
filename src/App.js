@@ -344,7 +344,7 @@ export default function App() {
                   Betaler du mer rente enn du må?
                 </div>
                 <div style={{ ...T.body, color: "#444" }}>
-                  Fyll inn tallene dine og se hva du kan spare – på under ett minutt.
+                  Fyll inn lånebetingelsene dine og se hva du kan spare. Tar bare ett minutt.
                 </div>
               </div>
 
@@ -419,7 +419,7 @@ export default function App() {
 
                     {/* Urgency */}
                     <div style={s.urgencyLine}>
-                      Renten din endres ikke av seg selv. Men det kan du gjøre noe med.
+                      Renten din endres ikke av seg selv. Men du gjøre noe med den.
                     </div>
 
                     {/* Stats */}
