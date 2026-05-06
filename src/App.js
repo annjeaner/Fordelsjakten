@@ -359,7 +359,7 @@ export default function App() {
                 <SliderField label="Termingebyr"     value={currentFee}  min={0}     max={300}     step={5}    display={`${currentFee} kr/mnd`}                   onChange={setCurrentFee}  hint="Vanlig: 30–100 kr/mnd" />
                 <MonthSlider value={months} onChange={setMonths} />
                 <div style={s.effRow}>
-                  <span style={{ ...T.small, fontWeight: 600, color: "#444", display:"flex", alignItems:"center" }}>Effektiv rente nå<Tooltip text="Effektiv rente inkluderer alle gebyrer. Dette er den reelle kostnaden på lånet ditt – alltid sammenlign denne." /></span>
+                  <span style={{ ...T.small, fontWeight: 500, color: "#444", display:"flex", alignItems:"center" }}>Effektiv rente nå<Tooltip text="Effektiv rente inkluderer alle gebyrer. Dette er den reelle kostnaden på lånet ditt – alltid sammenlign denne." /></span>
                   <span style={{ ...T.h3, color: "#2A34B8" }}>{formatNO(effNaa)} %</span>
                 </div>
               </div>
@@ -374,13 +374,13 @@ export default function App() {
                 <SliderField label="Nytt termingebyr"  value={newFee}  min={0}   max={300}  step={5}   display={`${newFee} kr/mnd`}                  onChange={setNewFee}  hint="Vanlig: 30–100 kr/mnd" />
                 <SliderField label="Etableringsgebyr"  value={estab}   min={0}   max={5000} step={50}  display={`${estab.toLocaleString("no")} kr`}  onChange={setEstab}   hint="Vanlig: 0–2 000 kr" />
                 <div style={s.effRow}>
-                  <span style={{ ...T.small, fontWeight: 600, color: "#444", display:"flex", alignItems:"center" }}>Effektiv rente ny<Tooltip text="Effektiv rente på det nye lånet, inkludert etableringsgebyr fordelt over låneperioden. Lavere enn nå = lønnsomt." /></span>
+                  <span style={{ ...T.small, fontWeight: 500, color: "#444", display:"flex", alignItems:"center" }}>Ny effektiv rente<Tooltip text="Effektiv rente på det nye lånet, inkludert etableringsgebyr fordelt over låneperioden. Lavere enn nå = lønnsomt." /></span>
                   <span style={{ ...T.h3, color: effNy != null && effNy < effNaa ? "#4caf82" : "#ff6b6b" }}>{formatNO(effNy)} %</span>
                 </div>
               </div>
 
               <button style={s.primaryBtn} onClick={() => setStep(STEP_RESULT)}>
-                Se hva du kan spare →
+                Se hvor mye du kan spare →
               </button>
             </div>
           )}
@@ -399,7 +399,7 @@ export default function App() {
 
                     {/* POSITIVE FRAMING */}
                     <div style={{ ...T.body, color: "rgba(255,255,255,0.8)", textAlign: "center", marginBottom: 10 }}>
-                      Her er hva du kan spare hver måned:
+                      Her er hvor mye du kan spare hver måned:
                     </div>
                     <div style={s.painNumber}>
                       {monthlySaving.toLocaleString("no")} kr
@@ -419,7 +419,7 @@ export default function App() {
 
                     {/* Urgency */}
                     <div style={s.urgencyLine}>
-                      Renten din endres ikke av seg selv. Men du gjøre noe med den.
+                      Renten din endres ikke av seg selv. Men nå kan du gjøre noe med den.
                     </div>
 
                     {/* Stats */}
@@ -458,7 +458,7 @@ export default function App() {
                     {/* Disclaimer + context */}
                     <div style={s.disclaimerInResult}>
                       <span style={{ marginRight: 6 }}>📋</span>
-                      Tallene er veiledende – men de gir deg et realistisk bilde av hva refinansiering kan bety for deg. Basert på renten du la inn. Når du har et konkret tilbud, kan du teste det i kalkulatoren.
+                      Tallene er veiledende. De gir deg likevel et realistisk bilde på hva refinansiering kan bety for deg basert på renten du la inn. Når du har et konkret tilbud, kan du teste det i kalkulatoren.
                     </div>
                   </>
                 ) : (
@@ -513,7 +513,7 @@ export default function App() {
                     ) : (
                       <div style={s.emailConfirm}>
                         <div style={{ fontSize: 32, marginBottom: 8 }}>✅</div>
-                        <div style={{ ...T.bodyMed, color: "#4caf82" }}>Sendt! Henter tilbud til deg…</div>
+                        <div style={{ ...T.bodyMed, color: "#4caf82" }}>Tusen takk! Ordner tilbud til deg nå…</div>
                       </div>
                     )}
                   </div>
@@ -539,7 +539,7 @@ export default function App() {
                   <span style={{ fontSize: 16 }}>💰</span>
                   <div style={{ flex: 1 }}>
                     <div style={{ ...T.bodyMed, color: "#2A34B8" }}>
-                      Du kan spare <strong>{monthlySaving.toLocaleString("no")} kr</strong> hver måned
+                      Du kan spare <strong>{monthlySaving.toLocaleString("no")} kr</strong> hver eneste måned
                     </div>
                     <div style={{ ...T.small, color: "#6B78E5", marginTop: 2 }}>
                       og totalt <strong>{totalSaving.toLocaleString("no")} kr</strong>. Jo tidligere du starter, jo mer kan du spare.
@@ -555,7 +555,7 @@ export default function App() {
                 Gratis å søke, og du forplikter deg ikke til noe.
               </div>
               <div style={s.reinforceLine}>
-                💡 Bruk disse til å hente et konkret tilbud og test det i kalkulatoren etterpå.
+                💡 Bruk disse for å hente et konkret lånetilbud og test det i kalkulatoren etterpå.
               </div>
 
               {AFFILIATES.map((item, i) => (
@@ -587,7 +587,7 @@ export default function App() {
 
               <div style={s.disclaimerBox}>
                 <div style={{ ...T.small, color: "#888", lineHeight: 1.6 }}>
-                  ⚠️ Noen lenker er affiliatelenker. Det koster deg ingenting ekstra, og vi mottar en liten provisjon om du velger et tilbud.
+                  ⚠️ Noen lenker er affiliate-lenker. Det koster deg ingenting ekstra, og vi mottar en liten provisjon om du velger et av våre tilbud.
                 </div>
               </div>
 
@@ -753,7 +753,7 @@ const s = {
   calcDot:     { width: 10, height: 10, borderRadius: "50%", background: "#2A34B8" },
   effRow:      { display: "flex", justifyContent: "space-between", alignItems: "center", paddingTop: 12, borderTop: "1px solid rgba(91,75,255,0.08)" },
 
-  primaryBtn: { width: "100%", background: "linear-gradient(135deg,#2A34B8,#3D47C9)", color: "#fff", border: "none", borderRadius: 16, padding: "15px", fontSize: 16, fontWeight: 800, cursor: "pointer", fontFamily: "'Agrandir', 'Sora', sans-serif", boxShadow: "0 4px 20px rgba(91,75,255,0.35)", marginBottom: 4 },
+  primaryBtn: { width: "100%", background: "linear-gradient(135deg,#2A34B8,#3D47C9)", color: "#fff", border: "none", borderRadius: 16, padding: "15px", fontSize: 16, fontWeight: 700, cursor: "pointer", fontFamily: "'Agrandir', 'Sora', sans-serif", boxShadow: "0 4px 20px rgba(91,75,255,0.35)", marginBottom: 4 },
 
   backBtn:   { background: "none", border: "none", color: "#2A34B8", fontWeight: 700, fontSize: 14, cursor: "pointer", marginBottom: 16, padding: 0, fontFamily: "'DM Sans',sans-serif" },
   skipBtn:   { width: "100%", background: "none", border: "none", color: "#777", fontSize: 13, fontWeight: 600, cursor: "pointer", padding: "12px 0 4px", fontFamily: "'DM Sans',sans-serif", textDecoration: "underline" },
