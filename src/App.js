@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import { Analytics } from '@vercel/analytics/react';
 
 // ─── FONTS ────────────────────────────────────────────────────────────────
 // ─── FONTS ────────────────────────────────────────────────────────────────
@@ -637,6 +638,7 @@ export default function App() {
           <button style={s.scrollTopBtn} onClick={scrollToTop}>↑</button>
         )}
       </div>
+      <Analytics />
     </div>
   );
 }
