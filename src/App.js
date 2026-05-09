@@ -199,10 +199,13 @@ const worthIt       = totalSaving > 0 && breakEven !== null && breakEven < n;
 const handleBEmailSubmit = async () => {
 if (!bEmail.includes(”@”)) return;
 try {
-await fetch(“https://api.convertkit.com/v3/forms/fc5a02df26/subscribe”, {
+const formData = new FormData();
+formData.append(“fields[email]”, bEmail);
+formData.append(“ml-submit”, “1”);
+formData.append(“anticsrf”, “true”);
+await fetch(“https://assets.mailerlite.com/jsonp/2333063/forms/187028110944765638/subscribe”, {
 method: “POST”,
-headers: { “Content-Type”: “application/json” },
-body: JSON.stringify({ api_key: “R_ixnCiQTC2ShSHXzv0RTQ”, email: bEmail, tags: [“variant-b”], fields: { monthly_saving: monthlySaving, total_saving: totalSaving } })
+body: formData,
 });
 } catch (e) { console.error(e); }
 setBEmailSent(true);
@@ -211,10 +214,13 @@ setBEmailSent(true);
 const handleEmailSubmit = async () => {
 if (!email.includes(”@”)) return;
 try {
-await fetch(“https://api.convertkit.com/v3/forms/fc5a02df26/subscribe”, {
+const formData = new FormData();
+formData.append(“fields[email]”, email);
+formData.append(“ml-submit”, “1”);
+formData.append(“anticsrf”, “true”);
+await fetch(“https://assets.mailerlite.com/jsonp/2333063/forms/187028110944765638/subscribe”, {
 method: “POST”,
-headers: { “Content-Type”: “application/json” },
-body: JSON.stringify({ api_key: “R_ixnCiQTC2ShSHXzv0RTQ”, email: email, tags: [“variant-a”], fields: { monthly_saving: monthlySaving, total_saving: totalSaving } })
+body: formData,
 });
 } catch (e) { console.error(e); }
 setEmailSent(true);
