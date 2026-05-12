@@ -20,10 +20,10 @@ document.head.appendChild(style);
 // ─── SEO & METADATA ───────────────────────────────────────────────────────
 (function injectSEO() {
 const SITE = {
-title:       “FordelsDetektiven – Betaler du mer rente enn du må?”,
+title:       “Fordelsdetektiven – Betaler du mer rente enn du må?”,
 description: “Bruk kalkulatoren og finn ut hva du faktisk kan spare på refinansiering av forbrukslånet ditt. Gratis, uforpliktende og på under ett minutt.”,
-url:         “https://fordelsdetektiven.no”,
-image:       “https://fordelsdetektiven.no/og-image.png”,
+url:         “https://fordelsjakten.no”,
+image:       “https://fordelsjakten.no/og-image.png”,
 locale:      “nb_NO”,
 author:      “FordelsDetektiven”,
 keywords:    “refinansiering, forbrukslån, rente, effektiv rente, kalkulator, spare penger, lånesammenligning”,
@@ -54,7 +54,7 @@ meta({ property: “og:image”,       content: SITE.image });
 meta({ property: “og:image:width”, content: “1200” });
 meta({ property: “og:image:height”,content: “630” });
 meta({ property: “og:locale”,      content: SITE.locale });
-meta({ property: “og:site_name”,   content: “FordelsDetektiven” });
+meta({ property: “og:site_name”,   content: “Fordelsdetektiven” });
 meta({ name: “twitter:card”,        content: “summary_large_image” });
 meta({ name: “twitter:site”,        content: “@fordelsjakten” });
 meta({ name: “twitter:title”,       content: SITE.title });
@@ -68,16 +68,16 @@ link({ rel: “apple-touch-icon”, sizes: “180x180”,  href: “/apple-touch
 const schemas = [
 {
 “@context”: “https://schema.org”, “@type”: “WebSite”,
-“name”: “FordelsDetektiven”, “url”: SITE.url, “description”: SITE.description, “inLanguage”: “nb”,
+“name”: “Fordelsdetektiven”, “url”: SITE.url, “description”: SITE.description, “inLanguage”: “nb”,
 “potentialAction”: { “@type”: “SearchAction”, “target”: `${SITE.url}/?q={search_term_string}`, “query-input”: “required name=search_term_string” },
 },
 {
 “@context”: “https://schema.org”, “@type”: “WebApplication”,
-“name”: “Refinansieringskalkulator – FordelsDetektiven”, “url”: SITE.url,
+“name”: “Refinansieringskalkulator – Fordelsdetektiven”, “url”: SITE.url,
 “description”: “Gratis kalkulator som beregner månedlig og total besparelse ved refinansiering av forbrukslån, inkludert termingebyr, etableringsgebyr og break-even.”,
 “applicationCategory”: “FinanceApplication”, “operatingSystem”: “All”,
 “offers”: { “@type”: “Offer”, “price”: “0”, “priceCurrency”: “NOK” },
-“inLanguage”: “nb”, “author”: { “@type”: “Organization”, “name”: “FordelsDetektiven”, “url”: SITE.url },
+“inLanguage”: “nb”, “author”: { “@type”: “Organization”, “name”: “Fordelsdetektiven”, “url”: SITE.url },
 },
 {
 “@context”: “https://schema.org”, “@type”: “FAQPage”,
@@ -235,9 +235,9 @@ return (
     {/* ── Header ── */}
     <header style={s.header}>
       <div style={s.logo}>
-        <img src={LOGO_B64} style={s.logoIcon} alt="FordelsDetektiven logo" />
+        <img src={LOGO_B64} style={s.logoIcon} alt="Fordelsdetektiven logo" />
         <div>
-          <p style={{ ...T.h3, margin: 0 }}>FordelsDetektiven</p>
+          <p style={{ ...T.h3, margin: 0 }}>Fordelsdetektiven</p>
           <p style={{ ...T.small, color: "#BC9BFE", fontWeight: 600, margin: 0 }}>Finn fordelene dine</p>
         </div>
       </div>
@@ -259,7 +259,7 @@ return (
               Betaler du mer rente enn du må?
             </h1>
             <p style={{ ...T.body, color: "#444", margin: 0 }}>
-              Fyll inn lånebetingelsene dine og se hva du kan spare. Tar bare ett minutt.
+              Fyll inn lånebetingelsene dine og se hvor mye du kan spare. Tar bare ett minutt.
             </p>
           </div>
 
@@ -317,7 +317,7 @@ return (
               <>
                 <img src={LOGO_RESULT_B64} style={{ width: 64, height: 64, borderRadius: "50%", display: "block", margin: "0 auto 12px" }} alt="" aria-hidden="true" />
                 <p style={{ ...T.body, color: "rgba(255,255,255,0.8)", textAlign: "center", marginBottom: 10, marginTop: 0 }}>
-                  Her er hvor mye du kan spare hver måned:
+                  Hver måned kan du spare:
                 </p>
                 <p style={s.painNumber}>
                   {monthlySaving.toLocaleString("no")} kr
@@ -372,7 +372,7 @@ return (
                   Med disse tallene lønner det seg ikke å bytte nå
                 </h2>
                 <p style={{ ...T.body, color: "rgba(255,255,255,0.75)", textAlign: "center", marginBottom: 16, marginTop: 0 }}>
-                  Prøv å justere renten på nytt lån, selv små endringer kan snu regnestykket.
+                  Prøv å justere renten under nytt lån, selv små endringer kan snu regnestykket.
                 </p>
                 <button style={{ ...s.primaryBtn, background: "rgba(255,255,255,0.2)", boxShadow: "none", border: "1.5px solid rgba(255,255,255,0.3)" }} onClick={() => setStep(STEP_CALC)}>
                   ← Juster tallene
@@ -416,7 +416,7 @@ return (
                       Vis meg hva jeg faktisk kan spare
                     </button>
                     <p style={{ ...T.small, textAlign: "center", marginTop: 10, color: "#888" }}>
-                      🔒 Gratis, uforpliktende og enkelt å avslutte når som helst.{" "}
+                      ✅ Gratis, uforpliktende og enkelt å avslutte når som helst.{" "}
                       <button onClick={() => setShowPrivacy(true)} style={{ background: "none", border: "none", color: "#2A34B8", cursor: "pointer", textDecoration: "underline", fontFamily: "'DM Sans',sans-serif", fontSize: 12 }}>
                         Personvernerklæring
                       </button>
@@ -494,13 +494,13 @@ return (
           </ul>
 
           <ul style={{ ...s.trustRow, listStyle: "none", padding: 0 }}>
-            {["✅ Gratis å søke", "🔒 Trygt og uforpliktende", "⚡ Ofte svar innen 24t"].map((t) => (
+            {["✅ Gratis å søke", "✅ Trygt og uforpliktende", "⚡ Ofte svar innen 24t"].map((t) => (
               <li key={t} style={{ ...T.small, color: "#555", fontSize: 11 }}>{t}</li>
             ))}
           </ul>
 
           <p style={{ ...s.disclaimerBox, ...T.small, color: "#888", lineHeight: 1.6 }}>
-            ⚠️ Noen lenker er affiliate-lenker. Det koster deg ingenting ekstra, og vi mottar en liten provisjon om du velger et av våre tilbud.
+            ⚠️ Noen lenker er affiliate-lenker. Det koster deg ingenting ekstra, og vi kan motta en liten provisjon om du velger et av våre tilbud.
           </p>
 
           {variant === "B" && (
@@ -537,7 +537,7 @@ return (
                     Tusen takk.
                   </h2>
                   <p style={{ ...T.body, color: "#666", textAlign: "center", margin: 0 }}>
-                    Jeg sender dem til deg snart.
+                    Følg med i innboksen din.
                   </p>
                 </div>
               )}
