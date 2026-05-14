@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 
 // ─── FONTS ────────────────────────────────────────────────────────────────
 const fontLink = document.createElement("link");
@@ -597,6 +598,7 @@ return (
   </div>
 
   <Analytics />
+  <SpeedInsights />
 </div>
 );
 }
