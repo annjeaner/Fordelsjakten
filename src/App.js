@@ -235,7 +235,7 @@ return (
     {/* ── Header ── */}
     <header style={s.header}>
       <div style={s.logo}>
-        <img src={LOGO_B64} style={s.logoIcon} alt="Fordelsdetektiven logo" />
+        <img src={LOGO_B64} style={s.logoIcon} alt="Fordelsdetektiven fordelsjakten logo" />
         <div>
           <p style={{ ...T.h3, margin: 0 }}>Fordelsdetektiven</p>
           <p style={{ ...T.small, color: "#BC9BFE", fontWeight: 600, margin: 0 }}>Finn fordelene dine</p>
@@ -418,7 +418,7 @@ return (
                     <p style={{ ...T.small, textAlign: "center", marginTop: 10, color: "#888" }}>
   ✅ Gratis, uforpliktende og enkelt å avslutte når som helst.{" "}
   <a
-    href="/personvern.html"
+    href="/personvern"
     target="_blank"
     rel="noopener noreferrer"
     style={{
@@ -537,7 +537,7 @@ return (
                   <p style={{ ...T.small, textAlign: "center", marginTop: 8, color: "#888" }}>
   🔒 Gratis og uforpliktende.{" "}
   <a
-    href="/personvern.html"
+    href="/personvern"
     target="_blank"
     rel="noopener noreferrer"
     style={{
@@ -577,7 +577,7 @@ return (
     <footer style={s.footer}>
       <small style={{ ...T.small, color: "#aaa" }}>© 2026 Fordelsjakten.no</small>
       <a
-  href="/personvern.html"
+  href="/personvern"
   target="_blank"
   rel="noopener noreferrer"
   style={{
@@ -645,7 +645,7 @@ const [show, setShow] = useState(false);
 return (
 <span style={{ position: "relative", display: "inline-flex", alignItems: "center" }}>
 <button aria-label="Forklaring" aria-expanded={show} onClick={() => setShow(!show)}
-style={{ background: "#2A34B8", border: "none", borderRadius: "50%", width: 20, height: 20, color: "#fff", fontSize: 12, fontWeight: 900, cursor: "pointer", marginLeft: 6, display: "inline-flex", alignItems: "center", justifyContent: "center", fontFamily: "'Agrandir','Sora',sans-serif", flexShrink: 0, boxShadow: "0 2px 6px rgba(42,52,184,0.35)" }}>?</button>
+style={{ background: "#2A34B8", border: "none", borderRadius: "50%", width: 20, height: 20, color: "#fff", fontSize: 12, fontWeight: 700, cursor: "pointer", marginLeft: 6, display: "inline-flex", alignItems: "center", justifyContent: "center", fontFamily: "'Agrandir','Sora',sans-serif", flexShrink: 0, boxShadow: "0 2px 6px rgba(42,52,184,0.35)" }}>?</button>
 {show && (
 <div role="tooltip" style={{ position: "absolute", bottom: "calc(100% + 8px)", left: "50%", transform: "translateX(-50%)", background: "#2A34B8", color: "#ffffff", fontSize: 13, fontWeight: 500, borderRadius: 12, padding: "12px 14px", width: 220, zIndex: 50, lineHeight: 1.6, boxShadow: "0 8px 32px rgba(0,0,0,0.45)", fontFamily: "'DM Sans',sans-serif", border: "1px solid rgba(255,255,255,0.12)", pointerEvents: "none" }}>
 {text}
