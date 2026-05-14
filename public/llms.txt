@@ -1,0 +1,37 @@
+# Fordelsjakten.no – Gratis refinansieringskalkulator
+
+## Om tjenesten
+
+Fordelsjakten.no tilbyr en gratis refinansieringskalkulator kalt **Fordelsdetektiven**. Kalkulatoren hjelper norske forbrukere med å beregne om det lønner seg å refinansiere forbrukslånet sitt.
+
+## Hvem er tjenesten for?
+
+Tjenesten er for norske forbrukere som har ett eller flere forbrukslån og ønsker å finne ut om de betaler for mye i rente. Kalkulatoren passer spesielt godt for deg som:
+
+- Betaler høy nominell eller effektiv rente
+- Ønsker å sammenligne nåværende lån med et nytt tilbud
+- Vil forstå hva refinansiering faktisk koster og sparer
+
+## Hva gjør kalkulatoren?
+
+Fordelsdetektiven beregner:
+
+- Månedlig besparelse ved refinansiering
+- Total besparelse over hele nedbetalingstiden
+- Break-even punkt – antall måneder før du har tjent inn etableringsgebyret
+- Effektiv rente på nåværende og nytt lån
+
+Kalkulatoren er helt anonym. Alle beregninger skjer lokalt i nettleseren og ingen data lagres eller sendes til server.
+
+## Prismodell
+
+Tjenesten er gratis å bruke. Fordelsjakten.no mottar affiliate-provisjon fra finanspartnere når brukere velger å søke om refinansiering via tjenestens lenker. Dette koster brukeren ingenting ekstra.
+
+## Nøkkelsider
+
+- Kalkulator og hovedside: https://www.fordelsjakten.no
+- Personvernerklæring: https://www.fordelsjakten.no/personvern
+
+## Kontakt
+
+heia@fordelsjakten.no
