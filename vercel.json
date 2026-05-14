@@ -1,0 +1,13 @@
+{
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "Link",
+          "value": "<https://www.fordelsjakten.no/llms.txt>; rel=llms-txt, <https://www.fordelsjakten.no/.well-known/mcp.json>; rel=mcp-server-card, <https://www.fordelsjakten.no/.well-known/agent-skills/index.json>; rel=agent-skills, <https://www.fordelsjakten.no/.well-known/api-catalog>; rel=api-catalog"
+        }
+      ]
+    }
+  ]
+}
