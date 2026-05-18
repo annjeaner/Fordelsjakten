@@ -201,18 +201,11 @@ const worthIt       = totalSaving > 0 && breakEven !== null && breakEven < n;
 const handleBEmailSubmit = async () => {
 if (!bEmail.includes("@")) return;
 try {
-await fetch(
-"https://emailoctopus.com/api/1.6/lists/6e3bcd44-52d1-11f1-84ff-d79f5c305637/contacts",
-{
-method: "POST",
-headers: { "Content-Type": "application/json" },
-body: JSON.stringify({
-api_key: process.env.REACT_APP_MAILOCTOPUS_KEY,
-email_address: bEmail,
-status: "PENDING",
-}),
-}
-);
+await fetch("/api/subscribe", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({ email: bEmail }),
+});
 } catch (e) { console.error(e); }
 setBEmailSent(true);
 };
@@ -220,18 +213,11 @@ setBEmailSent(true);
 const handleEmailSubmit = async () => {
 if (!email.includes("@")) return;
 try {
-await fetch(
-"https://emailoctopus.com/api/1.6/lists/6e3bcd44-52d1-11f1-84ff-d79f5c305637/contacts",
-{
-method: "POST",
-headers: { "Content-Type": "application/json" },
-body: JSON.stringify({
-api_key: process.env.REACT_APP_MAILOCTOPUS_KEY,
-email_address: email,
-status: "PENDING",
-}),
-}
-);
+await fetch("/api/subscribe", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({ email }),
+});
 } catch (e) { console.error(e); }
 setEmailSent(true);
 setTimeout(() => setStep(STEP_OFFERS), 800);
