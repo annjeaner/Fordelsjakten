@@ -168,7 +168,7 @@ const [email, setEmail]           = useState("");
 const [emailSent, setEmailSent]   = useState(false);
 const [showScroll, setShowScroll] = useState(false);
 const scrollRef = useRef(null);
-const [aktivArtikkel, setAktivArtikkel] = useState(null);
+const navigate = useNavigate();
 
 // Kalkulator
 const [loanAmount,  setLoanAmount]  = useState(200000);
