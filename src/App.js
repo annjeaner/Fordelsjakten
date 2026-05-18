@@ -1,7 +1,4 @@
-import ArticleLayout from './components/ArticleLayout';
-import { artikkel as refinansieringAnmerkning } from './articles/eksempel-artikkel';
 import { useState, useEffect, useRef } from "react";
-import { Routes, Route, useNavigate } from 'react-router-dom';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/react';
 
@@ -168,7 +165,6 @@ const [email, setEmail]           = useState("");
 const [emailSent, setEmailSent]   = useState(false);
 const [showScroll, setShowScroll] = useState(false);
 const scrollRef = useRef(null);
-const navigate = useNavigate();
 
 // Kalkulator
 const [loanAmount,  setLoanAmount]  = useState(200000);
@@ -232,20 +228,381 @@ setEmailSent(true);
 setTimeout(() => setStep(STEP_OFFERS), 800);
 };
 
-          {showScroll && (
-            <button aria-label="Scroll til topp" style={s.scrollTopBtn} onClick={scrollToTop}>↑</button>
-          )}
+return (
+<div style={s.shell}>
+<div style={s.phone}>
+
+    {/* ── Header ── */}
+    <header style={s.header}>
+      <div style={s.logo}>
+        <img src={LOGO_B64} style={s.logoIcon} alt="Fordelsdetektiven fordelsjakten logo" />
+        <div>
+          <p style={{ ...T.h3, margin: 0 }}>Fordelsdetektiven</p>
+          <p style={{ ...T.small, color: "#BC9BFE", fontWeight: 600, margin: 0 }}>Finn fordelene dine</p>
         </div>
       </div>
+      <nav aria-label="Steg-indikator" style={s.stepIndicator}>
+        {[1, 2, 3].map((i) => (
+          <div key={i} aria-current={step === i ? "step" : undefined} style={{ ...s.stepDot, background: step >= i ? "#2A34B8" : "#e0d9ff" }} />
+        ))}
+      </nav>
+    </header>
 
-      <Analytics />
-      <SpeedInsights />
+    {/* ── Scroll container ── */}
+    <main style={s.scroll} ref={scrollRef}>
 
-    } />
-  </Routes>
+      {/* ══ STEG 1: KALKULATOR ══ */}
+      {step === STEP_CALC && (
+        <section aria-label="Refinansieringskalkulator" style={{ opacity: loaded ? 1 : 0, transition: "opacity 0.4s ease 0.1s" }}>
+          <div style={s.pageHero}>
+            <h1 style={{ ...T.display, fontSize: 22, marginBottom: 6, marginTop: 0 }}>
+              Betaler du mer rente enn du må?
+            </h1>
+            <p style={{ ...T.body, color: "#444", margin: 0 }}>
+              Fyll inn lånebetingelsene dine og se hvor mye du kan spare. Tar bare ett minutt.
+            </p>
+          </div>
+
+          {/* Nåværende lån */}
+          <section aria-label="Ditt nåværende forbrukslån" style={s.calcSection}>
+            <div style={s.calcHeader}>
+              <div style={s.calcDot} aria-hidden="true" />
+              <h2 style={{ ...T.h3, margin: 0 }}>Ditt nåværende forbrukslån</h2>
+            </div>
+            <SliderField label="Lånebeløp"      value={loanAmount}  min={10000} max={1000000} step={5000} display={`${loanAmount.toLocaleString("no")} kr`} onChange={setLoanAmount} />
+            <SliderField label="Nominell rente"  value={currentRate} min={1}     max={30}      step={0.1}  display={`${formatNO(currentRate, 1)} %`}          onChange={setCurrentRate} />
+            <SliderField label="Termingebyr"     value={currentFee}  min={0}     max={300}     step={5}    display={`${currentFee} kr/mnd`}                   onChange={setCurrentFee}  hint="Vanlig: 30–100 kr/mnd" />
+            <MonthSlider value={months} onChange={setMonths} />
+            <div style={s.effRow}>
+              <span style={{ ...T.small, fontWeight: 500, color: "#444", display: "flex", alignItems: "center" }}>
+                Effektiv rente nå
+                <Tooltip text="Effektiv rente inkluderer alle gebyrer. Dette er den reelle kostnaden på lånet ditt – alltid sammenlign denne." />
+              </span>
+              <strong style={{ ...T.h3, color: "#2A34B8" }}>{formatNO(effNaa)} %</strong>
+            </div>
+          </section>
+
+          {/* Nytt lån */}
+          <section aria-label="Nytt lån" style={s.calcSection}>
+            <div style={s.calcHeader}>
+              <div style={{ ...s.calcDot, background: "#4caf82" }} aria-hidden="true" />
+              <h2 style={{ ...T.h3, margin: 0 }}>Nytt lån – samme nedbetalingstid</h2>
+            </div>
+            <SliderField label="Ny nominell rente" value={newRate} min={1}   max={30}   step={0.1} display={`${formatNO(newRate, 1)} %`}          onChange={setNewRate} hint="De fleste betaler mellom 8 og 14 % i dag" />
+            <SliderField label="Nytt termingebyr"  value={newFee}  min={0}   max={300}  step={5}   display={`${newFee} kr/mnd`}                   onChange={setNewFee}  hint="Vanlig: 30–100 kr/mnd" />
+            <SliderField label="Etableringsgebyr"  value={estab}   min={0}   max={5000} step={50}  display={`${estab.toLocaleString("no")} kr`}   onChange={setEstab}   hint="Vanlig: 0–2 000 kr" />
+            <div style={s.effRow}>
+              <span style={{ ...T.small, fontWeight: 500, color: "#444", display: "flex", alignItems: "center" }}>
+                Ny effektiv rente
+                <Tooltip text="Effektiv rente på det nye lånet, inkludert etableringsgebyr fordelt over låneperioden. Lavere enn nå = lønnsomt." />
+              </span>
+              <strong style={{ ...T.h3, color: effNy != null && effNy < effNaa ? "#4caf82" : "#ff6b6b" }}>{formatNO(effNy)} %</strong>
+            </div>
+          </section>
+
+          <button style={s.primaryBtn} onClick={() => setStep(STEP_RESULT)}>
+            Se hvor mye du kan spare →
+          </button>
+        </section>
+      )}
+
+      {/* ══ STEG 2: RESULTAT + EMAIL ══ */}
+      {step === STEP_RESULT && (
+        <section aria-label="Ditt sparepotensial">
+          <button style={s.backBtn} onClick={() => setStep(STEP_CALC)}>← Endre tall</button>
+
+          {/* Resultat-kort */}
+          <article style={{ ...s.resultCard, background: worthIt ? "linear-gradient(135deg,#1E2690,#2A34B8)" : "linear-gradient(135deg,#64748b,#94a3b8)" }}>
+            {worthIt ? (
+              <>
+                <img src={LOGO_RESULT_B64} style={{ width: 64, height: 64, borderRadius: "50%", display: "block", margin: "0 auto 12px" }} alt="" aria-hidden="true" />
+                <p style={{ ...T.body, color: "rgba(255,255,255,0.8)", textAlign: "center", marginBottom: 10, marginTop: 0 }}>
+                  Hver måned kan du spare:
+                </p>
+                <p style={s.painNumber}>
+                  {monthlySaving.toLocaleString("no")} kr
+                </p>
+                <div style={s.gainRow}>
+                  <span aria-hidden="true" style={{ fontSize: 16 }}>👉</span>
+                  <p style={{ ...T.bodyMed, color: "#fff", margin: 0 }}>
+                    Du kan spare totalt{" "}
+                    <strong>{totalSaving.toLocaleString("no")} kr</strong>{" "}
+                    over {months >= 24 ? `${Math.round(months / 12)} år` : `${months} måneder`}
+                  </p>
+                </div>
+                <p style={s.urgencyLine}>
+                  Renten din endres ikke av seg selv. Men nå kan du gjøre noe med den.
+                </p>
+                <div style={s.resultStats}>
+                  <div style={s.resultStat}>
+                    <p style={{ ...T.label, color: "rgba(255,255,255,0.65)", marginBottom: 4, marginTop: 0 }}>Nå / mnd</p>
+                    <strong style={{ fontFamily: "'Agrandir','Sora',sans-serif", fontSize: 17, fontWeight: 700, color: "#fff" }}>{Math.round(curMonthly).toLocaleString("no")} kr</strong>
+                  </div>
+                  <span aria-hidden="true" style={{ color: "rgba(255,255,255,0.4)", fontSize: 20 }}>→</span>
+                  <div style={s.resultStat}>
+                    <p style={{ ...T.label, color: "rgba(255,255,255,0.65)", marginBottom: 4, marginTop: 0 }}>Ny / mnd</p>
+                    <strong style={{ fontFamily: "'Agrandir','Sora',sans-serif", fontSize: 17, fontWeight: 700, color: "#fff" }}>{Math.round(newMonthly).toLocaleString("no")} kr</strong>
+                  </div>
+                </div>
+                {breakEven != null && monthlySaving > 0 && (
+                  <div style={s.breakEvenCard}>
+                    <div style={s.breakEvenCardTop}>
+                      <span aria-hidden="true" style={{ fontSize: 28 }}>⏱</span>
+                      <div>
+                        <p style={{ ...T.label, color: "rgba(255,255,255,0.6)", marginBottom: 4, marginTop: 0 }}>Break-even punkt</p>
+                        <strong style={{ fontFamily: "'Agrandir','Sora',sans-serif", fontSize: 28, fontWeight: 700, color: "#fff", lineHeight: 1, display: "block" }}>
+                          {breakEven} {breakEven === 1 ? "måned" : "måneder"}
+                        </strong>
+                      </div>
+                    </div>
+                    <p style={s.breakEvenCardDesc}>
+                      Etter {breakEven} {breakEven === 1 ? "måned" : "måneder"} har du tjent inn etableringsgebyret.
+                    </p>
+                  </div>
+                )}
+                <p style={s.disclaimerInResult}>
+                  <span aria-hidden="true">📋</span>{" "}
+                  Tallene er veiledende. De gir deg likevel et realistisk bilde på hva refinansiering kan bety for deg basert på renten du la inn. Når du har et konkret tilbud, kan du teste det i kalkulatoren.
+                </p>
+              </>
+            ) : (
+              <>
+                <img src={LOGO_RESULT_B64} style={{ width: 64, height: 64, borderRadius: "50%", display: "block", margin: "0 auto 12px" }} alt="" aria-hidden="true" />
+                <h2 style={{ ...T.h1, color: "#fff", textAlign: "center", marginBottom: 8, marginTop: 0 }}>
+                  Med disse tallene lønner det seg ikke å bytte nå
+                </h2>
+                <p style={{ ...T.body, color: "rgba(255,255,255,0.75)", textAlign: "center", marginBottom: 16, marginTop: 0 }}>
+                  Prøv å justere renten under nytt lån, selv små endringer kan snu regnestykket.
+                </p>
+                <button style={{ ...s.primaryBtn, background: "rgba(255,255,255,0.2)", boxShadow: "none", border: "1.5px solid rgba(255,255,255,0.3)" }} onClick={() => setStep(STEP_CALC)}>
+                  ← Juster tallene
+                </button>
+              </>
+            )}
+          </article>
+
+          {/* EMAIL CAPTURE – A/B */}
+          {variant === "A" ? (
+            <>
+              <div style={s.emailCard}>
+                <p aria-hidden="true" style={s.emailIcon}>📬</p>
+                <h2 style={{ ...T.h2, textAlign: "center", marginBottom: 8, marginTop: 0 }}>
+                  Få de 3 beste tilbudene – tilpasset ditt lån
+                </h2>
+                <p style={{ ...T.body, textAlign: "center", color: "#444", marginBottom: 14, marginTop: 0 }}>
+                  Skriv inn e-posten din, så sender vi deg de tjenestene som passer best til din situasjon.
+                </p>
+                <div style={s.microFlow}>
+                  <p style={s.microFlowTitle}>💡 Slik gjør du det:</p>
+                  <ol style={{ margin: 0, padding: 0, listStyle: "none" }}>
+                    {["Få tilbud", "Test dem i kalkulatoren", "Se hva du faktisk sparer"].map((txt, i) => (
+                      <li key={i} style={s.microFlowStep}>
+                        <span aria-hidden="true" style={s.microFlowNum}>{i + 1}</span>
+                        <span style={{ ...T.small, color: "#444", fontWeight: 600 }}>{txt}</span>
+                      </li>
+                    ))}
+                  </ol>
+                </div>
+                {!emailSent ? (
+                  <>
+                    <label htmlFor="email-a" style={{ ...T.small, color: "#555", display: "block", marginBottom: 6 }}>
+                      E-postadresse
+                    </label>
+                    <input id="email-a" type="email" placeholder="din@epost.no" value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      onKeyDown={(e) => e.key === "Enter" && handleEmailSubmit()}
+                      style={s.emailInput} />
+                    <button style={s.primaryBtn} onClick={handleEmailSubmit}>
+                      Vis meg hva jeg faktisk kan spare
+                    </button>
+                    <p style={{ ...T.small, textAlign: "center", marginTop: 10, color: "#888" }}>
+  ✅ Gratis, uforpliktende og enkelt å avslutte når som helst.{" "}
+  <a
+    href="/personvern"
+    target="_blank"
+    rel="noopener noreferrer"
+    style={{
+      color: "#2A34B8",
+      cursor: "pointer",
+      textDecoration: "underline",
+      fontFamily: "'DM Sans',sans-serif",
+      fontSize: 12
+    }}
+  >
+    Personvernerklæring
+  </a>
+</p>
+                  </>
+                ) : (
+                  <div style={s.emailConfirm}>
+                    <p aria-hidden="true" style={{ fontSize: 32, marginBottom: 8 }}>✅</p>
+                    <p style={{ ...T.bodyMed, color: "#4caf82", margin: 0 }}>Tusen takk! Ordner tilbud til deg nå...</p>
+                  </div>
+                )}
+              </div>
+              <button style={s.skipBtn} onClick={() => setStep(STEP_OFFERS)}>
+                Fortsett uten e-post →
+              </button>
+            </>
+          ) : (
+            <button style={{ ...s.primaryBtn, marginTop: 8 }} onClick={() => setStep(STEP_OFFERS)}>
+              Se mine muligheter →
+            </button>
+          )}
+        </section>
+      )}
+
+      {/* ══ STEG 3: AFFILIATE-TILBUD ══ */}
+      {step === STEP_OFFERS && (
+        <section aria-label="Anbefalte lånetjenester">
+          {worthIt && (
+            <div style={s.summaryPill}>
+              <span aria-hidden="true" style={{ fontSize: 16 }}>💰</span>
+              <div style={{ flex: 1 }}>
+                <p style={{ ...T.bodyMed, color: "#2A34B8", margin: 0 }}>
+                  Du kan spare <strong>{monthlySaving.toLocaleString("no")} kr</strong> hver eneste måned
+                </p>
+                <p style={{ ...T.small, color: "#6B78E5", marginTop: 2, marginBottom: 0 }}>
+                  og totalt <strong>{totalSaving.toLocaleString("no")} kr</strong>. Jo tidligere du starter, jo mer kan du spare.
+                </p>
+              </div>
+            </div>
+          )}
+
+          <h1 style={{ ...T.h1, marginBottom: 4, marginTop: 12 }}>
+            Disse 3 kan gi deg lavere rente allerede denne uken
+          </h1>
+          <p style={{ ...T.body, color: "#444", marginBottom: 6, marginTop: 0 }}>
+            Gratis å søke, og du forplikter deg ikke til noe.
+          </p>
+          <p style={s.reinforceLine}>
+            💡 Bruk disse for å hente et konkret lånetilbud og test det i kalkulatoren etterpå.
+          </p>
+
+          <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
+            {AFFILIATES.map((item, i) => (
+              <li key={item.id}>
+                <a href={item.url} target="_blank" rel="noopener noreferrer" style={{ textDecoration: "none" }}>
+                  <article style={{ ...s.affCard, ...(i === 0 ? s.affCardTop : {}) }}>
+                    {i === 0 && <p style={s.topBadge}>⭐ Anbefalt for deg</p>}
+                    <div style={s.affInner}>
+                      <div style={s.affLeft}>
+                        <span aria-hidden="true" style={s.affIcon}>{item.icon}</span>
+                        <div>
+                          <h3 style={{ ...T.h3, margin: 0 }}>{item.name}</h3>
+                          <p style={{ ...T.small, marginTop: 2, maxWidth: 180, marginBottom: 0 }}>{item.desc}</p>
+                        </div>
+                      </div>
+                      <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-end", gap: 6 }}>
+                        <span style={{ ...T.label, background: item.tagColor + "15", color: item.tagColor, borderRadius: 8, padding: "3px 9px", fontSize: 9 }}>{item.tag}</span>
+                        <span style={{ ...T.bodyMed, color: "#2A34B8", fontSize: 13 }}>{item.cta}</span>
+                      </div>
+                    </div>
+                  </article>
+                </a>
+              </li>
+            ))}
+          </ul>
+
+          <ul style={{ ...s.trustRow, listStyle: "none", padding: 0 }}>
+            {["✅ Gratis å søke", "✅ Trygt og uforpliktende", "⚡ Ofte svar innen 24t"].map((t) => (
+              <li key={t} style={{ ...T.small, color: "#555", fontSize: 11 }}>{t}</li>
+            ))}
+          </ul>
+
+          <p style={{ ...s.disclaimerBox, ...T.small, color: "#888", lineHeight: 1.6 }}>
+            ⚠️ Noen lenker er affiliate-lenker. Det koster deg ingenting ekstra, og vi kan motta en liten provisjon om du velger et av våre tilbud.
+          </p>
+
+          {variant === "B" && (
+            <div style={s.bEmailBox}>
+              {!bEmailSent ? (
+                <>
+                  <h2 style={{ ...T.h3, marginBottom: 6, textAlign: "center", marginTop: 0 }}>
+                    📩 Send dette til meg på e-post
+                  </h2>
+                  <p style={{ ...T.small, color: "#666", textAlign: "center", marginBottom: 14, marginTop: 0 }}>
+                    Vi sender deg oversikten over tilbudene – så har du dem når du er klar.
+                  </p>
+                  <label htmlFor="email-b" style={{ ...T.small, color: "#555", display: "block", marginBottom: 6 }}>
+                    E-postadresse
+                  </label>
+                  <input id="email-b" type="email" placeholder="din@epost.no" value={bEmail}
+                    onChange={(e) => setBEmail(e.target.value)}
+                    onKeyDown={(e) => e.key === "Enter" && handleBEmailSubmit()}
+                    style={s.emailInput} />
+                  <button style={s.primaryBtn} onClick={handleBEmailSubmit}>
+                    Send meg tilbudene
+                  </button>
+                  <p style={{ ...T.small, textAlign: "center", marginTop: 8, color: "#888" }}>
+  🔒 Gratis og uforpliktende.{" "}
+  <a
+    href="/personvern"
+    target="_blank"
+    rel="noopener noreferrer"
+    style={{
+      color: "#2A34B8",
+      cursor: "pointer",
+      textDecoration: "underline",
+      fontFamily: "'DM Sans',sans-serif",
+      fontSize: 12
+    }}
+  >
+    Personvernerklæring
+  </a>
+</p>
+                </>
+              ) : (
+                <div style={s.bEmailConfirm}>
+                  <p aria-hidden="true" style={{ fontSize: 36, marginBottom: 8 }}>✅</p>
+                  <h2 style={{ ...T.h3, color: "#2A34B8", textAlign: "center", marginBottom: 4, marginTop: 0 }}>
+                    Tusen takk.
+                  </h2>
+                  <p style={{ ...T.body, color: "#666", textAlign: "center", margin: 0 }}>
+                    Følg med i innboksen din.
+                  </p>
+                </div>
+              )}
+            </div>
+          )}
+
+          <button style={s.secondaryBtn} onClick={() => setStep(STEP_CALC)}>
+            ← Gå tilbake til kalkulatoren
+          </button>
+        </section>
+      )}
+    </main>
+
+    {/* ── Footer ── */}
+    <footer style={s.footer}>
+      <small style={{ ...T.small, color: "#aaa" }}>© 2026 Fordelsjakten.no</small>
+      <a
+  href="/personvern"
+  target="_blank"
+  rel="noopener noreferrer"
+  style={{
+    color: "#2A34B8",
+    cursor: "pointer",
+    textDecoration: "underline",
+    fontFamily: "'DM Sans',sans-serif",
+    fontSize: 12
+  }}
+>
+  Personvern & GDPR
+</a>
+    </footer>
+
+    {/* ── Scroll-to-top ── */}
+    {showScroll && (
+      <button aria-label="Scroll til topp" style={s.scrollTopBtn} onClick={scrollToTop}>↑</button>
+    )}
+  </div>
+
+  <Analytics />
+  <SpeedInsights />
+</div>
 );
 }
-
 
 // ─── COMPONENTS ───────────────────────────────────────────────────────────
 function MonthSlider({ value, onChange }) {
