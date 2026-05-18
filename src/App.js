@@ -28,7 +28,7 @@ description: "Bruk kalkulatoren og finn ut hva du faktisk kan spare på refinans
 url:         "https://fordelsjakten.no",
 image:       "https://fordelsjakten.no/og-image.png",
 locale:      "nb_NO",
-author:      "FordelsDetektiven",
+author:      "Fordelsdetektiven",
 keywords:    "refinansiering, forbrukslån, rente, effektiv rente, kalkulator, spare penger, lånesammenligning",
 };
 document.title = SITE.title;
@@ -167,6 +167,7 @@ const [email, setEmail]           = useState("");
 const [emailSent, setEmailSent]   = useState(false);
 const [showScroll, setShowScroll] = useState(false);
 const scrollRef = useRef(null);
+const [aktivArtikkel, setAktivArtikkel] = useState(null);
 
 // Kalkulator
 const [loanAmount,  setLoanAmount]  = useState(200000);
@@ -188,6 +189,9 @@ return () => el.removeEventListener("scroll", handler);
 }, []);
 
 const scrollToTop = () => scrollRef.current?.scrollTo({ top: 0, behavior: "smooth" });
+if (aktivArtikkel) {
+    return <ArticleLayout artikkel={aktivArtikkel} />;
+}
 
 const n             = months;
 const curMonthly    = annuitet(loanAmount, currentRate, n) + currentFee;
