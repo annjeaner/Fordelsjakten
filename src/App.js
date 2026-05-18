@@ -1,3 +1,5 @@
+import ArticleLayout from './components/ArticleLayout';
+import { artikkel as refinansieringAnmerkning } from './articles/eksempel-artikkel';
 import { useState, useEffect, useRef } from "react";
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/react';
