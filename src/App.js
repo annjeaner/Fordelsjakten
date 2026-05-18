@@ -190,9 +190,6 @@ return () => el.removeEventListener("scroll", handler);
 }, []);
 
 const scrollToTop = () => scrollRef.current?.scrollTo({ top: 0, behavior: "smooth" });
-if (aktivArtikkel) {
-    return <ArticleLayout artikkel={aktivArtikkel} />;
-}
 
 const n             = months;
 const curMonthly    = annuitet(loanAmount, currentRate, n) + currentFee;
