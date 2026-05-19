@@ -473,7 +473,10 @@ return (
           <p style={s.reinforceLine}>
             💡 Bruk disse for å hente et konkret lånetilbud og test det i kalkulatoren etterpå.
           </p>
-
+          <p style={{ ...s.disclaimerBox, ...T.small, color: "#888", lineHeight: 1.6 }}>
+            ⚠️ Annonser. Det koster deg ingenting ekstra, og Fordelsjakten kan motta en liten provisjon om du velger et av våre tilbud.
+          </p>    
+              
           <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
             {AFFILIATES.map((item, i) => (
               <li key={item.id}>
@@ -504,10 +507,6 @@ return (
               <li key={t} style={{ ...T.small, color: "#555", fontSize: 11 }}>{t}</li>
             ))}
           </ul>
-
-          <p style={{ ...s.disclaimerBox, ...T.small, color: "#888", lineHeight: 1.6 }}>
-            ⚠️ Noen lenker er affiliate-lenker. Det koster deg ingenting ekstra, og vi kan motta en liten provisjon om du velger et av våre tilbud.
-          </p>
 
           {variant === "B" && (
             <div style={s.bEmailBox}>
