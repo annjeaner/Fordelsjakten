@@ -18,6 +18,7 @@ export default async function handler(req, res) {
           api_key: process.env.MAILOCTOPUS_KEY,
           email_address: email,
           status: "PENDING",
+          tags: ["Kalkulator"],
         }),
       }
     );
