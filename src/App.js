@@ -104,8 +104,8 @@ document.head.appendChild(script);
 // ─── TYPOGRAPHY ───────────────────────────────────────────────────────────
 const T = {
 display: { fontFamily: "'Bricolage Grotesque', sans-serif", fontOpticalSizing: "auto", fontStretch: "87.5%", fontSize: 26, fontWeight: 600, lineHeight: 1.2, letterSpacing: -0.3, color: "#1C1F4E" },
-h1:      { fontFamily: "'Bricolage Grotesque', sans-serif", fontOpticalSizing: "auto", fontStretch: "87.5%", fontSize: 22, fontWeight: 600, lineHeight: 1.25, letterSpacing: -0.2, color: "#1C1F4E" },
-h2:      { fontFamily: "'Bricolage Grotesque', sans-serif", fontOpticalSizing: "auto", fontStretch: "87.5%", fontSize: 16, fontWeight: 600, lineHeight: 1.3, color: "#1C1F4E" },
+h1:      { fontFamily: "'Bricolage Grotesque', sans-serif", fontOpticalSizing: "auto", fontStretch: "87.5%", fontSize: 34, fontWeight: 600, lineHeight: 1, color: "#1C1F4E" },
+h2:      { fontFamily: "'Bricolage Grotesque', sans-serif", fontOpticalSizing: "auto", fontStretch: "87.5%", fontSize: 18, fontWeight: 600, lineHeight: 1.1, color: "#1C1F4E" },
 h3:      { fontFamily: "'Bricolage Grotesque', sans-serif", fontOpticalSizing: "auto", fontStretch: "87.5%", fontSize: 14, fontWeight: 600, lineHeight: 1.4, color: "#1C1F4E" },
 body:    { fontFamily: "'Space Grotesk', sans-serif", fontSize: 14, fontWeight: 400, lineHeight: 1.65, color: "#222" },
 bodyMed: { fontFamily: "'Space Grotesk', sans-serif", fontSize: 14, fontWeight: 600, lineHeight: 1.5, color: "#333" },
