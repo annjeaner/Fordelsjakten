@@ -385,6 +385,7 @@ export default function App() {
 
   async function subscribe(address, setState, setError, placement) {
     const cleanAddress = address.trim();
+    
     if (!/^\S+@\S+\.\S+$/.test(cleanAddress)) {
       setError("Skriv inn en gyldig e-postadresse.");
       return false;
@@ -400,12 +401,33 @@ export default function App() {
         body: JSON.stringify({ email: cleanAddress }),
       });
 
-      if (!response.ok) throw new Error("Kunne ikke registrere e-postadressen.");
+      const data = await response.json().catch(() => null);
+     
+      const alreadyRegistered =
+        response.status === 409 &&
+        data?.error?.error?.code === "MEMBER_EXISTS_WITH_EMAIL_ADDRESS";
+     
+      if (alreadyRegistered) {
+        setState("success");
+        trackEvent("E-post allerede registrert", {
+          plassering: placement,
+          variant,
+        });
+        return true;
+      }
+
+      if (!response.ok) {
+        throw new Error(
+          data?.error?.error?.message || "Kunne ikke registrere e-postadressen.",
+        );
+      }
+
       setState("success");
       trackEvent("E-post registrert", {
         plassering: placement,
         variant,
       });
+    
       return true;
     } catch (error) {
       console.error(error);
