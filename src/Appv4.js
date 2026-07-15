@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import { init, track } from "@plausible-analytics/tracker";
+import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/react";
 
 const LOGO = "/Fordelsdetektiven-fordelsjakten-logo.png";
@@ -20,7 +20,7 @@ const AFFILIATES = [
     url: "https://ormedlink.com/fordelsjakten-3",
     cta: "Sjekk tilbud hos Uno Finans",
     effRente: "10,94",
-    tag: "Mange banker",
+    tag: "Bred sammenligning",
     renteeksempel:
       "Renteeksempel: 300 000 kr over 5 år med 10,10 % nominell og 10,94 % effektiv rente koster 85 133 kr. Totalt tilbakebetalt: 385 133 kr.",
   },
@@ -31,7 +31,7 @@ const AFFILIATES = [
     url: "https://ormedlink.com/fordelsjakten-11",
     cta: "Søk hos Motty",
     effRente: "14,44",
-    tag: "Samle flere lån",
+    tag: "Samle gjeld",
     renteeksempel:
       "Renteeksempel: 160 000 kr over 5 år med 14,44 % effektiv rente koster 60 688 kr. Totalt tilbakebetalt: 220 688 kr. Nominell rente 6–23 %.",
   },
@@ -66,44 +66,6 @@ const FAQS = [
 const STEP_CALC = 1;
 const STEP_RESULT = 2;
 const STEP_OFFERS = 3;
-
-let plausibleInitialized = false;
-
-function initializePlausible() {
-  if (typeof window === "undefined" || plausibleInitialized) return;
-
-  init({
-    domain: "fordelsjakten.no",
-    autoCapturePageviews: true,
-    hashBasedRouting: false,
-    outboundLinks: false,
-    fileDownloads: false,
-    formSubmissions: false,
-    captureOnLocalhost: false,
-    logging: false,
-    bindToWindow: true,
-  });
-
-  plausibleInitialized = true;
-}
-
-function trackEvent(name, props = {}) {
-  if (typeof window === "undefined" || !plausibleInitialized) return;
-
-  try {
-    track(name, { props });
-  } catch {
-    // Analyse skal aldri påvirke brukerreisen dersom en forespørsel blir blokkert.
-  }
-}
-
-function getSavingBand(monthlySaving) {
-  if (!Number.isFinite(monthlySaving) || monthlySaving <= 0) return "ingen besparelse";
-  if (monthlySaving < 150) return "under 150 kr";
-  if (monthlySaving < 500) return "150–499 kr";
-  if (monthlySaving < 1000) return "500–999 kr";
-  return "1 000 kr eller mer";
-}
 
 function ensureHeadAssets() {
   if (!document.querySelector('link[data-fordelsjakten-fonts="true"]')) {
@@ -282,11 +244,6 @@ function formatKr(number) {
   return `${Math.round(number).toLocaleString("nb-NO")} kr`;
 }
 
-function formatMonthly(number) {
-  if (!Number.isFinite(number)) return "–";
-  return `${Math.round(number).toLocaleString("nb-NO")} kr/mnd`;
-}
-
 function getStableVariant() {
   try {
     const existing = window.sessionStorage.getItem("fordelsjakten-email-variant");
@@ -322,7 +279,6 @@ export default function App() {
   useEffect(() => {
     ensureHeadAssets();
     injectSEO();
-    initializePlausible();
   }, []);
 
   useEffect(() => {
@@ -383,7 +339,7 @@ export default function App() {
     establishmentFee,
   ]);
 
-  async function subscribe(address, setState, setError, placement) {
+  async function subscribe(address, setState, setError) {
     const cleanAddress = address.trim();
     if (!/^\S+@\S+\.\S+$/.test(cleanAddress)) {
       setError("Skriv inn en gyldig e-postadresse.");
@@ -402,10 +358,6 @@ export default function App() {
 
       if (!response.ok) throw new Error("Kunne ikke registrere e-postadressen.");
       setState("success");
-      trackEvent("E-post registrert", {
-        plassering: placement,
-        variant,
-      });
       return true;
     } catch (error) {
       console.error(error);
@@ -416,34 +368,11 @@ export default function App() {
   }
 
   async function handleResultEmailSubmit() {
-    const success = await subscribe(
-      email,
-      setEmailState,
-      setEmailError,
-      "resultatsiden",
-    );
-    if (success) {
-      window.setTimeout(() => goToStep(STEP_OFFERS, "etter e-post"), 650);
-    }
+    const success = await subscribe(email, setEmailState, setEmailError);
+    if (success) window.setTimeout(() => setStep(STEP_OFFERS), 650);
   }
 
-  function goToStep(nextStep, source = "ukjent") {
-    if (step === STEP_CALC && nextStep === STEP_RESULT) {
-      trackEvent("Resultat vist", {
-        utfall: calculation.worthIt ? "positivt" : "ikke lønnsomt",
-        sparepotensial: getSavingBand(calculation.monthlySaving),
-        variant,
-      });
-    }
-
-    if (step === STEP_RESULT && nextStep === STEP_OFFERS) {
-      trackEvent("Tilbudsoversikt vist", {
-        kilde: source,
-        utfall: calculation.worthIt ? "positivt" : "ikke lønnsomt",
-        variant,
-      });
-    }
-
+  function goToStep(nextStep) {
     setStep(nextStep);
   }
 
@@ -483,6 +412,7 @@ export default function App() {
               <div className="calculator-card">
                 <div className="card-heading">
                   <div>
+                    <span className="section-kicker">Dine tall</span>
                     <h2>Beregn sparepotensialet</h2>
                   </div>
                   <span className="time-badge">ca. 1 min</span>
@@ -571,7 +501,7 @@ export default function App() {
                   </LoanSection>
                 </div>
 
-                <button className="primary-button" onClick={() => goToStep(STEP_RESULT, "kalkulator")}>
+                <button className="primary-button" onClick={() => goToStep(STEP_RESULT)}>
                   Se resultatet
                   <span aria-hidden="true">→</span>
                 </button>
@@ -605,18 +535,15 @@ export default function App() {
 
         {step === STEP_RESULT && (
           <section className="page-section result-page" aria-labelledby="result-title">
-            <button
-              className="text-button"
-              aria-label="Gå tilbake og endre tallene"
-              onClick={() => goToStep(STEP_CALC)}
-            >
-              <span aria-hidden="true">←</span> Endre tall
+            <button className="text-button" onClick={() => goToStep(STEP_CALC)}>
+              <span aria-hidden="true">←</span> Endre tallene
             </button>
 
             <div className="result-layout">
               <ResultCard calculation={calculation} months={months} />
 
               <aside className="next-step-card">
+                <span className="section-kicker">Neste steg</span>
                 <h2 id="result-title">
                   {calculation.worthIt
                     ? "Sammenlign med faktiske tilbud"
@@ -645,13 +572,13 @@ export default function App() {
                     buttonText="Send meg oversikten"
                   />
                 ) : (
-                  <button className="primary-button" onClick={() => goToStep(STEP_OFFERS, "se mulighetene")}>
+                  <button className="primary-button" onClick={() => goToStep(STEP_OFFERS)}>
                     Se mulighetene
                     <span aria-hidden="true">→</span>
                   </button>
                 )}
 
-                <button className="quiet-button" onClick={() => goToStep(STEP_OFFERS, "fortsett uten e-post")}>
+                <button className="quiet-button" onClick={() => goToStep(STEP_OFFERS)}>
                   Fortsett uten e-post
                 </button>
               </aside>
@@ -661,20 +588,17 @@ export default function App() {
 
         {step === STEP_OFFERS && (
           <section className="page-section offers-page" aria-labelledby="offers-title">
-            <button
-              className="text-button"
-              aria-label="Gå tilbake til resultatet"
-              onClick={() => goToStep(STEP_RESULT)}
-            >
-              <span aria-hidden="true">←</span> Til resultatet
+            <button className="text-button" onClick={() => goToStep(STEP_RESULT)}>
+              <span aria-hidden="true">←</span> Tilbake til resultatet
             </button>
 
             <div className="offers-heading">
               <div>
-                <h1 id="offers-title">Sammenlign lånetilbud</h1>
+                <span className="eyebrow">Annonselenker</span>
+                <h1 id="offers-title">Tjenester som kan hente inn lånetilbud</h1>
                 <p>
-                  Det er gratis og uforpliktende å søke. Test tilbudene i kalkulatoren
-                  før du bestemmer deg.
+                  Det er gratis og uforpliktende å søke. Et faktisk tilbud kan deretter
+                  testes i kalkulatoren før du bestemmer deg.
                 </p>
               </div>
 
@@ -690,25 +614,15 @@ export default function App() {
             <div className="affiliate-disclosure">
               <span aria-hidden="true">i</span>
               <p>
-                <strong>Om annonsene:</strong> Fordelsjakten kan få provisjon hvis du klikker
-                eller søker. Det koster ikke ekstra for deg. Renteeksemplene gjelder ulike
-                lån og kan ikke sammenlignes direkte.
+                Fordelsjakten kan få provisjon når du klikker eller søker via lenkene.
+                Det koster ikke ekstra for deg. Renteeksemplene nedenfor gjelder ulike
+                lånebeløp og løpetider og kan derfor ikke brukes som en direkte rangering.
               </p>
             </div>
 
             <div className="offers-grid">
               {AFFILIATES.map((affiliate) => (
-                <AffiliateCard
-                  key={affiliate.id}
-                  affiliate={affiliate}
-                  onAffiliateClick={() =>
-                    trackEvent("Tilbud klikket", {
-                      tilbyder: affiliate.name,
-                      utfall: calculation.worthIt ? "positivt" : "ikke lønnsomt",
-                      variant,
-                    })
-                  }
-                />
+                <AffiliateCard key={affiliate.id} affiliate={affiliate} />
               ))}
             </div>
 
@@ -720,12 +634,7 @@ export default function App() {
                   state={offerEmailState}
                   error={offerEmailError}
                   onSubmit={() =>
-                    subscribe(
-                      offerEmail,
-                      setOfferEmailState,
-                      setOfferEmailError,
-                      "tilbudssiden",
-                    )
+                    subscribe(offerEmail, setOfferEmailState, setOfferEmailError)
                   }
                   title="Ta vare på oversikten"
                   description="Få lenkene sendt på e-post, så slipper du å finne dem igjen senere."
@@ -755,6 +664,7 @@ export default function App() {
         </button>
       )}
 
+      <Analytics />
       <SpeedInsights />
     </div>
   );
@@ -967,9 +877,9 @@ function ResultCard({ calculation, months }) {
           effekt over flere år.
         </p>
         <div className="result-comparison">
-          <ResultStat label="Dagens kostnad" value={formatMonthly(calculation.currentMonthly)} />
+          <ResultStat label="Dagens kostnad" value={`${formatKr(calculation.currentMonthly)} / mnd`} />
           <span aria-hidden="true">→</span>
-          <ResultStat label="Ny kostnad" value={formatMonthly(calculation.proposedMonthly)} />
+          <ResultStat label="Ny kostnad" value={`${formatKr(calculation.proposedMonthly)} / mnd`} />
         </div>
         <p className="result-disclaimer">
           Beregningen er veiledende og forutsetter samme lånebeløp og nedbetalingstid.
@@ -991,20 +901,22 @@ function ResultCard({ calculation, months }) {
       </p>
 
       <div className="result-comparison">
-        <ResultStat label="Dagens kostnad" value={formatMonthly(calculation.currentMonthly)} />
+        <ResultStat label="Dagens kostnad" value={`${formatKr(calculation.currentMonthly)} / mnd`} />
         <span aria-hidden="true">→</span>
-        <ResultStat label="Ny kostnad" value={formatMonthly(calculation.proposedMonthly)} />
+        <ResultStat label="Ny kostnad" value={`${formatKr(calculation.proposedMonthly)} / mnd`} />
       </div>
 
       {calculation.breakEven != null && (
         <div className="break-even">
           <div>
+            <span>Break-even</span>
             <strong>
-              Break-even etter {calculation.breakEven}{" "}
-              {calculation.breakEven === 1 ? "måned" : "måneder"}
+              {calculation.breakEven} {calculation.breakEven === 1 ? "måned" : "måneder"}
             </strong>
-            <p>Da er etableringsgebyret dekket.</p>
           </div>
+          <p>
+            Etter dette har den løpende besparelsen dekket etableringsgebyret.
+          </p>
         </div>
       )}
 
@@ -1078,18 +990,17 @@ function EmailCapture({
   );
 }
 
-function AffiliateCard({ affiliate, onAffiliateClick }) {
+function AffiliateCard({ affiliate }) {
   return (
     <a
       className="affiliate-card"
       href={affiliate.url}
       target="_blank"
       rel="noopener noreferrer sponsored"
-      onClick={onAffiliateClick}
     >
       <div className="affiliate-topline">
         <span className="affiliate-tag">{affiliate.tag}</span>
-        <span className="ad-label">Annonse</span>
+        <span className="ad-label">Annonselenke</span>
       </div>
       <h2>{affiliate.name}</h2>
       <p className="affiliate-desc">{affiliate.desc}</p>
@@ -2226,160 +2137,6 @@ const GLOBAL_CSS = `
     }
     .result-comparison > span { transform: rotate(90deg); justify-self: start; }
     .affiliate-topline { align-items: flex-start; }
-  }
-
-
-  /* V3: kompaktere flyt, tydeligere annonser og lik kortstruktur på alle skjermer */
-  .result-page,
-  .offers-page {
-    padding-top: 24px;
-  }
-
-  .text-button {
-    padding: 3px 0;
-    gap: 7px;
-    font-size: 13px;
-    font-weight: 650;
-    line-height: 1.35;
-  }
-
-  .result-layout { margin-top: 14px; }
-  .offers-heading { margin-top: 14px; }
-
-  .card-heading h2 { margin-top: 0; }
-  .next-step-card > h2 { margin-top: 0; }
-
-  .result-card {
-    min-height: 0;
-    padding: clamp(28px, 4vw, 44px);
-  }
-  .result-big-number { margin-top: 28px; }
-  .result-intro { margin-top: 24px; }
-  .result-comparison {
-    margin-top: 24px;
-    padding: 15px 17px;
-    gap: 13px;
-  }
-  .result-comparison small {
-    font-size: 12px;
-    line-height: 1.3;
-  }
-  .result-comparison strong {
-    font-size: 15px;
-    white-space: nowrap;
-  }
-  .break-even {
-    margin-top: 12px;
-    padding: 15px 17px;
-    display: block;
-  }
-  .break-even > div {
-    gap: 5px;
-    white-space: normal;
-  }
-  .break-even strong { font-size: 17px; }
-  .break-even p {
-    margin: 0;
-    font-size: 13px;
-    line-height: 1.5;
-  }
-  .result-disclaimer {
-    margin-top: 22px;
-    padding-top: 0;
-  }
-
-  .affiliate-disclosure p strong { color: var(--ink); }
-
-  .offers-grid {
-    align-items: stretch;
-    gap: 18px;
-  }
-  .affiliate-card {
-    min-height: 0;
-    padding: 22px;
-  }
-  .affiliate-card h2 { margin: 20px 0 6px; }
-  .affiliate-desc { min-height: 46px; }
-  .rate-example { margin-top: 20px; }
-  .affiliate-cta {
-    width: 100%;
-    min-height: 48px;
-    margin-top: 17px;
-    padding: 12px 14px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 12px;
-    border-radius: 12px;
-    background: var(--violet);
-    color: #fff;
-  }
-  .affiliate-cta:hover { background: var(--violet-dark); }
-  .legal-example {
-    margin: 16px 0 0;
-    padding-top: 0;
-  }
-
-  @media (max-width: 720px) {
-    .result-page,
-    .offers-page {
-      padding-top: 15px;
-    }
-    .text-button {
-      font-size: 12.5px;
-      margin-bottom: 0;
-    }
-    .result-layout,
-    .offers-heading {
-      margin-top: 10px;
-    }
-    .result-card {
-      padding: 23px 19px;
-    }
-    .result-big-number {
-      margin-top: 22px;
-      font-size: 56px;
-    }
-    .result-intro {
-      margin-top: 20px;
-    }
-    .result-comparison {
-      grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
-      gap: 8px;
-      padding: 13px 12px;
-    }
-    .result-comparison > div:last-child { text-align: right; }
-    .result-comparison > span {
-      transform: none;
-      justify-self: center;
-    }
-    .result-comparison small { font-size: 11px; }
-    .result-comparison strong {
-      font-size: 13px;
-      white-space: normal;
-    }
-    .break-even { padding: 13px 14px; }
-    .break-even strong { font-size: 15px; }
-    .break-even p { font-size: 12.5px; }
-    .result-disclaimer {
-      margin-top: 18px;
-      font-size: 12px;
-    }
-    .offers-heading h1 { margin-top: 0; }
-    .affiliate-card { padding: 18px; }
-    .affiliate-desc { min-height: 0; }
-    .scroll-top { display: none !important; }
-  }
-
-  @media (max-width: 430px) {
-    .result-comparison {
-      grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
-    }
-    .result-comparison > span {
-      transform: none;
-      justify-self: center;
-    }
-    .result-comparison strong { font-size: 12px; }
   }
 
 `;
