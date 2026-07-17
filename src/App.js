@@ -414,7 +414,7 @@ export default function App() {
         data?.error?.error?.code === "MEMBER_EXISTS_WITH_EMAIL_ADDRESS";
 
       if (alreadyRegistered) {
-        setState("success");
+        setState("exists");
 
         trackEvent("E-post eksisterer", {
           variant,
@@ -1089,8 +1089,20 @@ function EmailCapture({
       <div className="email-success" role="status">
         <span aria-hidden="true">✓</span>
         <div>
-          <strong>Da er det ordnet.</strong>
-          <p>Sjekk innboksen din om litt.</p>
+          <strong>Tusen takk! Du er nå registrert.💜</strong>
+          <p>Sjekk innboksen din om et øyeblikk.</p>
+        </div>
+      </div>
+    );
+  }
+
+  if (state === "exists") {
+    return (
+      <div className="email-success" role="status">
+        <span aria-hidden="true">✓</span>
+        <div>
+          <strong>Du er allerede registrert.</strong>
+          <p>Vi har allerede e-postadressen din og sender deg e-post når vi publiserer nytt innhold.💜</p>
         </div>
       </div>
     );
@@ -1100,9 +1112,11 @@ function EmailCapture({
     <div className="email-capture">
       <h3>{title}</h3>
       <p>{description}</p>
+
       <label htmlFor={`email-${title.replace(/\s+/g, "-").toLowerCase()}`}>
         E-postadresse
       </label>
+
       <div className="email-row">
         <input
           id={`email-${title.replace(/\s+/g, "-").toLowerCase()}`}
@@ -1114,14 +1128,21 @@ function EmailCapture({
           onKeyDown={(event) => event.key === "Enter" && onSubmit()}
           aria-invalid={Boolean(error)}
         />
+
         <button type="button" onClick={onSubmit} disabled={state === "loading"}>
           {state === "loading" ? "Sender …" : buttonText}
         </button>
       </div>
-      {error && <p className="form-error" role="alert">{error}</p>}
+
+      {error && (
+        <p className="form-error" role="alert">
+          {error}
+        </p>
+      )}
+
       <small>
-        Ved å registrere deg godtar du at vi sender denne oversikten og relevant
-        oppfølging. Du kan melde deg av når som helst. <a href="/personvern">Personvern</a>
+        Ved å registrere deg godtar du at vi sender denne oversikten og annen relevant informasjon fra Fordelsjakten. Du kan melde deg av når som helst.{" "}
+        <a href="/personvern">Les om ditt personvern her</a>
       </small>
     </div>
   );
