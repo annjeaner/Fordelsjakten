@@ -462,7 +462,7 @@ export default function App() {
       "resultatsiden",
     );
     if (success) {
-      window.setTimeout(() => goToStep(STEP_OFFERS, "etter e-post"), 650);
+      window.setTimeout(() => goToStep(STEP_OFFERS, "etter e-post"), 2200);
     }
   }
 
