@@ -385,9 +385,15 @@ export default function App() {
 
   async function subscribe(address, setState, setError, placement) {
     const cleanAddress = address.trim();
-    
+
     if (!/^\S+@\S+\.\S+$/.test(cleanAddress)) {
       setError("Skriv inn en gyldig e-postadresse.");
+
+      trackEvent("E-post ugyldig", {
+        variant,
+        plassering: placement,
+      });
+
       return false;
     }
 
@@ -402,37 +408,48 @@ export default function App() {
       });
 
       const data = await response.json().catch(() => null);
-     
+
       const alreadyRegistered =
         response.status === 409 &&
         data?.error?.error?.code === "MEMBER_EXISTS_WITH_EMAIL_ADDRESS";
-     
+
       if (alreadyRegistered) {
         setState("success");
-        trackEvent("E-post allerede registrert", {
-          plassering: placement,
+
+        trackEvent("E-post eksisterer", {
           variant,
+          plassering: placement,
         });
+
         return true;
       }
 
       if (!response.ok) {
+        trackEvent("E-post feil", {
+          variant,
+          plassering: placement,
+          statuskode: String(response.status),
+        });
+
         throw new Error(
-          data?.error?.error?.message || "Kunne ikke registrere e-postadressen.",
+          data?.error?.error?.message ||
+            "Kunne ikke registrere e-postadressen.",
         );
       }
 
       setState("success");
+
       trackEvent("E-post registrert", {
-        plassering: placement,
         variant,
+        plassering: placement,
       });
-    
+
       return true;
     } catch (error) {
       console.error(error);
       setState("error");
       setError("Noe gikk galt. Prøv igjen, eller fortsett uten e-post.");
+
       return false;
     }
   }
@@ -673,7 +690,17 @@ export default function App() {
                   </button>
                 )}
 
-                <button className="quiet-button" onClick={() => goToStep(STEP_OFFERS, "fortsett uten e-post")}>
+                <button
+                  className="quiet-button"
+                  onClick={() => {
+                    trackEvent("Fortsatte uten e-post", {
+                      variant,
+                      plassering: "resultatsiden",
+                    });
+
+                    goToStep(STEP_OFFERS, "fortsett uten e-post");
+                  }}
+                >
                   Fortsett uten e-post
                 </button>
               </aside>
