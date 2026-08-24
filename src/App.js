@@ -28,7 +28,7 @@ const AFFILIATES = [
     id: 2,
     name: "Motty",
     desc: "Sammenlign muligheter for å samle og refinansiere gjeld.",
-    url: "https://ormedlink.com/fordelsjakten-11",
+    url: "https://orsearchlink.com/click.track?CID=437042&AFID=560140&ADID=2612726&SID=",
     cta: "Søk hos Motty",
     effRente: "14,44",
     tag: "Samle flere lån",
