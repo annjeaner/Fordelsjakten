@@ -3,8 +3,8 @@
   "title": "Slik bruker du kalkulatoren",
   "description": "Slik bruker du Fordelsjaktens kalkulator til å sammenligne dagens lån med en annen rente. Vi forklarer feltene og hva resultatet betyr.",
   "category": "Verktøy og oversikt",
-  "datePublished": "2026-10-14",
-  "dateModified": "2026-10-17",
+  "datePublished": null,
+  "dateModified": null,
   "intro": "Lurer du på hva en annen rente kan bety for lånet ditt? Kalkulatoren vår gir deg et anslag ut fra tallene du legger inn. Her viser vi deg hvordan du bruker den, steg for steg.",
   "sections": [
     {
@@ -50,5 +50,6 @@
     "shareWidth": 1200,
     "shareHeight": 630,
     "credit": "Illustrasjonsbilde laget med KI."
-  }
+  },
+  "publicationPending": true
 }
