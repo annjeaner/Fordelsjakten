@@ -24,6 +24,8 @@ Når bloggfunksjonen er lagt inn i repoet:
 6. Lagre endringene med **Commit changes** på artikkelgrenen, og opprett en **pull request** mot produksjonsgrenen. Åpne Vercel-forhåndsvisningen når bygget er klart. Det forutsetter at GitHub/Vercel-integrasjonen er aktiv for grenen.
 7. Sjekk teksten, bildet, mobilvisningen og alle kilder. Slå sammen med **Merge pull request** når alt er klart. Vent på et vellykket produksjonsbygg, og sjekk den publiserte artikkelen.
 
+Kategorifilteret henter automatisk kategoriene fra artiklenes `category`-felt. Bruk samme skrivemåte for artikler i samme kategori. Leseren kan sortere etter nyeste, eldste eller tittel. Uten JavaScript vises fortsatt alle artiklene.
+
 Alle JSON-filer i `content/blog/` blir tatt med ved bygging. Oppbevar utkast et annet sted, for eksempel i `content/drafts/` eller i en egen gren. Det er ikke en tidsstyrt publisering: en fremtidig dato holder ikke artikkelen tilbake.
 
 Du kan endre tittel, tekst og bilde senere. Behold sluggen for å beholde adressen. Skal adressen endres, bør den gamle adressen få en videresending.

@@ -103,3 +103,9 @@
 
 .blog-page .blog-card-link { display:inline-flex; align-items:center; justify-content:center; min-height:44px; padding:10px 16px; border:1px solid var(--fj-blog-violet-dark); border-radius:10px; color:var(--fj-blog-violet-dark); font-size:14px; font-weight:600; text-decoration:none; }
 .blog-page .blog-card-link:hover { background:var(--fj-blog-violet-light); text-decoration:underline; text-underline-offset:4px; }
+
+.blog-controls { display:flex; flex-wrap:wrap; gap:20px; margin-bottom:16px; }
+.blog-control-field { display:flex; flex-direction:column; gap:8px; flex:1 1 220px; max-width:340px; min-width:0; font-size:14px; font-weight:600; }
+.blog-controls select { width:100%; min-height:44px; padding:10px 12px; border:1px solid var(--fj-blog-border); border-radius:10px; background:var(--fj-blog-surface); color:var(--fj-blog-ink); font:inherit; }
+.blog-controls select:focus-visible { outline:3px solid var(--fj-blog-violet); outline-offset:3px; }
+.blog-result-count { color:var(--fj-blog-ink-soft); font-size:14px; margin:0 0 20px; }
