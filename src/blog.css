@@ -67,7 +67,6 @@
 .article-body h2 { font-family:"Bricolage Grotesque",sans-serif; font-size:28px; font-weight:600; line-height:1.25; margin:0 0 18px; }
 .article-body p { font-size:16px; line-height:1.85; color:var(--fj-blog-ink-soft); }
 .article-cta { padding:28px; background:var(--fj-blog-violet-light); border-radius:var(--fj-blog-radius-md); margin:40px 0 28px; }
-.back-link { font-size:14px; }
 @media(max-width:760px) {
  .blog-main { padding:40px 0; width:calc(100% - 32px); }
  .blog-hero { margin-bottom:40px; }
@@ -101,8 +100,8 @@
  .blog-nav { margin-left:auto; }
 }
 
-.blog-page .blog-card-link { display:inline-flex; align-items:center; justify-content:center; min-height:44px; padding:10px 16px; border:1px solid var(--fj-blog-violet-dark); border-radius:10px; color:var(--fj-blog-violet-dark); font-size:14px; font-weight:600; text-decoration:none; }
-.blog-page .blog-card-link:hover { background:var(--fj-blog-violet-light); text-decoration:underline; text-underline-offset:4px; }
+.blog-page .blog-card-link,.blog-page .back-link { display:inline-flex; align-items:center; justify-content:center; min-height:44px; padding:10px 16px; border:1px solid var(--fj-blog-violet-dark); border-radius:10px; color:var(--fj-blog-violet-dark); font-size:14px; font-weight:600; text-decoration:none; }
+.blog-page .blog-card-link:hover,.blog-page .back-link:hover { background:var(--fj-blog-violet-light); text-decoration:underline; text-underline-offset:4px; }
 
 .blog-controls { display:flex; flex-wrap:wrap; gap:20px; margin-bottom:16px; }
 .blog-control-field { display:flex; flex-direction:column; gap:8px; flex:1 1 220px; max-width:340px; min-width:0; font-size:14px; font-weight:600; }
