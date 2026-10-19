@@ -1187,6 +1187,7 @@ function Footer() {
           </div>
         </div>
         <div className="footer-links">
+          <a href="/blogg">Blogg</a>
           <a href="/personvern">Personvern og GDPR</a>
           <span>© 2026 Fordelsjakten.no</span>
         </div>

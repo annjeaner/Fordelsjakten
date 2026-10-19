@@ -1,0 +1,54 @@
+{
+  "slug": "slik-bruker-du-kalkulatoren",
+  "title": "Slik bruker du kalkulatoren",
+  "description": "Slik bruker du Fordelsjaktens kalkulator til å sammenligne dagens lån med en annen rente. Vi forklarer feltene og hva resultatet betyr.",
+  "category": "Verktøy og oversikt",
+  "datePublished": "2026-10-14",
+  "dateModified": "2026-10-17",
+  "intro": "Lurer du på hva en annen rente kan bety for lånet ditt? Kalkulatoren vår gir deg et anslag ut fra tallene du legger inn. Her viser vi deg hvordan du bruker den, steg for steg.",
+  "sections": [
+    {
+      "id": "finn-tallene",
+      "heading": "1. Finn frem opplysningene om lånet ditt",
+      "paragraphs": [
+        "Du trenger beløpet du har igjen å betale, nominell rente, termingebyr og gjenstående nedbetalingstid. Opplysningene finner du som regel i nettbanken eller låneavtalen. Legg dem inn under dagens lån.",
+        "Tallene som står i kalkulatoren når du åpner den, er bare eksempler. Bytt dem ut med dine egne for å få et anslag som passer bedre til lånet ditt."
+      ]
+    },
+    {
+      "id": "prov-en-annen-rente",
+      "heading": "2. Legg inn en annen rente og nye gebyrer",
+      "paragraphs": [
+        "Under nytt lån legger du inn renten og gebyrene du vil sammenligne med. Har du fått et tilbud, kan du bruke tallene derfra. Du kan også prøve en tenkt rente for å se hvordan den påvirker beregningen.",
+        "Begge lånene beregnes med samme nedbetalingstid. Kalkulatoren sammenligner altså ikke dagens lån med et nytt lån som skal betales ned over flere år."
+      ]
+    },
+    {
+      "id": "les-resultatet",
+      "heading": "3. Se hva tallene viser",
+      "paragraphs": [
+        "Resultatet viser beregnet månedsbeløp og kostnader for de to alternativene. Når beregningen viser en besparelse, får du også se hvor lang tid det tar før den månedlige forskjellen har dekket etableringsgebyret.",
+        "Se gjerne på både månedsbeløpet og den samlede kostnaden. Resultatet er et anslag fra en forenklet modell. Det er ikke et lånetilbud, og den faktiske betalingsplanen kan bli annerledes."
+      ]
+    },
+    {
+      "id": "prov-deg-frem",
+      "heading": "4. Prøv deg frem i ditt eget tempo",
+      "paragraphs": [
+        "Du kan gå tilbake og endre tallene så mange ganger du vil. Endrer du ett felt om gangen, blir det lettere å se hva som påvirker resultatet.",
+        "Du trenger ikke oppgi e-post for å bruke kalkulatoren. Velger du å se videre på mulighetene, finner du lenker til tilbydere i en egen oversikt. Annonser er merket der."
+      ]
+    }
+  ],
+  "image": {
+    "src": "/images/blog/kalkulator-guide-1200.webp",
+    "small": "/images/blog/kalkulator-guide-640.webp",
+    "width": 1200,
+    "height": 800,
+    "alt": "Lilla kalkulator, notatbok og penn på et lyst trebord.",
+    "share": "/images/blog/kalkulator-guide-deling.jpg",
+    "shareWidth": 1200,
+    "shareHeight": 630,
+    "credit": "Illustrasjonsbilde laget med KI."
+  }
+}
