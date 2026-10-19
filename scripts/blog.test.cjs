@@ -77,8 +77,11 @@ test('pending publication dates block production until actual dates are supplied
  const temp=fs.mkdtempSync(path.join(os.tmpdir(),'fj-blog-publication-'));
  try {
   for(const name of ['scripts','src','public','content']) fs.cpSync(path.join(root,name),path.join(temp,name),{recursive:true});
-  const pending=articles.filter(a=>a.publicationPending);
-  assert.ok(pending.length);
+  const fixture=JSON.parse(fs.readFileSync(path.join(temp,'content/blog',fs.readdirSync(path.join(temp,'content/blog'))[0]),'utf8'));
+  fixture.publicationPending=true;
+  fixture.datePublished=fixture.dateModified=null;
+  const fixtureFile=path.join(temp,'content/blog',fixture.slug+'.json');
+  fs.writeFileSync(fixtureFile,JSON.stringify(fixture));
   const run=()=>spawnSync(process.execPath,[path.join(temp,'scripts/build-blog.cjs')],{env:{...process.env,VERCEL_ENV:'production'},encoding:'utf8'});
   const blocked=run();
   assert.notEqual(blocked.status,0);
@@ -94,7 +97,7 @@ test('pending publication dates block production until actual dates are supplied
   }
   const published=run();
   assert.equal(published.status,0,published.stderr);
-  const html=fs.readFileSync(path.join(temp,'build/blogg',pending[0].slug+'.html'),'utf8');
+  const html=fs.readFileSync(path.join(temp,'build/blogg',fixture.slug+'.html'),'utf8');
   assert.match(html,/"datePublished":"2026-01-01","dateModified":"2026-01-01"/);
   assert.doesNotMatch(html,/Ikke publisert|noindex/);
  } finally { fs.rmSync(temp,{recursive:true,force:true}); }
