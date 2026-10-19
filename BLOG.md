@@ -51,3 +51,15 @@ Kjør `npm ci`, `npm run build` og `npm run test:blog`. Bygget lager ferdig HTML
 `Blog`, `BlogPosting`, `BreadcrumbList` og bildeinformasjon følger innholdet. Canonical bruker `https://fordelsjakten.no`, som resten av React-appen. Sitemap beholder eksisterende sider og legger til artiklene. Vercel-forhåndsvisninger får `noindex` hvis `VERCEL_ENV` er tilgjengelig og ikke er `production`.
 
 Før produksjon: kontroller direkte artikkelinnlasting, ukjente artikkeladresser (404), Rich Results Test og bilde-/delingsvisning. Schema gir ikke garanti for utvidede søkeresultater. Bloggen laster ikke en ny analytics-tracker.
+
+## Artikkelmoduler og metadata
+
+`title` brukes som synlig tittel og `BlogPosting.headline`. Valgfrie `seoTitle`, `shareTitle` og `shareDescription` styrer henholdsvis sidetittel og deling (Open Graph/Twitter). `description` er metabeskrivelsen og teksten på kortet.
+
+`summary` er en valgfri liste som vises som «Kort oppsummert». Bruk den til 2–3 hovedpoenger i lengre artikler. FAQ anbefales først når den svarer på egne spørsmål, utover det artikkelen allerede forklarer; ingen FAQ-modul eller FAQ-schema er lagt til nå.
+
+Avsnitt støtter lenker skrevet som `[lenketekst](https://eksempel.no/side)` og lokale lenker som `[kalkulatoren](/)`. HTML blir ikke tolket. En seksjon kan ha `list` for kulepunkter før avsnittene. `sources` er en liste med `title` og `url`, og vises som en nøytral kildeliste nederst. Valgfri `cta` har `heading`, `text`, `label` og `href`.
+
+Artikkelen om månedsbeløp har `publicationPending: true` og begge datoene satt til `null`. Den vises uten publiseringsdato i forhåndsvisningen og får `noindex`. Produksjonsbygg stopper til faktisk publiseringsdato er satt: fjern `publicationPending` og sett `datePublished` og `dateModified` til samme faktiske dato ved førstegangspublisering. Behold datoene i senere bygg; de skal ikke beregnes automatisk fra byggdatoen. Testartikkelens eldre, foreløpige datoer må også korrigeres ved lansering.
+
+Kildene til månedsbeløpsartikkelen ble kontrollert 20. oktober 2026 mot Forbrukerrådets to sjekklister og SpareBank 1s side om refinansiering av kredittkort. Artikkelbildet er levert av brukeren; webkopier er eksportert i 640/1200 px og delingsformat 1200 × 630 px.

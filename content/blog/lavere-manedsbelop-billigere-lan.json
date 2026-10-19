@@ -1,0 +1,115 @@
+{
+  "slug": "lavere-manedsbelop-billigere-lan",
+  "category": "Lån og renter",
+  "title": "Lavere betaling hver måned betyr ikke alltid et billigere lån",
+  "seoTitle": "Lavere månedsbeløp – blir lånet billigere? | Fordelsjakten",
+  "description": "Lavere betaling på lånet hver måned betyr ikke alltid lavere kostnader totalt. Se hvordan rente, gebyrer og nedbetalingstid påvirker det du betaler.",
+  "shareTitle": "Betaler du mindre hver måned – eller mindre totalt?",
+  "shareDescription": "Et lavere månedsbeløp kan gi mer rom i budsjettet. Men sjekk også renten, gebyrene og hvor lenge du skal betale på lånet.",
+  "publicationPending": true,
+  "datePublished": null,
+  "dateModified": null,
+  "intro": "Et lavere beløp å betale på lånet hver måned kan gjøre hverdagen litt lettere. Men før du sammenligner to lån, er det verdt å sjekke hvorfor betalingen blir lavere. Du kan betale mindre hver måned og likevel betale mer til sammen.",
+  "summary": [
+    "Lavere månedsbeløp kan skyldes lavere rente og gebyrer, men også lengre nedbetalingstid.",
+    "Sammenlign både effektiv rente, betalingsplan og samlet tilbakebetaling.",
+    "Kalkulatoren sammenligner lån med samme nedbetalingstid."
+  ],
+  "sections": [
+    {
+      "id": "manedsbelop",
+      "heading": "Hva består den månedlige betalingen på lånet av?",
+      "paragraphs": [
+        "Med månedsbeløp mener vi det du betaler på lånet hver måned. Det består vanligvis av avdrag, renter og eventuelle termingebyrer.",
+        "Avdrag er den delen som betaler ned selve gjelden. Renter og gebyrer er kostnader ved å ha lånet.",
+        "Når vi snakker om hva lånet koster, mener vi derfor renter og gebyrer. Det du betaler tilbake totalt, omfatter både disse kostnadene og beløpet du har lånt."
+      ]
+    },
+    {
+      "id": "lavere-betaling",
+      "heading": "Hvorfor blir betalingen lavere?",
+      "paragraphs": [
+        "Den månedlige betalingen kan bli lavere fordi du får lavere rente eller færre gebyrer. Men den kan også bli lavere fordi du betaler mindre av gjelden hver måned og bruker lengre tid på å bli ferdig.",
+        "Det er derfor nyttig å spørre: Blir lånet billigere, eller får jeg bare lengre tid til å betale det tilbake?"
+      ]
+    },
+    {
+      "id": "nedbetalingstid",
+      "heading": "Lengre nedbetalingstid kan øke kostnadene",
+      "paragraphs": [
+        "Når du bruker lengre tid på å betale ned et lån, betaler du også renter over en lengre periode. Det kan gjøre lånet dyrere totalt, selv om den månedlige betalingen blir lavere. [SpareBank 1](https://www.sparebank1.no/nb/bank/privat/lan/refinansiering/refinansiere-forbrukslan/refinansiering-kredittkort.html) fremhever også denne sammenhengen i sin informasjon om refinansiering.",
+        "Det betyr ikke at månedsbeløpet er uviktig. Du skal kunne håndtere betalingen i hverdagen. Men det er lettere å vurdere alternativene når du vet både hva du skal betale hver måned, og hva du skal betale til sammen."
+      ]
+    },
+    {
+      "id": "effektiv-rente",
+      "heading": "Se på effektiv rente og samlet tilbakebetaling",
+      "paragraphs": [
+        "Nominell rente er renten på lånet uten gebyrer. Effektiv rente tar også med gebyrer og viser kostnaden som en årlig prosentsats. [Forbrukerrådet](https://www.forbrukerradet.no/forside/okonomi-og-betaling/bank/sjekkliste-forbrukslan/) anbefaler å sammenligne effektiv rente når du vurderer lånetilbud.",
+        "Se samtidig på det samlede beløpet du skal betale tilbake. En lavere effektiv rente betyr ikke nødvendigvis at du betaler færre kroner totalt dersom nedbetalingstiden blir lengre.",
+        "Be derfor om å få se både effektiv rente, betalingsplan og samlet tilbakebetaling for alternativene du vurderer."
+      ]
+    },
+    {
+      "id": "sammenlign",
+      "heading": "Sammenlign med samme utgangspunkt",
+      "paragraphs": [
+        "Begynn gjerne med samme lånebeløp og samme gjenstående nedbetalingstid. Da blir det lettere å se hvilken forskjell renten og gebyrene gjør.",
+        "Hvis et nytt tilbud har lengre nedbetalingstid, bør du også se på den betalingsplanen for seg. Sammenlign det du har igjen å betale på dagens lån, med hele tilbakebetalingen på det nye. Ta med eventuelle kostnader ved å bytte.",
+        "[Forbrukerrådet](https://www.forbrukerradet.no/forside/okonomi-og-betaling/bank/sjekkliste-lan/) trekker frem både nedbetalingsplanen og den samlede kostnaden som viktige opplysninger når du vurderer et lån."
+      ]
+    },
+    {
+      "id": "tre-sporsmal",
+      "heading": "Tre spørsmål før du bestemmer deg",
+      "list": [
+        "Hvorfor blir den månedlige betalingen lavere?",
+        "Når er lånet ferdig nedbetalt?",
+        "Hvor mye skal jeg betale tilbake til sammen?"
+      ],
+      "paragraphs": [
+        "Du trenger ikke kunne alle faguttrykkene for å stille disse spørsmålene. Be banken forklare forskjellen hvis tallene er vanskelige å sammenligne."
+      ]
+    },
+    {
+      "id": "kalkulator",
+      "heading": "Se hva en annen rente kan bety",
+      "paragraphs": [
+        "I Fordelsjaktens kalkulator kan du sammenligne renter og gebyrer med samme nedbetalingstid for begge alternativene. Du får et anslag på forskjellen i månedlig betaling og kostnader.",
+        "Kalkulatoren sammenligner ikke ulike nedbetalingstider. Hvis et tilbud har lengre løpetid enn dagens lån, må du derfor også se på bankens betalingsplan.",
+        "Usikker på feltene? Les [slik bruker du kalkulatoren](/blogg/slik-bruker-du-kalkulatoren)."
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "title": "Forbrukerrådet: Sjekkliste før du vel forbrukslån",
+      "url": "https://www.forbrukerradet.no/forside/okonomi-og-betaling/bank/sjekkliste-forbrukslan/"
+    },
+    {
+      "title": "Forbrukerrådet: Sjekkliste før du låner",
+      "url": "https://www.forbrukerradet.no/forside/okonomi-og-betaling/bank/sjekkliste-lan/"
+    },
+    {
+      "title": "SpareBank 1: Refinansiering av kredittkort",
+      "url": "https://www.sparebank1.no/nb/bank/privat/lan/refinansiering/refinansiere-forbrukslan/refinansiering-kredittkort.html"
+    }
+  ],
+  "cta": {
+    "heading": "Se hva en annen rente kan bety",
+    "text": "Sammenlign renter og gebyrer med samme nedbetalingstid for begge alternativene.",
+    "label": "Prøv kalkulatoren",
+    "href": "/"
+  },
+  "image": {
+    "src": "/images/blog/lavere-manedsbelop-1200.webp",
+    "small": "/images/blog/lavere-manedsbelop-640.webp",
+    "width": 1200,
+    "height": 800,
+    "alt": "Åpen kalender, lilla kalkulator og notatbok på et lyst trebord.",
+    "share": "/images/blog/lavere-manedsbelop-deling.jpg",
+    "shareWidth": 1200,
+    "shareHeight": 630,
+    "credit": "Illustrasjonsbilde laget med KI."
+  }
+}

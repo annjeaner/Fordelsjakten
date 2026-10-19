@@ -109,3 +109,11 @@
 .blog-controls select { width:100%; min-height:44px; padding:10px 12px; border:1px solid var(--fj-blog-border); border-radius:10px; background:var(--fj-blog-surface); color:var(--fj-blog-ink); font:inherit; }
 .blog-controls select:focus-visible { outline:3px solid var(--fj-blog-violet); outline-offset:3px; }
 .blog-result-count { color:var(--fj-blog-ink-soft); font-size:14px; margin:0 0 20px; }
+
+.article-body ul { padding-left:24px; color:var(--fj-blog-ink-soft); line-height:1.85; }
+.article-body li + li { margin-top:10px; }
+.article-summary { padding:24px; margin-bottom:40px; background:var(--fj-blog-surface-soft); border-radius:var(--fj-blog-radius-md); }
+.article-summary h2 { font-size:24px; }
+.article-summary ul { margin-bottom:0; }
+.article-sources { border-top:1px solid var(--fj-blog-border); padding-top:28px; }
+.article-sources a { overflow-wrap:anywhere; }
