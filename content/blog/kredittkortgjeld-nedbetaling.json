@@ -3,7 +3,7 @@
   "title": "Kredittkortgjeld: Slik betaler du ned den dyre gjelden",
   "seoTitle": "Kredittkortgjeld: Slik betaler du ned den dyre gjelden",
   "description": "Få oversikt over kredittkortgjeld, se hva rentene koster og lag en plan for nedbetaling. Lær når det kan lønne seg å refinansiere kredittkort.",
-  "category": "Lån og renter",
+  "category": "Gjeld og oversikt",
   "datePublished": "2026-10-27",
   "dateModified": "2026-10-27",
   "intro": "Du reduserer kredittkortgjeld ved å stoppe nye kredittkjøp, få oversikt over saldo og kostnader og følge en nedbetalingsplan du har råd til. Har du flere kort, kan ekstra betaling på gjelden med høyest løpende rente redusere rentekostnaden. Refinansiering kan være aktuelt hvis samlede fremtidige kostnader blir lavere, men sletter ikke gjelden.",
@@ -257,5 +257,16 @@
       "url": "https://www.nav.no/okonomi-gjeld"
     }
   ],
-  "hideDefaultCta": true
+  "hideDefaultCta": true,
+  "image": {
+    "src": "/images/blog/kredittkortgjeld-nedbetaling-1200.webp",
+    "small": "/images/blog/kredittkortgjeld-nedbetaling-640.webp",
+    "width": 1200,
+    "height": 630,
+    "alt": "To kort, mynter og en lys lommebok ved siden av en åpen notatbok med lilla penn.",
+    "share": "/images/blog/kredittkortgjeld-nedbetaling-deling.jpg",
+    "shareWidth": 1200,
+    "shareHeight": 630,
+    "credit": "Illustrasjonsbilde laget med KI."
+  }
 }

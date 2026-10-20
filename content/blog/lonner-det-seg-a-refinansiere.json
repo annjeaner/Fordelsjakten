@@ -3,7 +3,7 @@
   "title": "Lønner det seg å refinansiere? Slik sjekker du",
   "seoTitle": "Lønner det seg å refinansiere? Slik sjekker du",
   "description": "Lønner det seg å refinansiere? Se et regneeksempel og lær å sammenligne samlet kostnad, gebyrer og løpetid, ikke bare månedsbeløpet.",
-  "category": "Lån og renter",
+  "category": "Refinansiering",
   "datePublished": "2026-10-26",
   "dateModified": "2026-10-26",
   "intro": "Det lønner seg økonomisk å refinansiere når de samlede fremtidige kostnadene blir lavere enn ved å beholde dagens gjeld. Ta med renter, termingebyrer og alle kostnader ved å bytte. Sammenlign fra samme dato. Et lavere månedsbeløp er ikke nok, fordi lengre nedbetalingstid kan øke kostnaden selv om renten går ned.",
@@ -281,5 +281,16 @@
       "url": "https://www.nav.no/okonomi-gjeld"
     }
   ],
-  "hideDefaultCta": true
+  "hideDefaultCta": true,
+  "image": {
+    "src": "/images/blog/lonner-det-seg-a-refinansiere-1200.webp",
+    "small": "/images/blog/lonner-det-seg-a-refinansiere-640.webp",
+    "width": 1200,
+    "height": 630,
+    "alt": "To ark med ulike mengder mynter foran en lilla kalkulator og åpen notatbok.",
+    "share": "/images/blog/lonner-det-seg-a-refinansiere-deling.jpg",
+    "shareWidth": 1200,
+    "shareHeight": 630,
+    "credit": "Illustrasjonsbilde laget med KI."
+  }
 }

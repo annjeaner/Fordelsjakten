@@ -236,5 +236,16 @@
       "url": "https://www.finanstilsynet.no/forbrukerinformasjon/bank-og-finans/"
     }
   ],
-  "hideDefaultCta": true
+  "hideDefaultCta": true,
+  "image": {
+    "src": "/images/blog/termingebyr-1200.webp",
+    "small": "/images/blog/termingebyr-640.webp",
+    "width": 1200,
+    "height": 630,
+    "alt": "Bordkalender med tomme ruter, tre stabler med mynter og en lilla penn.",
+    "share": "/images/blog/termingebyr-deling.jpg",
+    "shareWidth": 1200,
+    "shareHeight": 630,
+    "credit": "Illustrasjonsbilde laget med KI."
+  }
 }

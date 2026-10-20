@@ -3,7 +3,7 @@
   "title": "Refinansiering med betalingsanmerkning: Hva er mulig?",
   "seoTitle": "Refinansiering med betalingsanmerkning: Hva er mulig?",
   "description": "Har du betalingsanmerkning? Se hva du bør undersøke før refinansiering, risikoen ved sikkerhet i bolig og hvor du kan få gratis gjeldsrådgivning.",
-  "category": "Lån og renter",
+  "category": "Gjeld og oversikt",
   "datePublished": "2026-10-25",
   "dateModified": "2026-10-25",
   "intro": "Refinansiering med betalingsanmerkning kan være mulig i enkelte situasjoner, men en anmerkning kan gjøre det vanskeligere å få lån. Har du bolig, kan lån med sikkerhet i bolig være aktuelt å undersøke, uten garanti for godkjenning. Start med å kontrollere anmerkningen, gjelden og betalingsevnen. Nytt lån er ikke alltid riktig løsning.",
@@ -283,5 +283,16 @@
       "url": "https://www.datatilsynet.no/personvern-pa-ulike-omrader/kredittvurdering/for-deg-som-blir-kredittvurdert/"
     }
   ],
-  "hideDefaultCta": true
+  "hideDefaultCta": true,
+  "image": {
+    "src": "/images/blog/refinansiering-med-betalingsanmerkning-1200.webp",
+    "small": "/images/blog/refinansiering-med-betalingsanmerkning-640.webp",
+    "width": 1200,
+    "height": 630,
+    "alt": "Lite trehus, dokumentmappe og lilla notatbok med penn på et trebord.",
+    "share": "/images/blog/refinansiering-med-betalingsanmerkning-deling.jpg",
+    "shareWidth": 1200,
+    "shareHeight": 630,
+    "credit": "Illustrasjonsbilde laget med KI."
+  }
 }

@@ -3,7 +3,7 @@
   "title": "Refinansiering av forbrukslån: En komplett guide",
   "seoTitle": "Refinansiering av forbrukslån: En komplett guide",
   "description": "Vurderer du å refinansiere forbrukslån? Lær å sammenligne renter, gebyrer og nedbetalingstid, og se når det nye lånet kan bli dyrere.",
-  "category": "Lån og renter",
+  "category": "Refinansiering",
   "datePublished": "2026-10-24",
   "dateModified": "2026-10-24",
   "intro": "Refinansiering betyr at du erstatter ett eller flere eksisterende lån med et nytt lån. Når du vil refinansiere forbrukslån, bør du sammenligne gjenværende renter og gebyrer med kostnadene ved det nye lånet. Lavere månedsbeløp alene viser ikke at du sparer penger. Lengre nedbetalingstid kan gjøre lånet dyrere totalt.",
@@ -314,5 +314,16 @@
       "url": "https://www.nav.no/okonomi-gjeld"
     }
   ],
-  "hideDefaultCta": true
+  "hideDefaultCta": true,
+  "image": {
+    "src": "/images/blog/refinansiering-av-forbrukslan-1200.webp",
+    "small": "/images/blog/refinansiering-av-forbrukslan-640.webp",
+    "width": 1200,
+    "height": 630,
+    "alt": "Lilla mappe med konvolutter og dokumenter ved siden av en kalkulator og penn.",
+    "share": "/images/blog/refinansiering-av-forbrukslan-deling.jpg",
+    "shareWidth": 1200,
+    "shareHeight": 630,
+    "credit": "Illustrasjonsbilde laget med KI."
+  }
 }

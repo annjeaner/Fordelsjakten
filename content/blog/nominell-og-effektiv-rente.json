@@ -240,5 +240,16 @@
       "url": "https://www.finanstilsynet.no/forbrukerinformasjon/bank-og-finans/"
     }
   ],
-  "hideDefaultCta": true
+  "hideDefaultCta": true,
+  "image": {
+    "src": "/images/blog/nominell-og-effektiv-rente-1200.webp",
+    "small": "/images/blog/nominell-og-effektiv-rente-640.webp",
+    "width": 1200,
+    "height": 630,
+    "alt": "Lilla kalkulator og to ark med ulike mengder mynter på et lyst trebord.",
+    "share": "/images/blog/nominell-og-effektiv-rente-deling.jpg",
+    "shareWidth": 1200,
+    "shareHeight": 630,
+    "credit": "Illustrasjonsbilde laget med KI."
+  }
 }

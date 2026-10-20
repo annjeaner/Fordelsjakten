@@ -303,5 +303,16 @@
       "url": "https://www.gjeldsregisteret.com/bedre-oversikt-over-egen-okonomi"
     }
   ],
-  "hideDefaultCta": true
+  "hideDefaultCta": true,
+  "image": {
+    "src": "/images/blog/sjekk-gjeld-1200.webp",
+    "small": "/images/blog/sjekk-gjeld-640.webp",
+    "width": 1200,
+    "height": 630,
+    "alt": "Dokumentbunker med lilla binders, en åpen notatbok og en bærbar datamaskin på et trebord.",
+    "share": "/images/blog/sjekk-gjeld-deling.jpg",
+    "shareWidth": 1200,
+    "shareHeight": 630,
+    "credit": "Illustrasjonsbilde laget med KI."
+  }
 }

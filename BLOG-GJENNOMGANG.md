@@ -28,7 +28,7 @@ Forhåndsvisning viser alle ni. Produksjonsbygg utelater fremtidige artikler fra
 - Brukeren har avklart Fordelsjakten som ansvarlig og Fordelsdetektiven som forfatter. Begge er synlig forklart på `/blogg#redaksjon`. Ingen privatperson, ekspertittel eller uverifisert fagkompetanse er lagt til.
 - Kildemarkeringer er fjernet etter kontroll av de relevante primærsidene; selve lenkene er beholdt. Datatilsynets generelle oversikt støttet ikke den presise formuleringen om rente/avslag tilstrekkelig. Avsnittet er derfor tilpasset Navs dokumenterte omtale av avslag ved betalingsanmerkning.
 - Foreløpige datoer fra pakken er erstattet av planen. Gamle «Sist oppdatert 20. oktober»-linjer er fjernet; datoer og avsender genereres fra innholdsdata.
-- Alle sju nye artikler har BlogPosting, brødsmuler og FAQPage generert fra synlige FAQ-blokker. Ingen ferdig schema-fil fra pakken kopieres ukritisk. De nye artiklene har ikke egne bilder i pakken, og får derfor ikke oppdiktede artikkelbilder i schema; deling bruker nettstedets eksisterende og faktiske og-image.png. De to opprinnelige artiklene beholder sine egne bilder.
+- Alle sju nye artikler har BlogPosting, brødsmuler og FAQPage generert fra synlige FAQ-blokker. Ingen ferdig schema-fil fra pakken kopieres ukritisk. Alle ni artikler har nå egne bilder med alt-tekst og KI-kreditering, responsive WebP-kopier og delingsbilde. De sju nye illustrasjonene følger samme varme skandinaviske uttrykk med ulike motiv per tema. Bildene er koblet til artikkel-HTML, kort, BlogPosting/ImageObject og Open Graph/Twitter. Se BLOG-BILDER.md for motiver og kategorier.
 
 ## Kontroll mot kalkulatoren
 
@@ -61,3 +61,8 @@ Kilde: src/App.js, funksjonene annuitet, effektivRente og calculation.
 - Avtal og sett opp daglig produksjonsbygg. Det er ikke aktivert som del av denne klargjøringen.
 - Kontroller reell Vercel-ruting og HTTP 404, og ekstern schema-/delingsvisning. Tidligere forsøk på å hente beskyttet forhåndsvisning fikk 403; lokal kontroll er ikke en ekstern Rich Results Test.
 - Verifiser reell leveranse/bekreftelse av e-post med en godkjent testadresse ved lansering. Nettlesertesten simulerer API-svaret og sender ingen e-post.
+
+
+## Fremtidig forbedring av kalkulatoren
+
+[GitHub-sak #11](https://github.com/annjeaner/Fordelsjakten/issues/11) beskriver uavhengig nedbetalingstid for dagens og nytt lån, prioritet lav / nice to have. Kalkulatorens beregning er ikke endret i denne bilderunden.
