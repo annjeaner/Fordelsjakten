@@ -1,0 +1,318 @@
+{
+  "slug": "sjekk-gjeld",
+  "title": "Sjekk gjeld: Slik får du oversikt over det du skylder",
+  "seoTitle": "Sjekk gjeld: Slik får du oversikt over det du skylder",
+  "description": "Sjekk gjeld hos Gjeldsregisteret, og finn ut hva som ikke vises der. Lær å samle saldo, renter og gebyrer i en oversikt du kan bruke videre.",
+  "category": "Gjeld og oversikt",
+  "datePublished": "2026-10-29",
+  "dateModified": "2026-10-29",
+  "intro": "Du kan sjekke usikret forbrukskreditt ved å logge inn hos Gjeldsregisteret, men må hente andre gjeldsopplysninger fra dem du skylder penger. Boliglån og studielån inngår ikke i denne registeroversikten. Samle oppdaterte saldoer, renter, gebyrer og betalingsfrister. Fordelsjakten er en kalkulator og veiledningsside, ikke Gjeldsregisteret, og denne artikkelen gir ikke innsyn i gjelden din.",
+  "sections": [
+    {
+      "id": "hvor-kan-du-sjekke-gjelden-din",
+      "heading": "Hvor kan du sjekke gjelden din?",
+      "paragraphs": [
+        "Du kan sjekke deler av gjelden hos et gjeldsinformasjonsforetak og supplere med opplysninger fra banker, andre kreditorer og eventuelle inkassoselskaper. En kreditor er den som har et pengekrav mot deg. Ingen enkelt oversikt bør uten videre behandles som en komplett liste over alt du skylder.",
+        "For usikret forbrukskreditt kan du gå direkte til [Gjeldsregisteret og finne innsyn i egne opplysninger](https://www.gjeldsregisteret.com/). Bruk tjenestens egen innlogging. Fordelsjakten er ikke innloggingssiden og innhenter ikke gjeldsopplysninger gjennom denne artikkelen.",
+        "Finn deretter frem nettbanker, låneavtaler, regninger og betalingskrav. Noter datoen for hver saldo, slik at du vet hva beløpet gjelder. En faktura fra forrige måned og et innfrielsesbeløp fra i dag kan være forskjellige uten at noen av dem er feil.",
+        "Sett av tid til å kontrollere én avtale om gangen. Målet er en oversikt du kan bruke videre, ikke å få alle tall perfekte på første forsøk. Marker det som mangler, og be om skriftlige opplysninger der du er usikker."
+      ],
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Du kan sjekke deler av gjelden hos et gjeldsinformasjonsforetak og supplere med opplysninger fra banker, andre kreditorer og eventuelle inkassoselskaper. En kreditor er den som har et pengekrav mot deg. Ingen enkelt oversikt bør uten videre behandles som en komplett liste over alt du skylder."
+        },
+        {
+          "type": "paragraph",
+          "text": "For usikret forbrukskreditt kan du gå direkte til [Gjeldsregisteret og finne innsyn i egne opplysninger](https://www.gjeldsregisteret.com/). Bruk tjenestens egen innlogging. Fordelsjakten er ikke innloggingssiden og innhenter ikke gjeldsopplysninger gjennom denne artikkelen."
+        },
+        {
+          "type": "paragraph",
+          "text": "Finn deretter frem nettbanker, låneavtaler, regninger og betalingskrav. Noter datoen for hver saldo, slik at du vet hva beløpet gjelder. En faktura fra forrige måned og et innfrielsesbeløp fra i dag kan være forskjellige uten at noen av dem er feil."
+        },
+        {
+          "type": "paragraph",
+          "text": "Sett av tid til å kontrollere én avtale om gangen. Målet er en oversikt du kan bruke videre, ikke å få alle tall perfekte på første forsøk. Marker det som mangler, og be om skriftlige opplysninger der du er usikker."
+        }
+      ]
+    },
+    {
+      "id": "hva-viser-gjeldsregisteret-og-hva-ma-du-finne-andre-steder",
+      "heading": "Hva viser Gjeldsregisteret, og hva må du finne andre steder?",
+      "paragraphs": [
+        "Gjeldsregisteret viser usikret forbrukskreditt, blant annet forbrukslån og kredittkort, og dekker ikke all gjeld. Gjeld med pant, som boliglån, samt studielån og private lån må du derfor undersøke andre steder. [Gjeldsregisterets informasjon om innholdet](https://www.gjeldsregisteret.com/om-gjeldsopplysninger-for-privatpersoner).",
+        "Du bør også kontrollere ubetalte regninger og eventuelle inkassokrav separat. Hvis et inkassokrav gjelder et lån du allerede har ført opp, kan det være den samme gjelden. Be om dokumentasjon på sammenhengen, slik at du ikke teller både gammel saldo og inkassokravet som to forskjellige lån.",
+        "En betalingsanmerkning er en kredittopplysning om mislighold, ikke en egen gjeld som skal legges oppå saldoen. Dersom du vil undersøke slike registreringer, må du kontakte et kredittopplysningsforetak. Les mer om betalingsanmerkninger og refinansiering. [Refinansiering med betalingsanmerkning: Hva er mulig?](/blogg/refinansiering-med-betalingsanmerkning)",
+        "På et kredittkort kan du både se det du har brukt og en større tilgjengelig kredittramme. Det er den brukte saldoen som inngår i oversikten over det du skylder akkurat nå. Hele rammen bør noteres separat, slik at den ikke blir summert som om pengene allerede var brukt.",
+        "Hvis opplysningene i Gjeldsregisteret er feil, skal du kontakte finansforetaket som har meldt dem inn. Gjeldsregisteret beskriver at oppdateringer kommer fra foretakene, og at registeret ikke endrer tall manuelt etter en privat henvendelse. [Gjeldsregisterets spørsmål og svar](https://www.gjeldsregisteret.com/faq)."
+      ],
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Gjeldsregisteret viser usikret forbrukskreditt, blant annet forbrukslån og kredittkort, og dekker ikke all gjeld. Gjeld med pant, som boliglån, samt studielån og private lån må du derfor undersøke andre steder. [Gjeldsregisterets informasjon om innholdet](https://www.gjeldsregisteret.com/om-gjeldsopplysninger-for-privatpersoner)."
+        },
+        {
+          "type": "paragraph",
+          "text": "Du bør også kontrollere ubetalte regninger og eventuelle inkassokrav separat. Hvis et inkassokrav gjelder et lån du allerede har ført opp, kan det være den samme gjelden. Be om dokumentasjon på sammenhengen, slik at du ikke teller både gammel saldo og inkassokravet som to forskjellige lån."
+        },
+        {
+          "type": "paragraph",
+          "text": "En betalingsanmerkning er en kredittopplysning om mislighold, ikke en egen gjeld som skal legges oppå saldoen. Dersom du vil undersøke slike registreringer, må du kontakte et kredittopplysningsforetak. Les mer om betalingsanmerkninger og refinansiering. [Refinansiering med betalingsanmerkning: Hva er mulig?](/blogg/refinansiering-med-betalingsanmerkning)"
+        },
+        {
+          "type": "heading",
+          "text": "Skill brukt kreditt fra kredittramme"
+        },
+        {
+          "type": "paragraph",
+          "text": "På et kredittkort kan du både se det du har brukt og en større tilgjengelig kredittramme. Det er den brukte saldoen som inngår i oversikten over det du skylder akkurat nå. Hele rammen bør noteres separat, slik at den ikke blir summert som om pengene allerede var brukt."
+        },
+        {
+          "type": "heading",
+          "text": "Kontroller feil hos riktig foretak"
+        },
+        {
+          "type": "paragraph",
+          "text": "Hvis opplysningene i Gjeldsregisteret er feil, skal du kontakte finansforetaket som har meldt dem inn. Gjeldsregisteret beskriver at oppdateringer kommer fra foretakene, og at registeret ikke endrer tall manuelt etter en privat henvendelse. [Gjeldsregisterets spørsmål og svar](https://www.gjeldsregisteret.com/faq)."
+        }
+      ]
+    },
+    {
+      "id": "hvordan-lager-du-en-samlet-gjeldsoversikt",
+      "heading": "Hvordan lager du en samlet gjeldsoversikt?",
+      "paragraphs": [
+        "Du lager en samlet oversikt ved å føre hver reelle gjeldspost én gang, med oppdatert beløp og opplysninger om den videre betalingen. Start med hvem du skylder, og fyll deretter inn saldo, renter, gebyrer, månedsbeløp og gjenværende tid.",
+        "Be om saldo eller innfrielsesbeløp per en bestemt dato når du trenger et presist utgangspunkt. Innfrielsesbeløpet er summen som må betales for å avslutte gjelden på den datoen. Det kan avvike fra saldoen på en tidligere faktura fordi renter og andre kostnader har kommet til.",
+        "Månedsbeløpet kan inneholde renter, avdrag og gebyrer. Avdrag reduserer gjelden, mens renter og gebyrer er kostnader. Du trenger begge opplysningene: hva du skylder totalt, og hvor mye som faktisk må ut av kontoen hver måned.",
+        "Hent boliglån fra banken, studielån fra den aktuelle låneoversikten og private krav fra avtalene eller kreditorene. Noter også om noen lån er felles med andre. Ikke del et felles lån i to i oversikten uten å undersøke hva du selv er ansvarlig for etter avtalen.",
+        "Når oversikten er samlet, kan du undersøke aktuell forbruksgjeld i [Fordelsjaktens refinansieringskalkulator](/). Bruk tall som passer til beregningen. En refinansieringskalkulator erstatter verken registerinnsyn eller en fullstendig oversikt over alle typer gjeld.",
+        "I Fordelsjaktens kalkulator legger du inn restgjeld, nominell rente, månedlig termingebyr og gjenstående antall måneder. For det nye lånet legger du inn ny nominell rente, nytt termingebyr og etableringsgebyr. Begge alternativene bruker samme lånebeløp og nedbetalingstid. Etableringsgebyret regnes som en separat oppstartskostnad, ikke som en del av gjelden; tidligere etableringsgebyr på dagens lån tas ikke med. Effektiv rente beregnes fra disse opplysningene. Eksempler med ulike løpetider må sammenlignes separat, ikke som to ulike løpetider i kalkulatoren. Feltene tillater 10 000–1 000 000 kroner i lånebeløp, 1–30 prosent nominell rente og 1–120 måneder. Løpetider over ti år ligger utenfor kalkulatorens tidsintervall og må kontrolleres separat."
+      ],
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Du lager en samlet oversikt ved å føre hver reelle gjeldspost én gang, med oppdatert beløp og opplysninger om den videre betalingen. Start med hvem du skylder, og fyll deretter inn saldo, renter, gebyrer, månedsbeløp og gjenværende tid."
+        },
+        {
+          "type": "heading",
+          "text": "Bruk samme dato så langt det er mulig"
+        },
+        {
+          "type": "paragraph",
+          "text": "Be om saldo eller innfrielsesbeløp per en bestemt dato når du trenger et presist utgangspunkt. Innfrielsesbeløpet er summen som må betales for å avslutte gjelden på den datoen. Det kan avvike fra saldoen på en tidligere faktura fordi renter og andre kostnader har kommet til."
+        },
+        {
+          "type": "heading",
+          "text": "Noter månedlig betaling riktig"
+        },
+        {
+          "type": "paragraph",
+          "text": "Månedsbeløpet kan inneholde renter, avdrag og gebyrer. Avdrag reduserer gjelden, mens renter og gebyrer er kostnader. Du trenger begge opplysningene: hva du skylder totalt, og hvor mye som faktisk må ut av kontoen hver måned."
+        },
+        {
+          "type": "heading",
+          "text": "Legg til gjeld som ikke vises i registeret"
+        },
+        {
+          "type": "paragraph",
+          "text": "Hent boliglån fra banken, studielån fra den aktuelle låneoversikten og private krav fra avtalene eller kreditorene. Noter også om noen lån er felles med andre. Ikke del et felles lån i to i oversikten uten å undersøke hva du selv er ansvarlig for etter avtalen."
+        },
+        {
+          "type": "paragraph",
+          "text": "Når oversikten er samlet, kan du undersøke aktuell forbruksgjeld i [Fordelsjaktens refinansieringskalkulator](/). Bruk tall som passer til beregningen. En refinansieringskalkulator erstatter verken registerinnsyn eller en fullstendig oversikt over alle typer gjeld."
+        },
+        {
+          "type": "paragraph",
+          "text": "I Fordelsjaktens kalkulator legger du inn restgjeld, nominell rente, månedlig termingebyr og gjenstående antall måneder. For det nye lånet legger du inn ny nominell rente, nytt termingebyr og etableringsgebyr. Begge alternativene bruker samme lånebeløp og nedbetalingstid. Etableringsgebyret regnes som en separat oppstartskostnad, ikke som en del av gjelden; tidligere etableringsgebyr på dagens lån tas ikke med. Effektiv rente beregnes fra disse opplysningene. Eksempler med ulike løpetider må sammenlignes separat, ikke som to ulike løpetider i kalkulatoren. Feltene tillater 10 000–1 000 000 kroner i lånebeløp, 1–30 prosent nominell rente og 1–120 måneder. Løpetider over ti år ligger utenfor kalkulatorens tidsintervall og må kontrolleres separat."
+        }
+      ]
+    },
+    {
+      "id": "hvordan-ser-en-gjeldsoversikt-ut-i-praksis",
+      "heading": "Hvordan ser en gjeldsoversikt ut i praksis?",
+      "paragraphs": [
+        "En nyttig gjeldsoversikt skiller mellom saldoen du skylder og kreditten du fortsatt kan bruke. Eksemplet under er hypotetisk og viser hvorfor en registeroversikt og en totaloversikt kan ha ulike summer.",
+        "Usikret gjeld i tabellen er `50 000 + 30 000 = 80 000 kroner`. Samlet gjeld er `50 000 + 30 000 + 2 000 000 + 200 000 = 2 280 000 kroner`. Kredittrammen på 50 000 kroner skal ikke legges til en gang til.",
+        "Anta at du vil undersøke nedbetaling av de 80 000 kronene i usikret gjeld. Vi bruker en hypotetisk samlet lånemodell over 36 måneder med 15 prosent nominell årsrente, 50 kroner i månedlig termingebyr og null etableringsgebyr. Dette er ikke en gjennomsnittsrente beregnet fra tabellen eller et konkret lånetilbud.",
+        "Vi antar annuitetsbetaling, uendret rente, første betaling etter én måned, ingen ekstra innbetalinger og ingen andre kostnader eller skattevirkninger. Annuitet betyr lik månedlig sum renter og avdrag når renten er uendret.",
+        "Månedsrenten blir `0,15 / 12 = 0,0125`. Betaling av renter og avdrag er `80 000 × 0,0125 / (1 − 1,0125^(−36))`, omtrent 2 773,23 kroner. Med termingebyret blir månedsbeløpet omtrent 2 823,23 kroner.",
+        "Samlede renter blir omtrent 19 836,15 kroner med uavrundede terminbeløp. Gebyrene blir `50 × 36 = 1 800 kroner`. Samlet kostnad er derfor `19 836,15 + 1 800 = 21 636,15 kroner`, og samlet betaling omtrent 101 636,15 kroner."
+      ],
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "En nyttig gjeldsoversikt skiller mellom saldoen du skylder og kreditten du fortsatt kan bruke. Eksemplet under er hypotetisk og viser hvorfor en registeroversikt og en totaloversikt kan ha ulike summer."
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Gjeldspost i eksemplet",
+            "Saldo som skal summeres",
+            "Opplysning som noteres separat"
+          ],
+          "rows": [
+            [
+              "Forbrukslån",
+              "50 000 kr",
+              "Rente, gebyrer og resttid"
+            ],
+            [
+              "Kredittkort",
+              "30 000 kr",
+              "Samlet kredittramme på 50 000 kr"
+            ],
+            [
+              "Boliglån",
+              "2 000 000 kr",
+              "Pant og eventuell felles gjeld"
+            ],
+            [
+              "Studielån",
+              "200 000 kr",
+              "Rente og betalingsplan"
+            ]
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Usikret gjeld i tabellen er `50 000 + 30 000 = 80 000 kroner`. Samlet gjeld er `50 000 + 30 000 + 2 000 000 + 200 000 = 2 280 000 kroner`. Kredittrammen på 50 000 kroner skal ikke legges til en gang til."
+        },
+        {
+          "type": "heading",
+          "text": "Et regneeksempel når du kjenner beløpet"
+        },
+        {
+          "type": "paragraph",
+          "text": "Anta at du vil undersøke nedbetaling av de 80 000 kronene i usikret gjeld. Vi bruker en hypotetisk samlet lånemodell over 36 måneder med 15 prosent nominell årsrente, 50 kroner i månedlig termingebyr og null etableringsgebyr. Dette er ikke en gjennomsnittsrente beregnet fra tabellen eller et konkret lånetilbud."
+        },
+        {
+          "type": "paragraph",
+          "text": "Vi antar annuitetsbetaling, uendret rente, første betaling etter én måned, ingen ekstra innbetalinger og ingen andre kostnader eller skattevirkninger. Annuitet betyr lik månedlig sum renter og avdrag når renten er uendret."
+        },
+        {
+          "type": "paragraph",
+          "text": "Månedsrenten blir `0,15 / 12 = 0,0125`. Betaling av renter og avdrag er `80 000 × 0,0125 / (1 − 1,0125^(−36))`, omtrent 2 773,23 kroner. Med termingebyret blir månedsbeløpet omtrent 2 823,23 kroner."
+        },
+        {
+          "type": "paragraph",
+          "text": "Samlede renter blir omtrent 19 836,15 kroner med uavrundede terminbeløp. Gebyrene blir `50 × 36 = 1 800 kroner`. Samlet kostnad er derfor `19 836,15 + 1 800 = 21 636,15 kroner`, og samlet betaling omtrent 101 636,15 kroner."
+        }
+      ]
+    },
+    {
+      "id": "hva-gjor-du-nar-du-har-fatt-oversikt-over-gjelden",
+      "heading": "Hva gjør du når du har fått oversikt over gjelden?",
+      "paragraphs": [
+        "Når oversikten er klar, bør du kontrollere om de avtalte betalingene passer sammen med nødvendige utgifter og inntekten din. Først da har du et grunnlag for å vurdere ekstra nedbetaling, refinansiering eller hjelp til betalingsavtaler.",
+        "Har du overskudd, kan du undersøke hvor ekstra nedbetaling reduserer de fremtidige kostnadene mest. Har du flere avtaler, kan du sammenligne dagens videre betalinger med et samlet lån. Les guiden til refinansiering av forbrukslån. [Refinansiering av forbrukslån: En komplett guide](/blogg/refinansiering-av-forbrukslan)",
+        "En lavere samlet månedlig betaling er ikke alene bevis på at en ny plan er billigere. Kontroller også når du blir ferdig, og hvor mye renter og gebyrer som påløper frem til da. Les vurderingen av når refinansiering lønner seg. [Lønner det seg å refinansiere? Slik sjekker du](/blogg/lonner-det-seg-a-refinansiere)",
+        "Hvis regnestykket ikke går opp, kan du få gratis økonomi- og gjeldsrådgivning hos Nav. [Navs hjelp ved økonomi- og gjeldsproblemer](https://www.nav.no/okonomi-gjeld). Du trenger ikke ha en ferdig løsning før du tar kontakt."
+      ],
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Når oversikten er klar, bør du kontrollere om de avtalte betalingene passer sammen med nødvendige utgifter og inntekten din. Først da har du et grunnlag for å vurdere ekstra nedbetaling, refinansiering eller hjelp til betalingsavtaler."
+        },
+        {
+          "type": "paragraph",
+          "text": "Har du overskudd, kan du undersøke hvor ekstra nedbetaling reduserer de fremtidige kostnadene mest. Har du flere avtaler, kan du sammenligne dagens videre betalinger med et samlet lån. Les guiden til refinansiering av forbrukslån. [Refinansiering av forbrukslån: En komplett guide](/blogg/refinansiering-av-forbrukslan)"
+        },
+        {
+          "type": "paragraph",
+          "text": "En lavere samlet månedlig betaling er ikke alene bevis på at en ny plan er billigere. Kontroller også når du blir ferdig, og hvor mye renter og gebyrer som påløper frem til da. Les vurderingen av når refinansiering lønner seg. [Lønner det seg å refinansiere? Slik sjekker du](/blogg/lonner-det-seg-a-refinansiere)"
+        },
+        {
+          "type": "paragraph",
+          "text": "Hvis regnestykket ikke går opp, kan du få gratis økonomi- og gjeldsrådgivning hos Nav. [Navs hjelp ved økonomi- og gjeldsproblemer](https://www.nav.no/okonomi-gjeld). Du trenger ikke ha en ferdig løsning før du tar kontakt."
+        }
+      ]
+    },
+    {
+      "id": "ofte-stilte-sporsmal",
+      "heading": "Ofte stilte spørsmål",
+      "paragraphs": [
+        "Ja, Gjeldsregisterets innsyn for privatpersoner er gratis. Gå direkte til deres egen tjeneste og følg innloggingen der. Fordelsjakten tar ikke betalt for å sende deg videre gjennom lenken i denne veiledningen. Husk at opplysningene gjelder usikret forbrukskreditt, og at du fortsatt må hente inn annen gjeld for å få en samlet oversikt. [Gjeldsregisterets informasjon om egen økonomi](https://www.gjeldsregisteret.com/bedre-oversikt-over-egen-okonomi).",
+        "Nei. Du kan ha null utestående saldo og fortsatt ha en aktiv kredittramme. Hvis du ønsker å avslutte kortet eller kreditten, må du avklare dette med kortutstederen. Be om bekreftelse, og kontroller at opplysningene blir oppdatert. Flytt eventuelle faste belastninger først, slik at en avslutning ikke fører til ubetalte regninger andre steder.",
+        "Nei. En gjeldsoversikt viser opplysninger om eksisterende gjeld, ikke hvilke vilkår du kan få på et nytt lån. En kalkulator beregner mulige utfall fra tallene som brukes, mens et lånetilbud bygger på en egen vurdering og avtale. Hold disse tre tingene fra hverandre når du undersøker om du vil endre nedbetalingen din."
+      ],
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "Er det gratis å se egne opplysninger hos Gjeldsregisteret?"
+        },
+        {
+          "type": "paragraph",
+          "text": "Ja, Gjeldsregisterets innsyn for privatpersoner er gratis. Gå direkte til deres egen tjeneste og følg innloggingen der. Fordelsjakten tar ikke betalt for å sende deg videre gjennom lenken i denne veiledningen. Husk at opplysningene gjelder usikret forbrukskreditt, og at du fortsatt må hente inn annen gjeld for å få en samlet oversikt. [Gjeldsregisterets informasjon om egen økonomi](https://www.gjeldsregisteret.com/bedre-oversikt-over-egen-okonomi)."
+        },
+        {
+          "type": "heading",
+          "text": "Betyr null saldo på kredittkortet at avtalen er avsluttet?"
+        },
+        {
+          "type": "paragraph",
+          "text": "Nei. Du kan ha null utestående saldo og fortsatt ha en aktiv kredittramme. Hvis du ønsker å avslutte kortet eller kreditten, må du avklare dette med kortutstederen. Be om bekreftelse, og kontroller at opplysningene blir oppdatert. Flytt eventuelle faste belastninger først, slik at en avslutning ikke fører til ubetalte regninger andre steder."
+        },
+        {
+          "type": "heading",
+          "text": "Kan gjeldsoversikten brukes som et lånetilbud?"
+        },
+        {
+          "type": "paragraph",
+          "text": "Nei. En gjeldsoversikt viser opplysninger om eksisterende gjeld, ikke hvilke vilkår du kan få på et nytt lån. En kalkulator beregner mulige utfall fra tallene som brukes, mens et lånetilbud bygger på en egen vurdering og avtale. Hold disse tre tingene fra hverandre når du undersøker om du vil endre nedbetalingen din."
+        }
+      ]
+    },
+    {
+      "id": "vil-du-undersoke-neste-steg-med-egne-tall",
+      "heading": "Vil du undersøke neste steg med egne tall?",
+      "paragraphs": [
+        "Prøv [refinansieringskalkulatoren når du har samlet gjeldstallene](/). Bruk oppdaterte beløp fra avtalene dine, og kontroller resultatets forutsetninger før du sammenligner med en konkret nedbetalingsplan.",
+        "Du kan [melde deg på Fordelsjaktens e-postliste](/#epostpamelding) for nytt innhold og annen relevant informasjon. Du kan melde deg av når som helst. Bekreft påmeldingen via e-posten du mottar."
+      ],
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Prøv [refinansieringskalkulatoren når du har samlet gjeldstallene](/). Bruk oppdaterte beløp fra avtalene dine, og kontroller resultatets forutsetninger før du sammenligner med en konkret nedbetalingsplan."
+        },
+        {
+          "type": "paragraph",
+          "text": "Du kan [melde deg på Fordelsjaktens e-postliste](/#epostpamelding) for nytt innhold og annen relevant informasjon. Du kan melde deg av når som helst. Bekreft påmeldingen via e-posten du mottar."
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "title": "Gjeldsregisteret og finne innsyn i egne opplysninger",
+      "url": "https://www.gjeldsregisteret.com/"
+    },
+    {
+      "title": "Gjeldsregisterets informasjon om innholdet",
+      "url": "https://www.gjeldsregisteret.com/om-gjeldsopplysninger-for-privatpersoner"
+    },
+    {
+      "title": "Gjeldsregisterets spørsmål og svar",
+      "url": "https://www.gjeldsregisteret.com/faq"
+    },
+    {
+      "title": "Navs hjelp ved økonomi- og gjeldsproblemer",
+      "url": "https://www.nav.no/okonomi-gjeld"
+    },
+    {
+      "title": "Gjeldsregisterets informasjon om egen økonomi",
+      "url": "https://www.gjeldsregisteret.com/bedre-oversikt-over-egen-okonomi"
+    }
+  ],
+  "hideDefaultCta": true,
+  "image": {
+    "src": "/images/blog/sjekk-gjeld-1200.webp",
+    "small": "/images/blog/sjekk-gjeld-640.webp",
+    "width": 1200,
+    "height": 630,
+    "alt": "Dokumentbunker med lilla binders, en åpen notatbok og en bærbar datamaskin på et trebord.",
+    "share": "/images/blog/sjekk-gjeld-deling.jpg",
+    "shareWidth": 1200,
+    "shareHeight": 630,
+    "credit": "Illustrasjonsbilde laget med KI."
+  }
+}
