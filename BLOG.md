@@ -56,12 +56,23 @@ Før produksjon: kontroller direkte artikkelinnlasting, ukjente artikkeladresser
 
 `title` brukes som synlig tittel og `BlogPosting.headline`. Valgfrie `seoTitle`, `shareTitle` og `shareDescription` styrer henholdsvis sidetittel og deling (Open Graph/Twitter). `description` er metabeskrivelsen og teksten på kortet.
 
-`summary` er en valgfri liste som vises som «Kort oppsummert». Bruk den til 2–3 hovedpoenger i lengre artikler. FAQ anbefales først når den svarer på egne spørsmål, utover det artikkelen allerede forklarer; ingen FAQ-modul eller FAQ-schema er lagt til nå.
+`summary` er en valgfri liste som vises som «Kort oppsummert». Bruk den til 2–3 hovedpoenger i lengre artikler. De sju nye fagartiklene har en synlig FAQ-seksjon. FAQPage genereres direkte fra spørsmålene og svarene i seksjonens innholdsblokker, slik at schema følger den endelige teksten. Dette er ingen garanti for utvidede søkeresultater.
 
 Avsnitt støtter lenker skrevet som `[lenketekst](https://eksempel.no/side)` og lokale lenker som `[kalkulatoren](/)`. HTML blir ikke tolket. En seksjon kan ha `list` for kulepunkter før avsnittene. `sources` er en liste med `title` og `url`, og vises som en nøytral kildeliste nederst. Valgfri `cta` har `heading`, `text`, `label` og `href`.
 
-Begge artiklene har avtalt lanseringsdato 21. oktober 2026, med `datePublished` og `dateModified` satt til `2026-10-21`. Datoen må endres dersom lanseringen flyttes. Den fremtidige datoen hindrer ikke publisering; sammenslåing og produksjonspublisering avventer fortsatt godkjenning.
+Alle ni artikler er nå fordelt med én per dag fra 21. til 29. oktober 2026. Se `BLOG-GJENNOMGANG.md` for planen. Forhåndsvisningen viser alle artiklene og markerer fremtidige datoer som «Planlagt». Produksjonsbygget bruker dato i Europe/Oslo og lager bare sider, kort, sitemap og schema for artikler som har nådd publiseringsdatoen. Lenker til fremtidige blogginnlegg vises som vanlig tekst frem til målsiden finnes. Ved testing kan `BLOG_BUILD_DATE=ÅÅÅÅ-MM-DD` brukes; la dette være usatt i vanlig drift. Bygget stopper ved mer enn to artikler med samme publiseringsdato.
+
+Datoavgrensningen er ikke en automatisk jobb: en statisk Vercel-side må bygges på nytt hver publiseringsdag. Ingen planlagt produksjonsjobb eller deploy hook er aktivert. Dette må avtales og settes opp før lansering. Ved forsinkelse flyttes datoene før publisering, slik at et senere bygg ikke publiserer flere forsinkede artikler samtidig. `dateModified` settes lik `datePublished` ved førstegangspublisering, og endres etterpå bare ved reelle innholdsendringer.
 
 For fremtidige utkast kan `publicationPending: true` og begge datoene `null` brukes. Da vises «Ikke publisert» i forhåndsvisningen, og produksjonsbygg stopper til datoene er satt og `publicationPending` fjernet. Behold publiseringsdatoen ved senere endringer, og oppdater bare `dateModified`.
 
 Kildene til månedsbeløpsartikkelen ble kontrollert 20. oktober 2026 mot Forbrukerrådets to sjekklister og SpareBank 1s side om refinansiering av kredittkort. Artikkelbildet er levert av brukeren; webkopier er eksportert i 640/1200 px og delingsformat 1200 × 630 px.
+
+
+## Innholdsblokker og påmelding
+
+`sections[].blocks` støtter `paragraph`, `heading` (H3), `list` og `table`. Innholdsblokker rendres i rekkefølge. `paragraphs` beholdes for kompatibilitet og må følge avsnittene i blokkene. Kilder samles som en nøytral liste nederst, samtidig som de beholder de synlige lenkene i teksten. Ikke legg inn vilkårlig HTML.
+
+E-posthenvisninger bruker `/#epostpamelding`. Dette er en permanent tilgjengelig seksjon i React-forsiden, også uten å gå gjennom et kalkulatorresultat. Den bruker eksisterende `subscribe`-funksjon og `/api/subscribe`, som registrerer med status PENDING i den eksisterende e-postlisten. Ikke lenk direkte til API-et fra artikkelteksten. Ingen påstander om en bestemt utsendelsesfrekvens, lånetilbud eller automatisk tilsendt personlig beregning er lagt til i bloggtekstene.
+
+Fordelsjakten har redaksjonelt ansvar. Fordelsdetektiven er forfatternavnet, representert som et redaksjonelt organisasjonsnavn i schema, ikke som en oppdiktet fagperson. Forklaringen finnes synlig på `/blogg#redaksjon`.

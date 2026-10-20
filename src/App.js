@@ -318,6 +318,9 @@ export default function App() {
   const [offerEmail, setOfferEmail] = useState("");
   const [offerEmailState, setOfferEmailState] = useState("idle");
   const [offerEmailError, setOfferEmailError] = useState("");
+  const [newsletterEmail, setNewsletterEmail] = useState("");
+  const [newsletterState, setNewsletterState] = useState("idle");
+  const [newsletterError, setNewsletterError] = useState("");
 
   useEffect(() => {
     ensureHeadAssets();
@@ -344,6 +347,13 @@ export default function App() {
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, [step]);
+
+  useEffect(() => {
+    if (window.location.hash === "#epostpamelding") {
+      const frame = window.requestAnimationFrame(() => document.getElementById("epostpamelding")?.scrollIntoView({ behavior: "instant", block: "start" }));
+      return () => window.cancelAnimationFrame(frame);
+    }
+  }, []);
 
   const calculation = useMemo(() => {
     const currentMonthly = annuitet(loanAmount, currentRate, months) + currentFee;
@@ -790,6 +800,21 @@ export default function App() {
             </div>
           </section>
         )}
+        <section id="epostpamelding" className="newsletter-section" aria-label="E-postpåmelding">
+          <EmailCapture
+            email={newsletterEmail}
+            setEmail={setNewsletterEmail}
+            state={newsletterState}
+            error={newsletterError}
+            onSubmit={() => subscribe(newsletterEmail, setNewsletterState, setNewsletterError, "blogg-pamelding")}
+            title="Følg Fordelsjakten på e-post"
+            description="Meld deg på for nytt innhold og annen relevant informasjon fra Fordelsjakten."
+            buttonText="Meld meg på"
+            consentText="Ved å melde deg på godtar du e-post om nytt innhold og annen relevant informasjon fra Fordelsjakten. Du kan melde deg av når som helst."
+            successTitle="Bekreft påmeldingen din"
+            successDescription="Se etter en e-post fra oss og følg lenken for å bekrefte påmeldingen."
+          />
+        </section>
       </main>
 
       <Footer />
@@ -1049,10 +1074,10 @@ function ResultCard({ calculation, months }) {
         <div className="break-even">
           <div>
             <strong>
-              Break-even etter {calculation.breakEven}{" "}
+              Forenklet break-even: {calculation.breakEven}{" "}
               {calculation.breakEven === 1 ? "måned" : "måneder"}
             </strong>
-            <p>Da er etableringsgebyret dekket.</p>
+            <p>Anslag fra etableringsgebyr delt på månedlig betalingsforskjell. Avdrag inngår, og restgjeld ved tidlig innfrielse er ikke sammenlignet.</p>
           </div>
         </div>
       )}
@@ -1083,14 +1108,17 @@ function EmailCapture({
   title,
   description,
   buttonText,
+  consentText,
+  successTitle,
+  successDescription,
 }) {
   if (state === "success") {
     return (
       <div className="email-success" role="status">
         <span aria-hidden="true">✓</span>
         <div>
-          <strong>Tusen takk! Du er nå registrert.💜</strong>
-          <p>Sjekk innboksen din om et øyeblikk.</p>
+          <strong>{successTitle || "Tusen takk! Du er nå registrert.💜"}</strong>
+          <p>{successDescription || "Sjekk innboksen din om et øyeblikk."}</p>
         </div>
       </div>
     );
@@ -1141,7 +1169,7 @@ function EmailCapture({
       )}
 
       <small>
-        Ved å registrere deg godtar du at vi sender denne oversikten og annen relevant informasjon fra Fordelsjakten. Du kan melde deg av når som helst.{" "}
+        {consentText || "Ved å registrere deg godtar du at vi sender denne oversikten og annen relevant informasjon fra Fordelsjakten. Du kan melde deg av når som helst."}{" "}
         <a href="/personvern">Les om ditt personvern her</a>
       </small>
     </div>
@@ -1679,6 +1707,7 @@ const GLOBAL_CSS = `
   .mini-process p { margin: 2px 0 0; color: var(--ink-soft); font-size: 10px; line-height: 1.5; }
   .quiet-button { width: 100%; margin-top: 9px; padding: 10px; background: transparent; color: var(--muted); font-size: 10px; font-weight: 700; text-decoration: underline; }
 
+  .newsletter-section { max-width:640px; margin:48px auto; padding:0 20px; scroll-margin-top:100px; }
   .email-capture { margin-top: 5px; padding: 17px; border-radius: 17px; background: var(--surface-soft); }
   .email-capture h3 { margin: 0 0 6px; font-family: "Bricolage Grotesque", sans-serif; font-size: 16px; }
   .email-capture > p { margin: 0 0 13px; color: var(--ink-soft); font-size: 9.5px; line-height: 1.55; }

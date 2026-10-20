@@ -116,3 +116,14 @@
 .article-summary ul { margin-bottom:0; }
 .article-sources { border-top:1px solid var(--fj-blog-border); padding-top:28px; }
 .article-sources a { overflow-wrap:anywhere; }
+
+.article-body h3 { font-size:20px; line-height:1.4; margin:28px 0 12px; }
+.article-body code { overflow-wrap:anywhere; white-space:normal; font-size:.9em; }
+.article-table { max-width:100%; overflow-x:auto; margin:24px 0; border:1px solid var(--fj-blog-border); border-radius:12px; }
+.article-table table { border-collapse:collapse; width:100%; font-size:14px; line-height:1.6; }
+.article-table caption { text-align:left; font-weight:600; padding:14px; background:var(--fj-blog-surface-soft); }
+.article-table th,.article-table td { text-align:left; padding:12px; border-bottom:1px solid var(--fj-blog-border); vertical-align:top; min-width:120px; }
+.article-table thead { background:var(--fj-blog-surface-soft); }
+.article-table:focus-visible { outline:3px solid var(--fj-blog-violet); outline-offset:3px; }
+.article-editorial-notes { margin-bottom:32px; padding:24px; background:var(--fj-blog-surface-soft); border:1px dashed var(--fj-blog-border); border-radius:12px; overflow-wrap:anywhere; }
+.article-body { min-width:0; }
