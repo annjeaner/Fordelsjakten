@@ -1,0 +1,18 @@
+[
+  {
+    "id": "kalkulator",
+    "label": "Fra Fordelsjakten",
+    "heading": "Se hva lånet ditt faktisk koster",
+    "text": "Legg inn tallene fra låneavtalen og sammenlign med en annen rente. Kalkulatoren er gratis, og du sender ikke inn noen lånesøknad.",
+    "cta": "Åpne kalkulatoren",
+    "href": "/"
+  },
+  {
+    "id": "epost",
+    "label": "Fra Fordelsjakten",
+    "heading": "Få nye guider på e-post",
+    "text": "Meld deg på for nytt innhold og annen relevant informasjon fra Fordelsjakten. Du kan melde deg av når som helst.",
+    "cta": "Meld meg på",
+    "href": "/#epostpamelding"
+  }
+]

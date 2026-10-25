@@ -139,6 +139,13 @@
         {
           "type": "paragraph",
           "text": "Kalkulatoren sammenligner dagens lån med et nytt lån med samme beløp og nedbetalingstid, opptil 120 måneder, og regner ut effektiv rente. I guiden [Slik bruker du kalkulatoren](/blogg/slik-bruker-du-kalkulatoren) ser du hvilke tall du trenger og hva beregningen tar med."
+        },
+        {
+          "type": "promo",
+          "ids": [
+            "zensum",
+            "uno-finans"
+          ]
         }
       ]
     },

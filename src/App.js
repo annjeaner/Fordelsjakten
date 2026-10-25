@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { init, track } from "@plausible-analytics/tracker";
+import AFFILIATES from "./affiliates.json";
 import { SpeedInsights } from "@vercel/speed-insights/react";
 
 const LOGO = "/Fordelsdetektiven-fordelsjakten-logo.png";
@@ -11,42 +12,6 @@ const SITE = {
   url: "https://fordelsjakten.no",
   image: "https://fordelsjakten.no/og-image.png",
 };
-
-const AFFILIATES = [
-  {
-    id: 1,
-    name: "Uno Finans",
-    desc: "Sammenlign lån fra 20+ banker med én søknad.",
-    url: "https://ormedlink.com/fordelsjakten-3",
-    cta: "Sjekk tilbud hos Uno Finans",
-    effRente: "10,94",
-    tag: "Mange banker",
-    renteeksempel:
-      "Renteeksempel: 300 000 kr over 5 år med 10,10 % nominell og 10,94 % effektiv rente koster 85 133 kr. Totalt tilbakebetalt: 385 133 kr.",
-  },
-  {
-    id: 2,
-    name: "Motty",
-    desc: "Sammenlign muligheter for å samle og refinansiere gjeld.",
-    url: "https://orsearchlink.com/click.track?CID=437042&AFID=560140&ADID=2612726&SID=",
-    cta: "Søk hos Motty",
-    effRente: "14,44",
-    tag: "Samle flere lån",
-    renteeksempel:
-      "Renteeksempel: 160 000 kr over 5 år med 14,44 % effektiv rente koster 60 688 kr. Totalt tilbakebetalt: 220 688 kr. Nominell rente 6–23 %.",
-  },
-  {
-    id: 3,
-    name: "Zensum",
-    desc: "Sammenlign refinansiering og samle flere lån i ett.",
-    url: "https://ormedlink.com/fordelsjakten-10",
-    cta: "Se renten hos Zensum",
-    effRente: "11,46",
-    tag: "Refinansiering",
-    renteeksempel:
-      "Renteeksempel: 150 000 kr over 5 år med 10,90 % nominell og 11,46 % effektiv rente, 0 kr i gebyr. Totalkostnad: 195 240 kr, som er 3 254 kr per måned.",
-  },
-];
 
 const FAQS = [
   {
@@ -622,7 +587,6 @@ export default function App() {
 
                 <button className="primary-button" onClick={() => goToStep(STEP_RESULT, "kalkulator")}>
                   Se resultatet
-                  <span aria-hidden="true">→</span>
                 </button>
                 <p className="button-note">
                   Gratis og uforpliktende. Ingen personopplysninger er nødvendig.
@@ -659,7 +623,7 @@ export default function App() {
               aria-label="Gå tilbake og endre tallene"
               onClick={() => goToStep(STEP_CALC)}
             >
-              <span aria-hidden="true">←</span> Endre tall
+              Endre tall
             </button>
 
             <div className="result-layout">
@@ -696,7 +660,6 @@ export default function App() {
                 ) : (
                   <button className="primary-button" onClick={() => goToStep(STEP_OFFERS, "se mulighetene")}>
                     Se mulighetene
-                    <span aria-hidden="true">→</span>
                   </button>
                 )}
 
@@ -725,7 +688,7 @@ export default function App() {
               aria-label="Gå tilbake til resultatet"
               onClick={() => goToStep(STEP_RESULT)}
             >
-              <span aria-hidden="true">←</span> Til resultatet
+              Til resultatet
             </button>
 
             <div className="offers-heading">
@@ -822,10 +785,9 @@ export default function App() {
       {showScroll && (
         <button
           className="scroll-top"
-          aria-label="Gå til toppen av siden"
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
         >
-          ↑
+          Til toppen
         </button>
       )}
 
@@ -1042,7 +1004,6 @@ function ResultCard({ calculation, months }) {
         </p>
         <div className="result-comparison">
           <ResultStat label="Dagens kostnad" value={formatMonthly(calculation.currentMonthly)} />
-          <span aria-hidden="true">→</span>
           <ResultStat label="Ny kostnad" value={formatMonthly(calculation.proposedMonthly)} />
         </div>
         <p className="result-disclaimer">
@@ -1066,7 +1027,6 @@ function ResultCard({ calculation, months }) {
 
       <div className="result-comparison">
         <ResultStat label="Dagens kostnad" value={formatMonthly(calculation.currentMonthly)} />
-        <span aria-hidden="true">→</span>
         <ResultStat label="Ny kostnad" value={formatMonthly(calculation.proposedMonthly)} />
       </div>
 
@@ -1196,7 +1156,7 @@ function AffiliateCard({ affiliate, onAffiliateClick }) {
         <strong>{affiliate.effRente} %</strong>
       </div>
       <span className="affiliate-cta">
-        {affiliate.cta} <span aria-hidden="true">→</span>
+        {affiliate.cta}
       </span>
       <p className="legal-example">{affiliate.renteeksempel}</p>
     </a>
@@ -1654,7 +1614,7 @@ const GLOBAL_CSS = `
     margin-top: 32px;
     padding: 18px;
     display: grid;
-    grid-template-columns: 1fr auto 1fr;
+    grid-template-columns: 1fr 1fr;
     align-items: center;
     gap: 18px;
     border: 1px solid rgba(255,255,255,.13);
@@ -1667,8 +1627,6 @@ const GLOBAL_CSS = `
   .result-comparison small { color: rgba(255,255,255,.55); font-size: 9px; font-weight: 700; }
   .result-card.neutral .result-comparison small { color: var(--muted); }
   .result-comparison strong { font-size: 14px; }
-  .result-comparison > span { color: rgba(255,255,255,.4); }
-  .result-card.neutral .result-comparison > span { color: var(--muted); }
   .break-even {
     margin-top: 14px;
     padding: 17px 18px;
@@ -1789,7 +1747,7 @@ const GLOBAL_CSS = `
   .ad-label { color: var(--muted); font-size: 7.5px; letter-spacing: .8px; text-transform: uppercase; font-weight: 800; }
   .affiliate-card h2 { margin: 28px 0 7px; font-family: "Bricolage Grotesque", sans-serif; font-size: 27px; letter-spacing: -.5px; }
   .affiliate-desc { min-height: 40px; margin: 0; color: var(--ink-soft); font-size: 10.5px; line-height: 1.6; }
-  .rate-example { margin-top: 25px; padding: 15px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); display: flex; align-items: end; justify-content: space-between; gap: 10px; }
+  .rate-example { margin-top: 25px; padding: 15px 0; display: flex; flex-direction: column; align-items: flex-start; gap: 2px; }
   .rate-example span { max-width: 80px; color: var(--muted); font-size: 8px; line-height: 1.35; }
   .rate-example strong { font-family: "Bricolage Grotesque", sans-serif; font-size: 27px; }
   .affiliate-cta { margin-top: 20px; color: var(--violet); font-size: 11px; font-weight: 800; }
@@ -1820,13 +1778,15 @@ const GLOBAL_CSS = `
     right: 22px;
     bottom: 22px;
     z-index: 40;
-    width: 42px;
     height: 42px;
+    padding: 0 16px;
     border: 0;
-    border-radius: 50%;
+    border-radius: 21px;
     background: var(--ink);
     color: #fff;
     box-shadow: 0 9px 24px rgba(32,33,63,.22);
+    font-size: 13px;
+    font-weight: 700;
     cursor: pointer;
   }
 
@@ -2304,7 +2264,6 @@ const GLOBAL_CSS = `
       gap: 9px;
     }
     .scroll-top {
-      width: 38px;
       height: 38px;
       right: 10px;
       bottom: calc(12px + env(safe-area-inset-bottom));
@@ -2324,7 +2283,6 @@ const GLOBAL_CSS = `
       gap: 11px;
       text-align: left;
     }
-    .result-comparison > span { transform: rotate(90deg); justify-self: start; }
     .affiliate-topline { align-items: flex-start; }
   }
 
@@ -2444,15 +2402,11 @@ const GLOBAL_CSS = `
       margin-top: 20px;
     }
     .result-comparison {
-      grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
       gap: 8px;
       padding: 13px 12px;
     }
     .result-comparison > div:last-child { text-align: right; }
-    .result-comparison > span {
-      transform: none;
-      justify-self: center;
-    }
     .result-comparison small { font-size: 11px; }
     .result-comparison strong {
       font-size: 13px;
@@ -2473,13 +2427,8 @@ const GLOBAL_CSS = `
 
   @media (max-width: 430px) {
     .result-comparison {
-      grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
-    }
-    .result-comparison > span {
-      transform: none;
-      justify-self: center;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     }
     .result-comparison strong { font-size: 12px; }
   }
-
 `;

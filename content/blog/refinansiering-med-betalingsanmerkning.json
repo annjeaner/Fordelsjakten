@@ -241,6 +241,7 @@
     }
   ],
   "hideDefaultCta": true,
+  "noAffiliate": true,
   "image": {
     "src": "/images/blog/refinansiering-med-betalingsanmerkning-1200.webp",
     "small": "/images/blog/refinansiering-med-betalingsanmerkning-640.webp",

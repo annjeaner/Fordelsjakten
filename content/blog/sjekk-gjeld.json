@@ -189,6 +189,13 @@
         {
           "type": "paragraph",
           "text": "Hvis regnestykket ikke går opp, kan du få gratis økonomi- og gjeldsrådgivning hos Nav. [Navs hjelp ved økonomi- og gjeldsproblemer](https://www.nav.no/okonomi-gjeld). Du trenger ikke ha en ferdig løsning før du tar kontakt."
+        },
+        {
+          "type": "promo",
+          "ids": [
+            "motty",
+            "zensum"
+          ]
         }
       ]
     },
