@@ -1,24 +1,12 @@
 # Artikkelpakken – klargjøring til gjennomgang
 
-Ingen sammenslåing eller produksjonspublisering er utført. Pakkeveiledningen er behandlet som redaksjonelt grunnlag, og lenker og produktbeskrivelser er avklart mot prosjektets faktiske kode.
+Pakkeveiledningen er behandlet som redaksjonelt grunnlag, og lenker og produktbeskrivelser er avklart mot prosjektets faktiske kode.
 
-## Publiseringsplan
+## Publisering
 
-Én artikkel per dag. Maks to på samme dato håndheves ved bygg. Datoene er planlagte førstegangsdatoer og settes likt i datePublished og dateModified. Tidssone: Europe/Oslo.
+Alle ni artiklene ble publisert samlet 25. oktober 2026, med samme dato i `datePublished` og `dateModified`. Den opprinnelige planen med én artikkel per dag fra 21. oktober og grensen på to artikler per dato er fjernet.
 
-| Dato 2026 | Artikkeladresse |
-|---|---|
-| 21. oktober | /blogg/slik-bruker-du-kalkulatoren |
-| 22. oktober | /blogg/lavere-manedsbelop-billigere-lan |
-| 23. oktober | /blogg/nominell-og-effektiv-rente |
-| 24. oktober | /blogg/refinansiering-av-forbrukslan |
-| 25. oktober | /blogg/refinansiering-med-betalingsanmerkning |
-| 26. oktober | /blogg/lonner-det-seg-a-refinansiere |
-| 27. oktober | /blogg/kredittkortgjeld-nedbetaling |
-| 28. oktober | /blogg/termingebyr |
-| 29. oktober | /blogg/sjekk-gjeld |
-
-Forhåndsvisning viser alle ni. Produksjonsbygg utelater fremtidige artikler fra HTML, kort, sitemap og Blog-schema. Interne lenker til artikler som ennå ikke er publisert vises som tekst. En daglig gjenoppbygging er nødvendig; ingen automatisert produksjonsjobb er aktivert. Hvis lansering eller bygg forskyves må datoene flyttes, slik at en senere publisering ikke slipper flere forsinkede artikler samtidig.
+Forhåndsvisning viser alle artikler. Produksjonsbygg utelater artikler med fremtidig dato fra HTML, kort, sitemap og Blog-schema, og interne lenker til dem vises som tekst. Fremtidige datoer krever en daglig ombygging, som ikke er satt opp.
 
 ## Avklaringer som er løst
 
@@ -57,8 +45,6 @@ Kilde: src/App.js, funksjonene annuitet, effektivRente og calculation.
 
 ## Før publisering
 
-- Godkjenn tekstene, rekkefølgen og datoene i forhåndsvisningen.
-- Avtal og sett opp daglig produksjonsbygg. Det er ikke aktivert som del av denne klargjøringen.
 - Kontroller reell Vercel-ruting og HTTP 404, og ekstern schema-/delingsvisning. Tidligere forsøk på å hente beskyttet forhåndsvisning fikk 403; lokal kontroll er ikke en ekstern Rich Results Test.
 - Verifiser reell leveranse/bekreftelse av e-post med en godkjent testadresse ved lansering. Nettlesertesten simulerer API-svaret og sender ingen e-post.
 

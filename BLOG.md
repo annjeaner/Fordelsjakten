@@ -20,7 +20,7 @@ Når bloggfunksjonen er lagt inn i repoet:
 2. Kopier strukturen i `content/blog/slik-bruker-du-kalkulatoren.json` til en ny fil i samme mappe. I GitHubs filvisning kan du bruke **Add file → Create new file**. Filnavnet kan for eksempel være `slik-finner-du-laneopplysningene.json`.
 3. Endre `slug`, `title`, `description`, `category`, `intro` og avsnittene i `sections`. En slug er den siste delen av nettadressen: bruk små bokstaver, bindestreker og ingen æ, ø eller å. Hvert avsnitt står i doble anførselstegn. Anførselstegn inne i teksten må skrives som `\"`; komma mellom elementer må beholdes. Be gjerne ChatGPT lage den ferdige filen for deg.
 4. Last opp artikkelbildene i `public/images/blog/` på **samme gren**, via **Add file → Upload files**. Bruk bildefiler i to bredder (640 og 1200 piksler) og et delingsbilde på 1200 × 630 piksler. Endre filnavnene, alt-teksten, størrelsene og krediteringen i `image` til bildene du faktisk bruker. Ikke gjenbruk en annen artikkels alt-tekst.
-5. Sett `datePublished` til den faktiske publiseringsdatoen. Ved senere innholdsendringer beholder du denne datoen og oppdaterer bare `dateModified`. Begge har formatet `2026-10-17`. Begge artiklene er klargjort med avtalt lanseringsdato 21. oktober 2026.
+5. Sett `datePublished` til den faktiske publiseringsdatoen. Ved senere innholdsendringer beholder du denne datoen og oppdaterer bare `dateModified`. Begge har formatet `2026-10-17`.
 6. Lagre endringene med **Commit changes** på artikkelgrenen, og opprett en **pull request** mot produksjonsgrenen. Åpne Vercel-forhåndsvisningen når bygget er klart. Det forutsetter at GitHub/Vercel-integrasjonen er aktiv for grenen.
 7. Sjekk teksten, bildet, mobilvisningen og alle kilder. Slå sammen med **Merge pull request** når alt er klart. Vent på et vellykket produksjonsbygg, og sjekk den publiserte artikkelen.
 
@@ -60,9 +60,9 @@ Før produksjon: kontroller direkte artikkelinnlasting, ukjente artikkeladresser
 
 Avsnitt støtter lenker skrevet som `[lenketekst](https://eksempel.no/side)` og lokale lenker som `[kalkulatoren](/)`. HTML blir ikke tolket. En seksjon kan ha `list` for kulepunkter før avsnittene. `sources` er en liste med `title` og `url`, og vises som en nøytral kildeliste nederst. Valgfri `cta` har `heading`, `text`, `label` og `href`.
 
-Alle ni artikler er nå fordelt med én per dag fra 21. til 29. oktober 2026. Se `BLOG-GJENNOMGANG.md` for planen. Forhåndsvisningen viser alle artiklene og markerer fremtidige datoer som «Planlagt». Produksjonsbygget bruker dato i Europe/Oslo og lager bare sider, kort, sitemap og schema for artikler som har nådd publiseringsdatoen. Lenker til fremtidige blogginnlegg vises som vanlig tekst frem til målsiden finnes. Ved testing kan `BLOG_BUILD_DATE=ÅÅÅÅ-MM-DD` brukes; la dette være usatt i vanlig drift. Bygget stopper ved mer enn to artikler med samme publiseringsdato.
+Alle ni artikler ble publisert samlet 25. oktober 2026. Forhåndsvisningen viser alle artiklene og markerer fremtidige datoer som «Planlagt». Produksjonsbygget bruker dato i Europe/Oslo og lager bare sider, kort, sitemap og schema for artikler som har nådd publiseringsdatoen. Lenker til fremtidige blogginnlegg vises som vanlig tekst frem til målsiden finnes. Ved testing kan `BLOG_BUILD_DATE=ÅÅÅÅ-MM-DD` brukes; la dette være usatt i vanlig drift.
 
-Datoavgrensningen er ikke en automatisk jobb: en statisk Vercel-side må bygges på nytt hver publiseringsdag. Ingen planlagt produksjonsjobb eller deploy hook er aktivert. Dette må avtales og settes opp før lansering. Ved forsinkelse flyttes datoene før publisering, slik at et senere bygg ikke publiserer flere forsinkede artikler samtidig. `dateModified` settes lik `datePublished` ved førstegangspublisering, og endres etterpå bare ved reelle innholdsendringer.
+Datoavgrensningen er ikke en automatisk jobb: en statisk Vercel-side må bygges på nytt på publiseringsdagen før en artikkel med fremtidig dato blir synlig. Ingen planlagt produksjonsjobb eller deploy hook er aktivert. Sett opp en daglig ombygging før artikler planlegges frem i tid. `dateModified` settes lik `datePublished` ved førstegangspublisering, og endres etterpå bare ved reelle innholdsendringer.
 
 For fremtidige utkast kan `publicationPending: true` og begge datoene `null` brukes. Da vises «Ikke publisert» i forhåndsvisningen, og produksjonsbygg stopper til datoene er satt og `publicationPending` fjernet. Behold publiseringsdatoen ved senere endringer, og oppdater bare `dateModified`.
 
@@ -71,7 +71,7 @@ Kildene til månedsbeløpsartikkelen ble kontrollert 20. oktober 2026 mot Forbru
 
 ## Innholdsblokker og påmelding
 
-`sections[].blocks` støtter `paragraph`, `heading` (H3), `list` og `table`. Innholdsblokker rendres i rekkefølge. `paragraphs` beholdes for kompatibilitet og må følge avsnittene i blokkene. Kilder samles som en nøytral liste nederst, samtidig som de beholder de synlige lenkene i teksten. Ikke legg inn vilkårlig HTML.
+`sections[].blocks` støtter `paragraph`, `heading` (H3), `list` og `table`. Innholdsblokker rendres i rekkefølge. Bruk enten `blocks` eller `paragraphs` i en seksjon, ikke begge. Kilder samles som en nøytral liste nederst, samtidig som de beholder de synlige lenkene i teksten. Ikke legg inn vilkårlig HTML.
 
 E-posthenvisninger bruker `/#epostpamelding`. Dette er en permanent tilgjengelig seksjon i React-forsiden, også uten å gå gjennom et kalkulatorresultat. Den bruker eksisterende `subscribe`-funksjon og `/api/subscribe`, som registrerer med status PENDING i den eksisterende e-postlisten. Ikke lenk direkte til API-et fra artikkelteksten. Ingen påstander om en bestemt utsendelsesfrekvens, lånetilbud eller automatisk tilsendt personlig beregning er lagt til i bloggtekstene.
 

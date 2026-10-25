@@ -77,6 +77,9 @@ test('pending publication dates block production until actual dates are supplied
  const temp=fs.mkdtempSync(path.join(os.tmpdir(),'fj-blog-publication-'));
  try {
   for(const name of ['scripts','src','public','content']) fs.cpSync(path.join(root,name),path.join(temp,name),{recursive:true});
+  // Spread the articles over separate days so the date filter is exercised independently of the real dates.
+  const scheduled=articles.map((a,i)=>({...a,datePublished:`2026-10-${21+i}`,dateModified:`2026-10-${21+i}`}));
+  for(const a of scheduled) fs.writeFileSync(path.join(temp,'content/blog',a.slug+'.json'),JSON.stringify(a));
   let dateOffset=0;
   for (const name of fs.readdirSync(path.join(temp,'content/blog'))) {
    const file=path.join(temp,'content/blog',name);
@@ -164,12 +167,15 @@ test('all eleven package examples match calculator annuities and fee handling',(
  }
 });
 
-test('publication schedule enforces daily limits and excludes future pages, schema, links and sitemap',()=>{
+test('publication schedule excludes future pages, schema, links and sitemap',()=>{
  const os=require('node:os');const {spawnSync}=require('node:child_process');
  const {JSDOM}=require('jsdom');
  const temp=fs.mkdtempSync(path.join(os.tmpdir(),'fj-blog-schedule-'));
  try {
   for(const name of ['scripts','src','public','content']) fs.cpSync(path.join(root,name),path.join(temp,name),{recursive:true});
+  // Spread the articles over separate days so the date filter is exercised independently of the real dates.
+  const scheduled=articles.map((a,i)=>({...a,datePublished:`2026-10-${21+i}`,dateModified:`2026-10-${21+i}`}));
+  for(const a of scheduled) fs.writeFileSync(path.join(temp,'content/blog',a.slug+'.json'),JSON.stringify(a));
   const run=date=>spawnSync(process.execPath,[path.join(temp,'scripts/build-blog.cjs')],{env:{...process.env,VERCEL_ENV:'production',BLOG_BUILD_DATE:date},encoding:'utf8'});
   // Check backwards too: stale future files must disappear on a repeated build.
   for(const [date,count] of [['2026-10-29',9],['2026-10-21',1],['2026-10-22',2],['2026-10-20',0]]) {
@@ -180,16 +186,11 @@ test('publication schedule enforces daily limits and excludes future pages, sche
    const doc=new JSDOM(html).window.document;
    assert.equal(doc.querySelectorAll('.blog-card').length,count);
    assert.equal(JSON.parse(doc.querySelector('script[type="application/ld+json"]').textContent)['@graph'].find(n=>n['@type']==='Blog').blogPost.length,count);
-   for(const a of articles) assert.equal(sitemap.includes('/blogg/'+a.slug),a.datePublished<=date);
+   for(const a of scheduled) assert.equal(sitemap.includes('/blogg/'+a.slug),a.datePublished<=date);
    for(const file of fs.readdirSync(path.join(temp,'build/blogg')).filter(f=>f.endsWith('.html'))) {
     const articleDoc=new JSDOM(fs.readFileSync(path.join(temp,'build/blogg',file),'utf8')).window.document;
     for(const link of articleDoc.querySelectorAll('a[href^="/blogg/"]')) assert.ok(fs.existsSync(path.join(temp,'build',link.getAttribute('href').slice(1).split('#')[0]+'.html')));
    }
   }
-  for(const a of articles.slice(0,3)) {
-   const file=path.join(temp,'content/blog',a.slug+'.json');
-   fs.writeFileSync(file,JSON.stringify({...a,datePublished:'2026-10-21',dateModified:'2026-10-21'}));
-  }
-  assert.match(run('2026-10-21').stderr,/Maximum two articles/);
  } finally { fs.rmSync(temp,{recursive:true,force:true}); }
 });

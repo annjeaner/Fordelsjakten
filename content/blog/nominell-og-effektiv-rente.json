@@ -4,19 +4,13 @@
   "seoTitle": "Nominell og effektiv rente: Forskjellen forklart",
   "description": "Hva er forskjellen på nominell og effektiv rente? Se et konkret regneeksempel, forstå gebyrene og lær hva du bør sammenligne før du velger lån.",
   "category": "Lån og renter",
-  "datePublished": "2026-10-23",
-  "dateModified": "2026-10-23",
+  "datePublished": "2026-10-25",
+  "dateModified": "2026-10-25",
   "intro": "Nominell rente er lånets oppgitte årlige rente før gebyrer. Effektiv rente viser den årlige lånekostnaden som prosent, med relevante gebyrer og tidspunktet for betalingene regnet inn. Når du sammenligner lån med samme beløp og løpetid, gir effektiv rente derfor et bedre sammenligningsgrunnlag. Sjekk også samlet kostnad i kroner.",
   "sections": [
     {
       "id": "hva-er-nominell-rente",
       "heading": "Hva er nominell rente?",
-      "paragraphs": [
-        "Nominell rente er prosentsatsen som brukes til å beregne renter på pengene du skylder, uten at gebyrene er inkludert. Har du en nominell rente på 12 prosent per år, er den månedlige rentesatsen 1 prosent i en modell med tolv like renteterminer.",
-        "Renter er betalingen for å låne penger. Avdrag er den delen av betalingen som reduserer selve gjelden. Når du betaler et månedsbeløp, kan det derfor bestå av tre deler: renter, avdrag og et eventuelt termingebyr.",
-        "Du skal ikke uten videre gange den nominelle renten med det opprinnelige lånebeløpet for å finne rentekostnaden for et helt år. Dersom du betaler avdrag underveis, blir gjelden gradvis mindre. Neste måneds renter beregnes da av en lavere restgjeld, altså beløpet du fortsatt skylder.",
-        "Den nominelle renten er nyttig når du vil forstå hvordan rentene beregnes. Den forteller likevel ikke alene hva lånet vil koste. To lån med samme nominelle rente kan ha forskjellige gebyrer og dermed ulik samlet pris."
-      ],
       "blocks": [
         {
           "type": "paragraph",
@@ -39,12 +33,6 @@
     {
       "id": "hva-er-effektiv-rente",
       "heading": "Hva er effektiv rente?",
-      "paragraphs": [
-        "Effektiv rente er lånets årlige kostnad uttrykt som en prosentsats, der relevante gebyrer og betalingsdatoer inngår. Finanstilsynet beskriver effektiv rente som totale kredittkostnader uttrykt i prosent per år. Kredittkostnader betyr kostnadene ved lånet, blant annet renter og gebyrer. [Finanstilsynets forklaring av lånebegreper](https://www.finanstilsynet.no/forbrukerinformasjon/bank-og-finans/).",
-        "Et etableringsgebyr betales for å opprette lånet. Et termingebyr er et tilbakevendende gebyr ved betalingsterminene, for eksempel hver måned. Slike beløp kan gjøre et lån dyrere selv om den nominelle renten ser lav ut.",
-        "Effektiv rente er ikke bare nominell rente pluss gebyrene delt på det opprinnelige lånebeløpet. Beregningen tar hensyn til at gjelden og tidspunktet for betalingene endrer seg. Derfor bør du bruke den oppgitte effektive renten for akkurat det beløpet og den løpetiden du vurderer.",
-        "Også uten gebyrer kan effektiv rente være høyere enn nominell rente. Med 12 prosent nominell årsrente og månedlige renteterminer blir den årlige effektive renten i en vanlig modell `(1 + 0,12 / 12)^12 − 1`, omtrent 12,68 prosent."
-      ],
       "blocks": [
         {
           "type": "paragraph",
@@ -67,15 +55,6 @@
     {
       "id": "hvordan-ser-forskjellen-ut-i-kroner",
       "heading": "Hvordan ser forskjellen ut i kroner?",
-      "paragraphs": [
-        "Forskjellen blir synlig når du regner sammen renter og gebyrer for hele nedbetalingen. Eksemplet under er hypotetisk og illustrerer beregningen, ikke et lånetilbud eller en rente du kan forvente å få.",
-        "Du låner 100 000 kroner og betaler ned over fem år, altså 60 måneder. Nominell rente er 12 prosent per år, etableringsgebyret er 1 000 kroner og termingebyret er 50 kroner hver måned. Etableringsgebyret betales separat ved oppstart og legges ikke til gjelden.",
-        "Vi bruker et annuitetslån, som betyr at summen av renter og avdrag er lik hver måned så lenge renten er uendret. Første betaling kommer etter én måned. Renten holdes uendret i regnestykket, og det er ingen andre kostnader, ekstra innbetalinger eller skattevirkninger.",
-        "Månedlig rentesats er `0,12 / 12 = 0,01`. Månedlig betaling av renter og avdrag blir `100 000 × 0,01 / (1 − 1,01^(−60))`, omtrent 2 224,44 kroner. Med termingebyret blir månedsbeløpet omtrent 2 274,44 kroner.",
-        "Første måned er rentene `100 000 × 0,01 = 1 000 kroner`. Avdraget er da omtrent `2 224,44 − 1 000 = 1 224,44 kroner`. Termingebyret på 50 kroner reduserer ikke gjelden.",
-        "Med uavrundet månedsbetaling blir summen av renter og avdrag omtrent 133 466,69 kroner. Termingebyrene blir `50 × 60 = 3 000 kroner`, og etableringsgebyret er 1 000 kroner. Samlet utbetaling blir dermed omtrent 137 466,69 kroner.",
-        "Selve lånebeløpet på 100 000 kroner er tilbakebetaling av penger du har lånt. Kostnaden ved lånet er resten: `137 466,69 − 100 000 = 37 466,69 kroner`. Effektiv årsrente i denne modellen er omtrent 14,29 prosent. Avrunding av terminbeløp og siste innbetaling kan gi små øreavvik."
-      ],
       "blocks": [
         {
           "type": "paragraph",
@@ -122,13 +101,6 @@
     {
       "id": "hvilken-rente-bor-du-sammenligne-nar-du-vurderer-lan",
       "heading": "Hvilken rente bør du sammenligne når du vurderer lån?",
-      "paragraphs": [
-        "Du bør sammenligne effektiv rente for samme lånebeløp og samme nedbetalingstid, og deretter kontrollere samlet kostnad i kroner. En annonsert rente for et annet beløp eller en annen løpetid er ikke nødvendigvis sammenlignbar med ditt tilbud.",
-        "Be om en nedbetalingsplan som viser hva du skal betale, hvor lenge du skal betale og hvor mye som går til renter og gebyrer. Det gjør det lettere å oppdage om en lav månedlig betaling hovedsakelig skyldes at lånet varer lenge.",
-        "Ved refinansiering, som betyr at eksisterende gjeld erstattes med et nytt lån, sammenligner du kostnadene som gjenstår fra i dag. Et etableringsgebyr du allerede har betalt på det gamle lånet, får du normalt ikke tilbake ved å bytte. Det bør derfor ikke telles som en fremtidig besparelse.",
-        "Du kan bruke [Fordelsjaktens refinansieringskalkulator](/) som utgangspunkt når du vil undersøke egne tall. Les også om når et bytte faktisk kan lønne seg. [Lønner det seg å refinansiere? Slik sjekker du](/blogg/lonner-det-seg-a-refinansiere)",
-        "I Fordelsjaktens kalkulator legger du inn restgjeld, nominell rente, månedlig termingebyr og gjenstående antall måneder. For det nye lånet legger du inn ny nominell rente, nytt termingebyr og etableringsgebyr. Begge alternativene bruker samme lånebeløp og nedbetalingstid. Etableringsgebyret regnes som en separat oppstartskostnad, ikke som en del av gjelden; tidligere etableringsgebyr på dagens lån tas ikke med. Effektiv rente beregnes fra disse opplysningene. Eksempler med ulike løpetider må sammenlignes separat, ikke som to ulike løpetider i kalkulatoren. Feltene tillater 10 000–1 000 000 kroner i lånebeløp, 1–30 prosent nominell rente og 1–120 måneder. Løpetider over ti år ligger utenfor kalkulatorens tidsintervall og må kontrolleres separat."
-      ],
       "blocks": [
         {
           "type": "paragraph",
@@ -148,19 +120,13 @@
         },
         {
           "type": "paragraph",
-          "text": "I Fordelsjaktens kalkulator legger du inn restgjeld, nominell rente, månedlig termingebyr og gjenstående antall måneder. For det nye lånet legger du inn ny nominell rente, nytt termingebyr og etableringsgebyr. Begge alternativene bruker samme lånebeløp og nedbetalingstid. Etableringsgebyret regnes som en separat oppstartskostnad, ikke som en del av gjelden; tidligere etableringsgebyr på dagens lån tas ikke med. Effektiv rente beregnes fra disse opplysningene. Eksempler med ulike løpetider må sammenlignes separat, ikke som to ulike løpetider i kalkulatoren. Feltene tillater 10 000–1 000 000 kroner i lånebeløp, 1–30 prosent nominell rente og 1–120 måneder. Løpetider over ti år ligger utenfor kalkulatorens tidsintervall og må kontrolleres separat."
+          "text": "Kalkulatoren sammenligner dagens lån med et nytt lån med samme beløp og nedbetalingstid, opptil 120 måneder, og regner ut effektiv rente. I guiden [Slik bruker du kalkulatoren](/blogg/slik-bruker-du-kalkulatoren) ser du hvilke tall du trenger og hva beregningen tar med."
         }
       ]
     },
     {
       "id": "betyr-lavere-effektiv-rente-alltid-et-billigere-lan",
       "heading": "Betyr lavere effektiv rente alltid et billigere lån?",
-      "paragraphs": [
-        "Lavere effektiv rente betyr ikke nødvendigvis lavere samlet kostnad dersom lånebeløpet eller løpetiden er forskjellig. Et lån som varer lenge, kan koste mer i kroner selv om den effektive årsrenten er lavere.",
-        "I eksemplet over løper et gebyr på 50 kroner gjennom 60 måneder. Hvis samme gebyr fortsetter i ytterligere fem år, blir det 3 000 kroner ekstra bare i termingebyrer. I tillegg kommer rentene på gjelden som fortsatt står igjen.",
-        "Se derfor på tre ting samtidig: effektiv rente, beløpet du betaler hver måned og samlet kostnad frem til gjelden er borte. En løsning må også passe i budsjettet. Et billigere lån hjelper lite hvis betalingen er så høy at du må låne på nytt for å dekke vanlige utgifter.",
-        "Gebyrene fortjener en egen gjennomgang når du sammenligner små lån eller flere avtaler. Les forklaringen på termingebyr og etableringsgebyr. [Termingebyr: Hva er det, og hvor mye koster det?](/blogg/termingebyr)"
-      ],
       "blocks": [
         {
           "type": "paragraph",
@@ -183,11 +149,6 @@
     {
       "id": "ofte-stilte-sporsmal",
       "heading": "Ofte stilte spørsmål",
-      "paragraphs": [
-        "Nei. Nominell rente beskriver hvordan rentesatsen oppgis før gebyrer, mens fast eller flytende rente beskriver om renten kan endres etter avtalen. Et lån kan derfor ha en nominell rente som er enten fast eller flytende. Les rentevilkårene før du bruker dagens rentesats i en beregning for flere år fremover.",
-        "Start i nettbanken, låneavtalen og den nyeste fakturaen. Se etter gjeldende rentesats og gebyrer, og be banken om oppdatert nedbetalingsplan dersom noe er uklart. Den opprinnelige effektive renten kan bygge på et annet lånebeløp og en annen gjenværende tid enn du har nå, så sjekk også fremtidige kostnader i kroner.",
-        "Ja. Et lån med null prosent nominell rente kan ha etableringsgebyr eller andre kostnader. Da kan den effektive renten være høyere enn null, selv om det ikke beregnes vanlige renter. Les hva du totalt skal betale, og om vilkårene endres etter en innledende periode. Ordet «rentefritt» er ikke det samme som «kostnadsfritt»."
-      ],
       "blocks": [
         {
           "type": "heading",
@@ -218,10 +179,6 @@
     {
       "id": "vil-du-se-hva-renten-betyr-for-din-gjeld",
       "heading": "Vil du se hva renten betyr for din gjeld?",
-      "paragraphs": [
-        "Prøv [kalkulatoren for å undersøke refinansiering](/) med tall fra dine egne avtaler. Bruk resultatet som et anslag, og kontroller forutsetningene mot en oppdatert nedbetalingsplan før du bestemmer deg.",
-        "Du kan [melde deg på Fordelsjaktens e-postliste](/#epostpamelding) for nytt innhold og annen relevant informasjon. Du kan melde deg av når som helst. Bekreft påmeldingen via e-posten du mottar."
-      ],
       "blocks": [
         {
           "type": "paragraph",

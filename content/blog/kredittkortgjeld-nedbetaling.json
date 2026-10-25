@@ -4,20 +4,13 @@
   "seoTitle": "Kredittkortgjeld: Slik betaler du ned den dyre gjelden",
   "description": "Få oversikt over kredittkortgjeld, se hva rentene koster og lag en plan for nedbetaling. Lær når det kan lønne seg å refinansiere kredittkort.",
   "category": "Gjeld og oversikt",
-  "datePublished": "2026-10-27",
-  "dateModified": "2026-10-27",
+  "datePublished": "2026-10-25",
+  "dateModified": "2026-10-25",
   "intro": "Du reduserer kredittkortgjeld ved å stoppe nye kredittkjøp, få oversikt over saldo og kostnader og følge en nedbetalingsplan du har råd til. Har du flere kort, kan ekstra betaling på gjelden med høyest løpende rente redusere rentekostnaden. Refinansiering kan være aktuelt hvis samlede fremtidige kostnader blir lavere, men sletter ikke gjelden.",
   "sections": [
     {
       "id": "hvordan-far-du-oversikt-over-kredittkortgjelden",
       "heading": "Hvordan får du oversikt over kredittkortgjelden?",
-      "paragraphs": [
-        "Du får oversikt ved å finne brukt kreditt, gjeldende rente, gebyrer og betalingskrav for hvert kort. Bruk den nyeste fakturaen og nettbanken, slik at du ikke blander dagens gjeld med en gammel saldo.",
-        "Brukt kreditt er pengene du faktisk skylder. Kredittrammen er det høyeste beløpet avtalen lar deg låne. Har du brukt 20 000 kroner av en ramme på 50 000 kroner, er det ikke 50 000 kroner som skal legges inn som dagens gjeld i budsjettet.",
-        "Hos [Gjeldsregisteret](https://www.gjeldsregisteret.com/) kan du se opplysninger om usikret forbrukskreditt. Registeret skiller blant annet mellom nedbetalingslån og rammekreditt, som kredittkort. [Gjeldsregisterets begrepsforklaringer](https://www.gjeldsregisteret.com/om-gjeldsopplysninger-for-privatpersoner). Kontroller detaljene mot kortavtalen før du lager betalingsplanen.",
-        "Se også etter kjøp som ennå ikke har kommet på faktura, og faste betalinger som fortsetter å belaste kortet. En plan som bygger på én saldo, mens nye beløp kommer inn hver måned, gir et feil bilde av fremgangen.",
-        "Vil du samle opplysninger om flere typer lån, kan du følge veiledningen til å sjekke gjelden din. [Sjekk gjeld: Slik får du oversikt over det du skylder](/blogg/sjekk-gjeld) Oppbevar oversikten et sted du kan oppdatere uten å dele kontonummer eller andre sensitive opplysninger unødvendig."
-      ],
       "blocks": [
         {
           "type": "paragraph",
@@ -44,13 +37,6 @@
     {
       "id": "hvilken-gjeld-bor-du-betale-ekstra-pa-forst",
       "heading": "Hvilken gjeld bør du betale ekstra på først?",
-      "paragraphs": [
-        "Når nødvendige utgifter og avtalte minstebetalinger er dekket, kan ekstra betaling på saldoen med høyest løpende rente gi størst rentebesparelse per ekstra krone. Det forutsetter at de øvrige vilkårene ikke endrer sammenligningen, og at du unngår nye kjøp.",
-        "Tenk deg to kort der ekstra innbetaling er mulig uten tilleggskostnad. På det ene kortet løper renten raskere enn på det andre. En ekstra tusenlapp som reduserer den dyreste saldoen, fjerner da flere fremtidige rentekroner enn samme innbetaling på den billigere saldoen.",
-        "Det betyr ikke at du skal la andre regninger gå til forfall uten betaling. Hold de avtalte betalingene i gang, og bruk bare det reelle overskuddet på ekstra nedbetaling. Hvis budsjettet ikke dekker begge deler, bør du kontakte dem du skylder penger før du lager en plan som ikke kan følges.",
-        "Finn et fast månedlig beløp etter mat, bolig, strøm og andre nødvendige utgifter. Referansebudsjettet fra Forbruksforskningsinstituttet SIFO kan hjelpe deg å vurdere vanlige forbruksutgifter, men må tilpasses din husholdning. Bolig og strøm er blant utgiftene som ikke er med i selve referansebudsjettet. [SIFOs referansebudsjett hos OsloMet](https://www.oslomet.no/om/sifo/referansebudsjettet).",
-        "Noter saldoen én gang i måneden, gjerne etter betalingen. Da ser du om selve gjelden går ned, ikke bare at en faktura er betalt. Hvis saldoen står stille, bør du undersøke om renter, gebyrer eller nye belastninger bruker opp innbetalingen."
-      ],
       "blocks": [
         {
           "type": "paragraph",
@@ -85,14 +71,6 @@
     {
       "id": "hvorfor-tar-det-tid-a-bli-kvitt-gjelden-med-sma-innbetalinger",
       "heading": "Hvorfor tar det tid å bli kvitt gjelden med små innbetalinger?",
-      "paragraphs": [
-        "Små innbetalinger kan gi langsom nedbetaling fordi en stor del av beløpet først går til renter og gebyrer. Det er avdraget, altså det som faktisk reduserer gjelden, som flytter deg nærmere å bli ferdig.",
-        "Du har 50 000 kroner i rentebærende kortgjeld med 24 prosent nominell årsrente. Saldoen betales ned over 36 måneder, uten termingebyr, årsgebyr eller andre kostnader. Vi forutsetter ingen nye kjøp, uendret rente og månedlig betaling, første gang etter én måned.",
-        "For å gjøre eksemplet etterprøvbart bruker vi en annuitetsmodell. Det er en modell med lik betaling av renter og avdrag hver måned, ikke en beskrivelse av et bestemt korts minstebetaling. Månedlig rente blir `0,24 / 12 = 0,02`.",
-        "Betalingen blir `50 000 × 0,02 / (1 − 1,02^(−36))`, omtrent 1 961,64 kroner per måned. Første måneds renter er `50 000 × 0,02 = 1 000 kroner`. Bare omtrent `1 961,64 − 1 000 = 961,64 kroner` reduserer gjelden den måneden.",
-        "Samlet betaling over 36 måneder blir omtrent 70 619,13 kroner med uavrundede terminbeløp. Rentekostnaden blir `70 619,13 − 50 000 = 20 619,13 kroner`. Tallene er hypotetiske og er verken markedsstatistikk eller et lånetilbud.",
-        "Eksemplet viser hvorfor en betaling som føles stor, ikke nødvendigvis gir like stor nedgang i saldoen. Betaler du mindre, trenger du en ny beregning av løpetiden. Betaler du bare like mye som rentene og gebyrene, blir gjelden ikke redusert i denne modellen."
-      ],
       "blocks": [
         {
           "type": "paragraph",
@@ -127,13 +105,6 @@
     {
       "id": "nar-kan-det-lonne-seg-a-refinansiere-kredittkort",
       "heading": "Når kan det lønne seg å refinansiere kredittkort?",
-      "paragraphs": [
-        "Det kan lønne seg å refinansiere kredittkort når et nytt lån gir lavere samlede fremtidige kostnader etter at alle gebyrer er tatt med. Sammenlign først med samme nedbetalingstid, slik at du ser prisforskjellen uten at lengre løpetid skjuler den.",
-        "Hvis kortgjelden i eksemplet erstattes av et hypotetisk lån på 50 000 kroner over de samme 36 månedene, med 12 prosent nominell rente, blir renter og avdrag omtrent 1 660,72 kroner per måned. Vi antar null termingebyr og et etableringsgebyr på 1 000 kroner, betalt separat ved oppstart. Alle andre forutsetninger er som over.",
-        "Samlet kostnad blir da `36 × uavrundet månedsbetaling + 1 000 − 50 000`, omtrent 10 785,76 kroner. Forskjellen mellom de avrundede kostnadene er `20 619,13 − 10 785,76 = 9 833,37 kroner`. Det er utfallet av akkurat disse forutsetningene, ikke en besparelse vi lover deg.",
-        "Du kan undersøke egne tall i [Fordelsjaktens kalkulator for refinansiering](/). Be om en oppdatert betalingsplan hvis du får et konkret tilbud, og kontroller effektiv rente, gebyrer og tidspunktet for siste betaling. Les også guiden til refinansiering av forbrukslån. [Refinansiering av forbrukslån: En komplett guide](/blogg/refinansiering-av-forbrukslan)",
-        "I Fordelsjaktens kalkulator legger du inn restgjeld, nominell rente, månedlig termingebyr og gjenstående antall måneder. For det nye lånet legger du inn ny nominell rente, nytt termingebyr og etableringsgebyr. Begge alternativene bruker samme lånebeløp og nedbetalingstid. Etableringsgebyret regnes som en separat oppstartskostnad, ikke som en del av gjelden; tidligere etableringsgebyr på dagens lån tas ikke med. Effektiv rente beregnes fra disse opplysningene. Eksempler med ulike løpetider må sammenlignes separat, ikke som to ulike løpetider i kalkulatoren. Feltene tillater 10 000–1 000 000 kroner i lånebeløp, 1–30 prosent nominell rente og 1–120 måneder. Løpetider over ti år ligger utenfor kalkulatorens tidsintervall og må kontrolleres separat."
-      ],
       "blocks": [
         {
           "type": "paragraph",
@@ -153,19 +124,13 @@
         },
         {
           "type": "paragraph",
-          "text": "I Fordelsjaktens kalkulator legger du inn restgjeld, nominell rente, månedlig termingebyr og gjenstående antall måneder. For det nye lånet legger du inn ny nominell rente, nytt termingebyr og etableringsgebyr. Begge alternativene bruker samme lånebeløp og nedbetalingstid. Etableringsgebyret regnes som en separat oppstartskostnad, ikke som en del av gjelden; tidligere etableringsgebyr på dagens lån tas ikke med. Effektiv rente beregnes fra disse opplysningene. Eksempler med ulike løpetider må sammenlignes separat, ikke som to ulike løpetider i kalkulatoren. Feltene tillater 10 000–1 000 000 kroner i lånebeløp, 1–30 prosent nominell rente og 1–120 måneder. Løpetider over ti år ligger utenfor kalkulatorens tidsintervall og må kontrolleres separat."
+          "text": "Kalkulatoren sammenligner dagens lån med et nytt lån med samme beløp og nedbetalingstid, opptil 120 måneder, og regner ut effektiv rente. I guiden [Slik bruker du kalkulatoren](/blogg/slik-bruker-du-kalkulatoren) ser du hvilke tall du trenger og hva beregningen tar med."
         }
       ]
     },
     {
       "id": "hvordan-unngar-du-at-kredittkortgjelden-kommer-tilbake",
       "heading": "Hvordan unngår du at kredittkortgjelden kommer tilbake?",
-      "paragraphs": [
-        "Du reduserer risikoen for ny kortgjeld ved å stoppe nye kredittkjøp og lage et budsjett som fungerer uten å fylle opp kredittrammen igjen. Refinansiering alene endrer ikke vanene eller utgiftene som gjorde at saldoen vokste.",
-        "Flytt faste belastninger til en betalingsmåte du har dekning for. Vurder også om du trenger hele kredittrammen, eller om kortavtalen bør avsluttes. Sjekk vilkårene og eventuelle faste betalinger før du gjør endringer.",
-        "Et lite økonomisk handlingsrom kan gjøre at en uventet regning ikke automatisk havner på kortet. Hvor mye du kan sette av, avhenger av situasjonen. Unngå en så stram nedbetalingsplan at du stadig må låne tilbake det du nettopp betalte inn.",
-        "Hvis det ikke er rom for nødvendige utgifter og betalingene på gjelden, kan du få gratis økonomi- og gjeldsrådgivning hos Nav. [Navs veiledning ved økonomiske problemer](https://www.nav.no/okonomi-gjeld). Det er et alternativ til å forsøke å dekke ett kort med et nytt."
-      ],
       "blocks": [
         {
           "type": "paragraph",
@@ -188,11 +153,6 @@
     {
       "id": "ofte-stilte-sporsmal",
       "heading": "Ofte stilte spørsmål",
-      "paragraphs": [
-        "Du trenger ikke ta en beslutning for resten av livet nå. Mens du betaler ned rentebærende gjeld, kan en pause fra nye kredittkjøp gjøre planen enklere å følge. Vurder senere om kortet passer økonomien din, og hvilke grenser du trenger. Det avgjørende er at ny bruk ikke spiser opp fremgangen i nedbetalingen.",
-        "Ja, ekstra betaling reduserer saldoen raskere når pengene faktisk går til nedbetaling og du ikke bruker kreditten på nytt. Dermed blir det mindre gjeld å beregne renter av fremover. Hvor mye tid og kostnad du sparer, avhenger av saldo, rente, gebyrer og betalingsplan. Be om en ny beregning hvis du ønsker et konkret anslag.",
-        "Ikke nødvendigvis. En saldo kan omfatte kjøp der rentebelastningen avhenger av betalingsfrist og avtalevilkår. Se på fakturaen og kortavtalen for å finne ut hva som gjelder for dine kjøp, uttak og overføringer. Artikkelens regneeksempel gjelder en saldo som allerede er rentebærende, og bør ikke brukes som beregning for alle typer kortbruk."
-      ],
       "blocks": [
         {
           "type": "heading",
@@ -223,10 +183,6 @@
     {
       "id": "vil-du-undersoke-en-annen-nedbetalingsplan",
       "heading": "Vil du undersøke en annen nedbetalingsplan?",
-      "paragraphs": [
-        "Prøv [refinansieringskalkulatoren med tallene fra kortgjelden din](/). Se på samlet kostnad sammen med månedsbeløpet, og sammenlign med det du faktisk skal betale dersom du fortsetter som i dag.",
-        "Du kan [melde deg på Fordelsjaktens e-postliste](/#epostpamelding) for nytt innhold og annen relevant informasjon. Du kan melde deg av når som helst. Bekreft påmeldingen via e-posten du mottar."
-      ],
       "blocks": [
         {
           "type": "paragraph",
