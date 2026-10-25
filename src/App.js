@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { init, track } from "@plausible-analytics/tracker";
+import AFFILIATES from "./affiliates.json";
 import { SpeedInsights } from "@vercel/speed-insights/react";
 
 const LOGO = "/Fordelsdetektiven-fordelsjakten-logo.png";
@@ -11,42 +12,6 @@ const SITE = {
   url: "https://fordelsjakten.no",
   image: "https://fordelsjakten.no/og-image.png",
 };
-
-const AFFILIATES = [
-  {
-    id: 1,
-    name: "Uno Finans",
-    desc: "Sammenlign lån fra 20+ banker med én søknad.",
-    url: "https://ormedlink.com/fordelsjakten-3",
-    cta: "Sjekk tilbud hos Uno Finans",
-    effRente: "10,94",
-    tag: "Mange banker",
-    renteeksempel:
-      "Renteeksempel: 300 000 kr over 5 år med 10,10 % nominell og 10,94 % effektiv rente koster 85 133 kr. Totalt tilbakebetalt: 385 133 kr.",
-  },
-  {
-    id: 2,
-    name: "Motty",
-    desc: "Sammenlign muligheter for å samle og refinansiere gjeld.",
-    url: "https://orsearchlink.com/click.track?CID=437042&AFID=560140&ADID=2612726&SID=",
-    cta: "Søk hos Motty",
-    effRente: "14,44",
-    tag: "Samle flere lån",
-    renteeksempel:
-      "Renteeksempel: 160 000 kr over 5 år med 14,44 % effektiv rente koster 60 688 kr. Totalt tilbakebetalt: 220 688 kr. Nominell rente 6–23 %.",
-  },
-  {
-    id: 3,
-    name: "Zensum",
-    desc: "Sammenlign refinansiering og samle flere lån i ett.",
-    url: "https://ormedlink.com/fordelsjakten-10",
-    cta: "Se renten hos Zensum",
-    effRente: "11,46",
-    tag: "Refinansiering",
-    renteeksempel:
-      "Renteeksempel: 150 000 kr over 5 år med 10,90 % nominell og 11,46 % effektiv rente, 0 kr i gebyr. Totalkostnad: 195 240 kr, som er 3 254 kr per måned.",
-  },
-];
 
 const FAQS = [
   {

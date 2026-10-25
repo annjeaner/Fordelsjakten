@@ -76,3 +76,18 @@ Kildene til månedsbeløpsartikkelen ble kontrollert 20. oktober 2026 mot Forbru
 E-posthenvisninger bruker `/#epostpamelding`. Dette er en permanent tilgjengelig seksjon i React-forsiden, også uten å gå gjennom et kalkulatorresultat. Den bruker eksisterende `subscribe`-funksjon og `/api/subscribe`, som registrerer med status PENDING i den eksisterende e-postlisten. Ikke lenk direkte til API-et fra artikkelteksten. Ingen påstander om en bestemt utsendelsesfrekvens, lånetilbud eller automatisk tilsendt personlig beregning er lagt til i bloggtekstene.
 
 Fordelsjakten har redaksjonelt ansvar. Fordelsdetektiven er forfatternavnet, representert som et redaksjonelt organisasjonsnavn i schema, ikke som en oppdiktet fagperson. Forklaringen finnes synlig på `/blogg#redaksjon`.
+
+## Annonseblokker
+
+En artikkel kan ha annonseblokker som egne innholdsblokker: `{"type": "promo", "id": "zensum"}`. Blokken settes inn i `sections[].blocks` der den skal vises.
+
+- **Affiliate:** ID-ene er partnerne i `src/affiliates.json` (`uno-finans`, `motty`, `zensum`). Kalkulatorens tilbudsside bruker samme fil. Navn, lenke og renteeksempel er derfor alltid like på bloggen og i appen. Kortet bruker appens `affiliate-card`-stil, er merket «Annonse», har `rel="noopener noreferrer sponsored"` og viser renteeksempelet og en provisjonsopplysning.
+- **Intern:** ID-ene står i `content/promos.json` (`kalkulator`, `epost`). De brukes for egne verktøy og e-postlisten.
+
+Bygget stopper hvis
+- artikkelen har mer enn to blokker (standardboksen «Klar for å prøve selv?» teller med),
+- artikkelen har mer enn én affiliateblokk, eller noen i en artikkel med `"noAffiliate": true`,
+- en blokk står i første seksjon, i «Ofte stilte spørsmål» eller rett ved en tabell eller en annen annonse,
+- en partner mangler renteeksempel med effektiv rente, eller ID-en er ukjent.
+
+Endres et renteeksempel, oppdateres det i `src/affiliates.json`. Annonsetekst holdes utenfor `articleBody` i schema. `refinansiering-med-betalingsanmerkning` har `noAffiliate`, fordi leserne der er i en sårbar situasjon.

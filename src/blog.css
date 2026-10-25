@@ -127,3 +127,17 @@
 .article-table:focus-visible { outline:3px solid var(--fj-blog-violet); outline-offset:3px; }
 .article-editorial-notes { margin-bottom:32px; padding:24px; background:var(--fj-blog-surface-soft); border:1px dashed var(--fj-blog-border); border-radius:12px; overflow-wrap:anywhere; }
 .article-body { min-width:0; }
+
+/* Ad blocks. The affiliate variant reuses .affiliate-card from the calculator's offer page (GLOBAL_CSS). */
+.article-promo { margin:40px 0; }
+.article-promo--internal { padding:28px; background:var(--fj-blog-violet-light); border-radius:var(--fj-blog-radius-md); color:var(--fj-blog-ink); }
+.article-promo-label { color:var(--fj-blog-violet-dark); font-size:13px; font-weight:600; }
+.article-body .article-promo-heading { margin:8px 0 10px; font-family:"Bricolage Grotesque",sans-serif; font-size:24px; font-weight:600; line-height:1.3; color:var(--fj-blog-ink); }
+.article-body .article-promo--internal p:not(.article-promo-heading) { margin:0 0 20px; }
+.article-body .article-promo .affiliate-card { min-height:0; color:var(--fj-blog-ink); text-decoration:none; }
+.article-body .article-promo .affiliate-card:focus-visible { outline:3px solid var(--fj-blog-violet); outline-offset:4px; }
+.article-body .article-promo .affiliate-name { margin:24px 0 7px; font-family:"Bricolage Grotesque",sans-serif; font-size:30px; font-weight:700; letter-spacing:-.5px; line-height:1.2; color:var(--fj-blog-ink); }
+.article-body .article-promo .affiliate-desc { min-height:0; margin:0; font-size:14px; line-height:1.55; }
+.article-body .article-promo .legal-example { margin:0; padding-top:18px; font-size:12px; line-height:1.6; color:var(--fj-blog-muted); }
+.article-body .article-promo-disclosure { margin:10px 4px 0; font-size:13px; line-height:1.6; color:var(--fj-blog-muted); }
+@media(max-width:760px) { .article-body .article-promo .affiliate-card { padding:20px; } .article-promo--internal { padding:24px; } }

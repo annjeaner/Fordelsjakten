@@ -132,6 +132,10 @@
         {
           "type": "paragraph",
           "text": "Med de avrundede kostnadene er forskjellen mot dagens plan `31 948,62 − 22 371,52 = 9 577,10 kroner`. Med 60 måneder blir utfallet motsatt: `37 466,69 − 31 948,62 = 5 518,07 kroner` i høyere kostnad. Små avrundingsavvik kan oppstå i en faktisk betalingsplan."
+        },
+        {
+          "type": "promo",
+          "id": "uno-finans"
         }
       ]
     },

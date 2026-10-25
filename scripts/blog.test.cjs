@@ -194,3 +194,52 @@ test('publication schedule excludes future pages, schema, links and sitemap',()=
   }
  } finally { fs.rmSync(temp,{recursive:true,force:true}); }
 });
+
+test('promo blocks reuse the shared affiliate data and stay out of schema text',()=>{
+ const {JSDOM}=require('jsdom');
+ const affiliates=JSON.parse(fs.readFileSync(path.join(root,'src/affiliates.json'),'utf8'));
+ for(const a of articles) {
+  const ids=a.sections.flatMap(s=>(s.blocks||[]).filter(b=>b.type==='promo').map(b=>b.id));
+  const doc=new JSDOM(fs.readFileSync(path.join(root,'build/blogg',a.slug+'.html'),'utf8')).window.document;
+  assert.equal(doc.querySelectorAll('.article-promo').length,ids.length,a.slug);
+  const body=JSON.parse(doc.querySelector('script[type="application/ld+json"]').textContent)['@graph'].find(n=>n['@type']==='BlogPosting').articleBody;
+  for(const card of doc.querySelectorAll('.article-promo--affiliate')) {
+   const partner=affiliates.find(p=>p.url===card.querySelector('a').getAttribute('href'));
+   assert.ok(partner,a.slug);
+   assert.equal(card.querySelector('a').getAttribute('rel'),'noopener noreferrer sponsored');
+   assert.equal(card.querySelector('.ad-label').textContent,'Annonse');
+   assert.equal(card.querySelector('.legal-example').textContent,partner.renteeksempel);
+   assert.match(card.querySelector('.article-promo-disclosure').textContent,/provisjon/);
+   assert.ok(!body.includes(partner.renteeksempel));
+  }
+ }
+});
+
+test('promo placement rules stop the build',()=>{
+ const os=require('node:os');const {spawnSync}=require('node:child_process');
+ const temp=fs.mkdtempSync(path.join(os.tmpdir(),'fj-blog-promo-'));
+ try {
+  for(const name of ['scripts','src','public','content']) fs.cpSync(path.join(root,name),path.join(temp,name),{recursive:true});
+  const base=articles.find(a=>a.slug==='termingebyr');
+  const file=path.join(temp,'content/blog/termingebyr.json');
+  const build=()=>spawnSync(process.execPath,[path.join(temp,'scripts/build-blog.cjs')],{encoding:'utf8'});
+  const withPromos=(placements,extra={})=>{
+   const a=structuredClone({...base,...extra});
+   for(const s of a.sections) if(s.blocks) s.blocks=s.blocks.filter(b=>b.type!=='promo');
+   for(const [section,id] of placements) a.sections[section].blocks.push({type:'promo',id});
+   fs.writeFileSync(file,JSON.stringify(a));
+  };
+  withPromos([[1,'kalkulator'],[4,'zensum']]); assert.equal(build().status,0,build().stderr);
+  withPromos([[1,'kalkulator'],[3,'epost'],[4,'zensum']]); assert.match(build().stderr,/At most two promo blocks/);
+  withPromos([[1,'motty'],[4,'zensum']]); assert.match(build().stderr,/Too many affiliate promos/);
+  withPromos([[4,'zensum']],{noAffiliate:true}); assert.match(build().stderr,/Too many affiliate promos/);
+  withPromos([[0,'zensum']]); assert.match(build().stderr,/not allowed in section/);
+  withPromos([[5,'zensum']]); assert.match(build().stderr,/not allowed in section/);
+  withPromos([[4,'ukjent']]); assert.match(build().stderr,/Unknown promo/);
+  withPromos([]);
+  const partners=JSON.parse(fs.readFileSync(path.join(temp,'src/affiliates.json'),'utf8'));
+  partners[0].renteeksempel='Lav rente!';
+  fs.writeFileSync(path.join(temp,'src/affiliates.json'),JSON.stringify(partners));
+  assert.match(build().stderr,/representative rate example/);
+ } finally { fs.rmSync(temp,{recursive:true,force:true}); }
+});

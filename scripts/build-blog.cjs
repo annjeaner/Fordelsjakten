@@ -24,9 +24,15 @@ function richText(value) {
   return (result + esc(value.slice(position))).replace(/`([^`]+)`/g, '<code>$1</code>');
 }
 function blockText(block) {
+  if (block.type === 'promo') return null;
   if (block.type === 'list') return block.items.join('\n');
   if (block.type === 'table') return [block.headers, ...block.rows].map(row=>row.join(' | ')).join('\n');
   return block.text;
+}
+// Same markup and classes as AffiliateCard in App.js, so the ad looks identical on the blog and in the calculator.
+function promoMarkup(promo) {
+  if (promo.type === 'internal') return `<aside class="article-promo article-promo--internal" aria-label="${esc(promo.label)}"><span class="article-promo-label">${esc(promo.label)}</span><p class="article-promo-heading">${esc(promo.heading)}</p><p>${esc(promo.text)}</p><a class="blog-button" href="${esc(safeUrl(promo.href))}">${esc(promo.cta)}</a></aside>`;
+  return `<aside class="article-promo article-promo--affiliate" aria-label="Annonse"><a class="affiliate-card" href="${esc(safeUrl(promo.url))}" target="_blank" rel="noopener noreferrer sponsored"><div class="affiliate-topline"><span class="affiliate-tag">${esc(promo.tag)}</span><span class="ad-label">Annonse</span></div><p class="affiliate-name">${esc(promo.name)}</p><p class="affiliate-desc">${esc(promo.desc)}</p><div class="rate-example"><span>Renteeksempel</span><strong>${esc(promo.effRente)} %</strong></div><span class="affiliate-cta">${esc(promo.cta)} <span aria-hidden="true">→</span></span><p class="legal-example">${esc(promo.renteeksempel)}</p></a><p class="article-promo-disclosure">Fordelsjakten kan få provisjon hvis du klikker eller søker. Det koster ikke ekstra for deg, og påvirker ikke innholdet i artiklene.</p></aside>`;
 }
 function renderBlocks(blocks, heading) {
   return blocks.map(block=>{
@@ -34,11 +40,24 @@ function renderBlocks(blocks, heading) {
     if (block.type === 'paragraph') return `<p>${richText(block.text)}</p>`;
     if (block.type === 'list') return `<ul>${block.items.map(item=>`<li>${richText(item)}</li>`).join('')}</ul>`;
     if (block.type === 'table') return `<div class="article-table" role="region" aria-label="${esc(heading)} – tabell" tabindex="0"><table><caption>${esc(heading)}</caption><thead><tr>${block.headers.map(cell=>`<th scope="col">${richText(cell)}</th>`).join('')}</tr></thead><tbody>${block.rows.map(row=>`<tr>${row.map((cell,i)=>i===0 ? `<th scope="row">${richText(cell)}</th>` : `<td>${richText(cell)}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`;
+    if (block.type === 'promo') return promoMarkup(promos.get(block.id));
     throw new Error(`Unknown article block: ${block.type}`);
   }).join('');
 }
 const publication = a => a.datePublished ? `${a.datePublished > buildDate ? 'Planlagt ' : ''}<time datetime="${a.datePublished}">${dateLabel(a.datePublished)}</time>` : '<span>Ikke publisert</span>';
 const allArticles = fs.readdirSync(path.join(root, 'content/blog')).filter(name => name.endsWith('.json')).map(name => JSON.parse(fs.readFileSync(path.join(root, 'content/blog', name), 'utf8'))).sort((a,b) => (b.datePublished || '').localeCompare(a.datePublished || ''));
+// Affiliate partners are shared with App.js so rate examples stay identical on every page.
+const affiliates = JSON.parse(fs.readFileSync(path.join(root, 'src/affiliates.json'), 'utf8'));
+const promos = new Map([
+  ...affiliates.map(a => [a.id, {...a, type:'affiliate'}]),
+  ...JSON.parse(fs.readFileSync(path.join(root, 'content/promos.json'), 'utf8')).map(p => [p.id, {...p, type:'internal'}]),
+]);
+for (const promo of promos.values()) {
+  const fields = promo.type === 'affiliate' ? ['name','desc','url','cta','effRente','tag','renteeksempel'] : ['label','heading','text','cta','href'];
+  for (const field of fields) if (!promo[field]) throw new Error(`Promo ${promo.id} is missing ${field}`);
+  safeUrl(promo.url || promo.href);
+  if (promo.type === 'affiliate' && !/effektiv rente/.test(promo.renteeksempel)) throw new Error(`Affiliate ${promo.id} needs a representative rate example`);
+}
 const slugs = new Set();
 for (const article of allArticles) {
   if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(article.slug) || slugs.has(article.slug)) throw new Error('Invalid or duplicate article slug');
@@ -61,6 +80,16 @@ for (const article of allArticles) {
   }
   if (!article.sections?.length || new Set(article.sections.map(s => s.id)).size !== article.sections.length) throw new Error('Missing or duplicate sections');
   for (const section of article.sections) if (!/^[a-z0-9-]+$/.test(section.id) || !section.heading || (!section.paragraphs?.length && !section.blocks?.length)) throw new Error('Invalid section');
+  // Ad blocks: at most two per article (the default CTA counts), one affiliate, never in the first section, the FAQ or next to a table.
+  const placed = article.sections.flatMap((section, index) => (section.blocks || []).map((block, i, blocks) => ({block, section, index, prev:blocks[i-1], next:blocks[i+1]}))).filter(p => p.block.type === 'promo');
+  const affiliateCount = placed.filter(p => promos.get(p.block.id)?.type === 'affiliate').length;
+  for (const {block, section, index, prev, next} of placed) {
+    if (!promos.has(block.id)) throw new Error(`Unknown promo ${block.id} in ${article.slug}`);
+    if (index === 0 || section.id === 'ofte-stilte-sporsmal') throw new Error(`Promo ${block.id} is not allowed in section ${section.id} of ${article.slug}`);
+    if ([prev, next].some(b => b?.type === 'table' || b?.type === 'promo')) throw new Error(`Promo ${block.id} must not sit next to a table or another promo in ${article.slug}`);
+  }
+  if (placed.length + (article.hideDefaultCta ? 0 : 1) > 2) throw new Error(`At most two promo blocks per article: ${article.slug}`);
+  if (affiliateCount > (article.noAffiliate ? 0 : 1)) throw new Error(`Too many affiliate promos in ${article.slug}`);
 }
 const buildDate = process.env.BLOG_BUILD_DATE || new Intl.DateTimeFormat('sv-SE', {timeZone:'Europe/Oslo',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());
 if (!/^\d{4}-\d{2}-\d{2}$/.test(buildDate) || !Number.isFinite(Date.parse(buildDate))) throw new Error('Invalid BLOG_BUILD_DATE');
@@ -95,7 +124,7 @@ fs.copyFileSync(path.join(root, 'src/blog-index.js'), path.join(output, 'blogg/i
 const cards = articles.map(a => `<article class="blog-card" data-category="${esc(a.category)}" data-date="${a.datePublished || ''}" data-title="${esc(a.title)}">${a.image ? `<a href="/blogg/${a.slug}" tabindex="-1" aria-hidden="true">${imageMarkup(a, true)}</a>` : ''}<span class="blog-category">${esc(a.category)}</span><h2><a href="/blogg/${a.slug}">${esc(a.title)}</a></h2><p>${esc(a.description)}</p><div class="card-bottom">${publication(a)}<a href="/blogg/${a.slug}" class="blog-card-link" aria-label="${esc('Les mer: ' + a.title)}">Les mer</a></div></article>`).join('');
 fs.writeFileSync(path.join(output, 'blogg.html'), page({title:'Blogg – Guider og økonomisk oversikt | Fordelsjakten',description:'Enkle guider fra Fordelsjakten. Bli kjent med verktøyene våre og få bedre oversikt over tallene i hverdagen.',url:`${origin}/blogg`,schemas:[publisher,{'@type':'Blog','@id':`${origin}/blogg#blog`,name:'Fordelsjakten blogg',url:`${origin}/blogg`,inLanguage:'nb',publisher:{'@id':publisher['@id']},blogPost:articles.map(a=>({'@type':'BlogPosting',headline:a.title,url:articleUrl(a)}))},breadcrumbs()],body:`<main id="innhold" class="blog-main"><div class="blog-hero"><span class="blog-category">Fordelsjaktens blogg</span><h1>Litt mer oversikt.<br><em>Litt enklere valg.</em></h1><p>Her finner du enkle forklaringer og guider som hjelper deg å forstå tallene og bruke verktøyene våre.</p></div><section aria-labelledby="guider"><h2 id="guider" class="blog-section-title">Guider fra Fordelsjakten</h2>${controls}<div class="blog-grid">${cards}</div></section><aside class="blog-callout" id="redaksjon"><div><h2>Fra Fordelsjakten</h2><p>Fordelsjakten har redaksjonelt ansvar for bloggen. Fordelsdetektiven er vårt redaksjonelle forfatternavn, ikke en egen fagperson. Vi vil gjøre det lettere å få oversikt over egen økonomi. Her deler vi forklaringer og guider, og viser hva verktøyene våre kan hjelpe deg med.</p></div><a class="blog-button" href="/">Prøv kalkulatoren</a></aside></main><script src="/blogg/index.js" defer></script>`}));
 for (const a of articles) {
-  const schema = {'@type':'BlogPosting','@id':articleUrl(a)+'#article',headline:a.title,description:a.description,url:articleUrl(a),mainEntityOfPage:{'@type':'WebPage','@id':articleUrl(a)},...(a.datePublished ? {datePublished:a.datePublished,dateModified:a.dateModified} : {}),inLanguage:'nb',author,...(a.image ? {image:{'@type':'ImageObject',url:origin+a.image.src,width:a.image.width,height:a.image.height,caption:a.image.alt}} : {}),publisher:{'@id':publisher['@id']},isPartOf:{'@id':`${origin}/blogg#blog`},articleSection:a.category,articleBody:[a.intro,...(a.summary || []),...a.sections.flatMap(s=>[s.heading,...(s.blocks ? s.blocks.map(blockText) : [...(s.list || []),...s.paragraphs])])].map(plainText).join('\n\n')};
+  const schema = {'@type':'BlogPosting','@id':articleUrl(a)+'#article',headline:a.title,description:a.description,url:articleUrl(a),mainEntityOfPage:{'@type':'WebPage','@id':articleUrl(a)},...(a.datePublished ? {datePublished:a.datePublished,dateModified:a.dateModified} : {}),inLanguage:'nb',author,...(a.image ? {image:{'@type':'ImageObject',url:origin+a.image.src,width:a.image.width,height:a.image.height,caption:a.image.alt}} : {}),publisher:{'@id':publisher['@id']},isPartOf:{'@id':`${origin}/blogg#blog`},articleSection:a.category,articleBody:[a.intro,...(a.summary || []),...a.sections.flatMap(s=>[s.heading,...(s.blocks ? s.blocks.map(blockText).filter(text=>text !== null) : [...(s.list || []),...s.paragraphs])])].map(plainText).join('\n\n')};
   const faqItems = [];
   for (const block of a.sections.find(section=>section.id === 'ofte-stilte-sporsmal')?.blocks || []) {
     if (block.type === 'heading') faqItems.push({question:block.text,answer:[]});
