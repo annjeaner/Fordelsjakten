@@ -785,10 +785,9 @@ export default function App() {
       {showScroll && (
         <button
           className="scroll-top"
-          aria-label="Gå til toppen av siden"
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
         >
-          ↑
+          Til toppen
         </button>
       )}
 
@@ -1005,7 +1004,6 @@ function ResultCard({ calculation, months }) {
         </p>
         <div className="result-comparison">
           <ResultStat label="Dagens kostnad" value={formatMonthly(calculation.currentMonthly)} />
-          <span className="comparison-divider" aria-hidden="true" />
           <ResultStat label="Ny kostnad" value={formatMonthly(calculation.proposedMonthly)} />
         </div>
         <p className="result-disclaimer">
@@ -1029,7 +1027,6 @@ function ResultCard({ calculation, months }) {
 
       <div className="result-comparison">
         <ResultStat label="Dagens kostnad" value={formatMonthly(calculation.currentMonthly)} />
-        <span className="comparison-divider" aria-hidden="true" />
         <ResultStat label="Ny kostnad" value={formatMonthly(calculation.proposedMonthly)} />
       </div>
 
@@ -1617,7 +1614,7 @@ const GLOBAL_CSS = `
     margin-top: 32px;
     padding: 18px;
     display: grid;
-    grid-template-columns: 1fr auto 1fr;
+    grid-template-columns: 1fr 1fr;
     align-items: center;
     gap: 18px;
     border: 1px solid rgba(255,255,255,.13);
@@ -1630,8 +1627,6 @@ const GLOBAL_CSS = `
   .result-comparison small { color: rgba(255,255,255,.55); font-size: 9px; font-weight: 700; }
   .result-card.neutral .result-comparison small { color: var(--muted); }
   .result-comparison strong { font-size: 14px; }
-  .result-comparison > span { color: rgba(255,255,255,.4); }
-  .result-card.neutral .result-comparison > span { color: var(--muted); }
   .break-even {
     margin-top: 14px;
     padding: 17px 18px;
@@ -1783,13 +1778,15 @@ const GLOBAL_CSS = `
     right: 22px;
     bottom: 22px;
     z-index: 40;
-    width: 42px;
     height: 42px;
+    padding: 0 16px;
     border: 0;
-    border-radius: 50%;
+    border-radius: 21px;
     background: var(--ink);
     color: #fff;
     box-shadow: 0 9px 24px rgba(32,33,63,.22);
+    font-size: 13px;
+    font-weight: 700;
     cursor: pointer;
   }
 
@@ -2267,7 +2264,6 @@ const GLOBAL_CSS = `
       gap: 9px;
     }
     .scroll-top {
-      width: 38px;
       height: 38px;
       right: 10px;
       bottom: calc(12px + env(safe-area-inset-bottom));
@@ -2287,7 +2283,6 @@ const GLOBAL_CSS = `
       gap: 11px;
       text-align: left;
     }
-    .result-comparison > span { transform: rotate(90deg); justify-self: start; }
     .affiliate-topline { align-items: flex-start; }
   }
 
@@ -2407,15 +2402,11 @@ const GLOBAL_CSS = `
       margin-top: 20px;
     }
     .result-comparison {
-      grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
       gap: 8px;
       padding: 13px 12px;
     }
     .result-comparison > div:last-child { text-align: right; }
-    .result-comparison > span {
-      transform: none;
-      justify-self: center;
-    }
     .result-comparison small { font-size: 11px; }
     .result-comparison strong {
       font-size: 13px;
@@ -2436,15 +2427,8 @@ const GLOBAL_CSS = `
 
   @media (max-width: 430px) {
     .result-comparison {
-      grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
-    }
-    .result-comparison > span {
-      transform: none;
-      justify-self: center;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     }
     .result-comparison strong { font-size: 12px; }
   }
-
-  /* Skillelinje i stedet for pil mellom dagens og ny kostnad. Den roteres til vannrett på smale skjermer. */
-  .result-comparison > .comparison-divider { width: 1px; height: 32px; background: currentColor; opacity: .5; }
 `;

@@ -257,3 +257,12 @@ test('promo placement rules stop the build',()=>{
   assert.match(build().stderr,/representative rate example/);
  } finally { fs.rmSync(temp,{recursive:true,force:true}); }
 });
+
+test('no arrow glyphs in the app, blog or content (see CLAUDE.md)',()=>{
+ const files=['src/App.js','src/blog.css','src/blog-index.js','src/blog-promo.js','src/affiliates.json','scripts/build-blog.cjs','content/promos.json','BLOG.md','BLOG-GJENNOMGANG.md','BLOG-BILDER.md',...articles.map(a=>`content/blog/${a.slug}.json`)];
+ for(const file of files) {
+  const text=fs.readFileSync(path.join(root,file),'utf8');
+  const hit=text.match(/[←-⇿➡⟵-⟿⬅-⬇]|&[rl]arr;/);
+  assert.equal(hit,null,`${file} contains an arrow: ${hit?.[0]}`);
+ }
+});
