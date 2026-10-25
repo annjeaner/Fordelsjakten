@@ -1747,7 +1747,7 @@ const GLOBAL_CSS = `
   .ad-label { color: var(--muted); font-size: 7.5px; letter-spacing: .8px; text-transform: uppercase; font-weight: 800; }
   .affiliate-card h2 { margin: 28px 0 7px; font-family: "Bricolage Grotesque", sans-serif; font-size: 27px; letter-spacing: -.5px; }
   .affiliate-desc { min-height: 40px; margin: 0; color: var(--ink-soft); font-size: 10.5px; line-height: 1.6; }
-  .rate-example { margin-top: 25px; padding: 15px 0; display: flex; align-items: end; justify-content: space-between; gap: 10px; }
+  .rate-example { margin-top: 25px; padding: 15px 0; display: flex; flex-direction: column; align-items: flex-start; gap: 2px; }
   .rate-example span { max-width: 80px; color: var(--muted); font-size: 8px; line-height: 1.35; }
   .rate-example strong { font-family: "Bricolage Grotesque", sans-serif; font-size: 27px; }
   .affiliate-cta { margin-top: 20px; color: var(--violet); font-size: 11px; font-weight: 800; }
