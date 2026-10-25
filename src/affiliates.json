@@ -18,9 +18,9 @@
     "cta": "Søk hos Motty",
     "effRente": "14,15",
     "tag": "Samle flere lån",
-    "renteeksempel": "Et lån på 100 000 kr over 5 år gir effektiv rente 14,15 %. Totale kredittkostnader er 37 120 kr, og totalt tilbakebetalt er 137 120 kr. Nominell rente varierer fra 4,90 % til 26,9 %.",
+    "renteeksempel": "Et lån på 100 000 kr over 5 år gir effektiv rente 14,15 %. Totale kredittkostnader er 37 120 kr, og totalt tilbakebetalt er 137 120 kr. Laveste nominelle rente er 4,90 %, og høyeste rente er 26,9 %. Du kan sammenligne Mottys priser med priser fra andre selskaper på Finansportalen.no.",
     "oppdatert": "2026-10-21",
-    "merknad": "Venter på bekreftelse fra Orion om -1 eller -2 er Motty. Nominell rente for selve eksempelet er etterspurt hos Orion."
+    "merknad": "Lenken -2 er bekreftet av Orion. Motty oppgir bare laveste og høyeste nominelle rente, ikke nominell rente for selve eksempelet."
   },
   {
     "id": "zensum",
@@ -30,7 +30,7 @@
     "cta": "Se renten hos Zensum",
     "effRente": "11,46",
     "tag": "Refinansiering",
-    "renteeksempel": "Et lån på 150 000 kr over 5 år med nominell rente 10,90 % og 0 kr i etablerings- og termingebyr gir effektiv rente 11,46 %. Totale kredittkostnader er 45 240 kr, og totalt tilbakebetalt er 195 240 kr.",
+    "renteeksempel": "Et annuitetslån på 150 000 kr over 5 år med nominell rente 10,90 % og 0 kr i etablerings- og termingebyr gir effektiv rente 11,46 %. Totale kredittkostnader er 45 240 kr, og totalt tilbakebetalt er 195 240 kr. Kostnaden er 3 254 kr per måned. Nedbetalingstiden er 1–15 år, og 5 år dersom du ikke skal refinansiere.",
     "oppdatert": "2026-06-12",
     "merknad": "Uten sikkerhet, vises til alle. Kredittkostnaden er regnet ut som 195 240 minus 150 000."
   },
