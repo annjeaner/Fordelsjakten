@@ -12,7 +12,9 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build"
+    "build": "react-scripts build",
+    "postbuild": "node scripts/build-blog.cjs",
+    "test:blog": "node --test scripts/blog.test.cjs"
   },
   "browserslist": {
     "production": [

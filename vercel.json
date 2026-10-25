@@ -5,9 +5,11 @@
       "headers": [
         {
           "key": "Link",
-          "value": "<https://www.fordelsjakten.no/llms.txt>; rel=llms-txt, <https://www.fordelsjakten.no/.well-known/mcp.json>; rel=mcp-server-card, <https://www.fordelsjakten.no/.well-known/agent-skills/index.json>; rel=agent-skills, <https://www.fordelsjakten.no/.well-known/api-catalog>; rel=api-catalog"
+          "value": "<https://fordelsjakten.no/llms.txt>; rel=llms-txt, <https://fordelsjakten.no/.well-known/mcp.json>; rel=mcp-server-card, <https://fordelsjakten.no/.well-known/agent-skills/index.json>; rel=agent-skills, <https://fordelsjakten.no/.well-known/api-catalog>; rel=api-catalog"
         }
       ]
     }
-  ]
+  ],
+  "buildCommand": "npm run build",
+  "cleanUrls": true
 }

@@ -29,8 +29,8 @@ Tjenesten er gratis å bruke. Fordelsjakten.no mottar affiliate-provisjon fra fi
 
 ## Nøkkelsider
 
-- Kalkulator og hovedside: https://www.fordelsjakten.no
-- Personvernerklæring: https://www.fordelsjakten.no/personvern
+- Kalkulator og hovedside: https://fordelsjakten.no
+- Personvernerklæring: https://fordelsjakten.no/personvern
 
 ## Kontakt
 
