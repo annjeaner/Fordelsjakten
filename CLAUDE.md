@@ -4,8 +4,8 @@
 Fordelsjakten skal se ut og lese som noe et menneske har laget. Disse gjelder appen, bloggen, artiklene og dokumentasjonen:
 
 - Ingen piler (→, ←, ↗, ➜ og lignende) i knapper, lenker, kort eller tekst. Skriv hva som skjer: «Åpne kalkulatoren», ikke «Kalkulator →».
-- Ingen skillelinjer som pynt, verken mellom verdier, over småtekst eller mellom avsnitt. Bruk luft og rekkefølge for å skille innhold.
-- Ingen emojier eller pyntesymboler (✓, ✨, 🚀, 💡 og lignende) i grensesnitt eller tekst.
+- Ingen skillelinjer som pynt, verken mellom verdier, i kort, over småtekst eller mellom avsnitt. Bruk luft og rekkefølge for å skille innhold.
+- Merkevaresymbolene beholdes: hake (✓, ✔️), lilla hjerte (💜), detektiven og forstørrelsesglasset (🕵️, 🔍). Ikke legg til andre emojier eller pyntesymboler som ✨, 🚀 eller 💡.
 - Ingen tankestrek (—) som stilgrep. Bruk punktum eller komma. Vanlig bindestrek og tankestrek i tallintervaller (10–30) er greit.
 - Ikke gjør ord fete for å fremheve dem midt i en setning. Overskrifter gjør jobben.
 - Ingen gradienter i tekst, glødende skygger eller «glass»-effekter.
