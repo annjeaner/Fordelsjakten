@@ -128,7 +128,10 @@
         },
         {
           "type": "promo",
-          "id": "motty"
+          "ids": [
+            "motty",
+            "zensum"
+          ]
         }
       ]
     },

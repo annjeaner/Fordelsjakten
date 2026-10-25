@@ -17,9 +17,9 @@ For at ChatGPT skal kunne gjøre steg 2–4, må GitHub-tilkoblingen ha skriveti
 Når bloggfunksjonen er lagt inn i repoet:
 
 1. Opprett en ny gren, for eksempel `artikkel/ny-guide`, fra produksjonsgrenen.
-2. Kopier strukturen i `content/blog/slik-bruker-du-kalkulatoren.json` til en ny fil i samme mappe. I GitHubs filvisning kan du bruke **Add file → Create new file**. Filnavnet kan for eksempel være `slik-finner-du-laneopplysningene.json`.
+2. Kopier strukturen i `content/blog/slik-bruker-du-kalkulatoren.json` til en ny fil i samme mappe. I GitHubs filvisning kan du bruke **Add file** og deretter **Create new file**. Filnavnet kan for eksempel være `slik-finner-du-laneopplysningene.json`.
 3. Endre `slug`, `title`, `description`, `category`, `intro` og avsnittene i `sections`. En slug er den siste delen av nettadressen: bruk små bokstaver, bindestreker og ingen æ, ø eller å. Hvert avsnitt står i doble anførselstegn. Anførselstegn inne i teksten må skrives som `\"`; komma mellom elementer må beholdes. Be gjerne ChatGPT lage den ferdige filen for deg.
-4. Last opp artikkelbildene i `public/images/blog/` på **samme gren**, via **Add file → Upload files**. Bruk bildefiler i to bredder (640 og 1200 piksler) og et delingsbilde på 1200 × 630 piksler. Endre filnavnene, alt-teksten, størrelsene og krediteringen i `image` til bildene du faktisk bruker. Ikke gjenbruk en annen artikkels alt-tekst.
+4. Last opp artikkelbildene i `public/images/blog/` på **samme gren**, via **Add file** og deretter **Upload files**. Bruk bildefiler i to bredder (640 og 1200 piksler) og et delingsbilde på 1200 × 630 piksler. Endre filnavnene, alt-teksten, størrelsene og krediteringen i `image` til bildene du faktisk bruker. Ikke gjenbruk en annen artikkels alt-tekst.
 5. Sett `datePublished` til den faktiske publiseringsdatoen. Ved senere innholdsendringer beholder du denne datoen og oppdaterer bare `dateModified`. Begge har formatet `2026-10-17`.
 6. Lagre endringene med **Commit changes** på artikkelgrenen, og opprett en **pull request** mot produksjonsgrenen. Åpne Vercel-forhåndsvisningen når bygget er klart. Det forutsetter at GitHub/Vercel-integrasjonen er aktiv for grenen.
 7. Sjekk teksten, bildet, mobilvisningen og alle kilder. Slå sammen med **Merge pull request** når alt er klart. Vent på et vellykket produksjonsbygg, og sjekk den publiserte artikkelen.
@@ -81,7 +81,9 @@ Fordelsjakten har redaksjonelt ansvar. Fordelsdetektiven er forfatternavnet, rep
 
 En artikkel kan ha annonseblokker som egne innholdsblokker: `{"type": "promo", "id": "zensum"}`. Blokken settes inn i `sections[].blocks` der den skal vises.
 
-- **Affiliate:** ID-ene er partnerne i `src/affiliates.json` (`uno-finans`, `motty`, `zensum`). Kalkulatorens tilbudsside bruker samme fil. Navn, lenke og renteeksempel er derfor alltid like på bloggen og i appen. Kortet bruker appens `affiliate-card`-stil, er merket «Annonse», har `rel="noopener noreferrer sponsored"` og viser renteeksempelet og en provisjonsopplysning.
+For å rullere mellom partnere brukes en liste: `{"type": "promo", "ids": ["zensum", "uno-finans"]}`. Den første vises uten JavaScript. `src/blog-promo.js` velger ellers én tilfeldig partner ved hver sidevisning. Bare affiliateblokker kan rullere.
+
+- **Affiliate:** ID-ene er partnerne i `src/affiliates.json` (`uno-finans`, `motty`, `zensum`). Kalkulatorens tilbudsside bruker samme fil. Navn, lenke og renteeksempel er derfor alltid like på bloggen og i appen. Kortet bruker appens `affiliate-card`-stil, er merket «Annonse», har `rel="noopener noreferrer sponsored"` og viser renteeksempelet og en kort provisjonsopplysning nederst i kortet.
 - **Intern:** ID-ene står i `content/promos.json` (`kalkulator`, `epost`). De brukes for egne verktøy og e-postlisten.
 
 Bygget stopper hvis

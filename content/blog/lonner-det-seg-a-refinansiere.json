@@ -135,7 +135,11 @@
         },
         {
           "type": "promo",
-          "id": "uno-finans"
+          "ids": [
+            "uno-finans",
+            "zensum",
+            "motty"
+          ]
         }
       ]
     },

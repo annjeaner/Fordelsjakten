@@ -587,7 +587,6 @@ export default function App() {
 
                 <button className="primary-button" onClick={() => goToStep(STEP_RESULT, "kalkulator")}>
                   Se resultatet
-                  <span aria-hidden="true">→</span>
                 </button>
                 <p className="button-note">
                   Gratis og uforpliktende. Ingen personopplysninger er nødvendig.
@@ -624,7 +623,7 @@ export default function App() {
               aria-label="Gå tilbake og endre tallene"
               onClick={() => goToStep(STEP_CALC)}
             >
-              <span aria-hidden="true">←</span> Endre tall
+              Endre tall
             </button>
 
             <div className="result-layout">
@@ -661,7 +660,6 @@ export default function App() {
                 ) : (
                   <button className="primary-button" onClick={() => goToStep(STEP_OFFERS, "se mulighetene")}>
                     Se mulighetene
-                    <span aria-hidden="true">→</span>
                   </button>
                 )}
 
@@ -690,7 +688,7 @@ export default function App() {
               aria-label="Gå tilbake til resultatet"
               onClick={() => goToStep(STEP_RESULT)}
             >
-              <span aria-hidden="true">←</span> Til resultatet
+              Til resultatet
             </button>
 
             <div className="offers-heading">
@@ -1007,7 +1005,7 @@ function ResultCard({ calculation, months }) {
         </p>
         <div className="result-comparison">
           <ResultStat label="Dagens kostnad" value={formatMonthly(calculation.currentMonthly)} />
-          <span aria-hidden="true">→</span>
+          <span className="comparison-divider" aria-hidden="true" />
           <ResultStat label="Ny kostnad" value={formatMonthly(calculation.proposedMonthly)} />
         </div>
         <p className="result-disclaimer">
@@ -1031,7 +1029,7 @@ function ResultCard({ calculation, months }) {
 
       <div className="result-comparison">
         <ResultStat label="Dagens kostnad" value={formatMonthly(calculation.currentMonthly)} />
-        <span aria-hidden="true">→</span>
+        <span className="comparison-divider" aria-hidden="true" />
         <ResultStat label="Ny kostnad" value={formatMonthly(calculation.proposedMonthly)} />
       </div>
 
@@ -1161,7 +1159,7 @@ function AffiliateCard({ affiliate, onAffiliateClick }) {
         <strong>{affiliate.effRente} %</strong>
       </div>
       <span className="affiliate-cta">
-        {affiliate.cta} <span aria-hidden="true">→</span>
+        {affiliate.cta}
       </span>
       <p className="legal-example">{affiliate.renteeksempel}</p>
     </a>
@@ -2447,4 +2445,6 @@ const GLOBAL_CSS = `
     .result-comparison strong { font-size: 12px; }
   }
 
+  /* Skillelinje i stedet for pil mellom dagens og ny kostnad. Den roteres til vannrett på smale skjermer. */
+  .result-comparison > .comparison-divider { width: 1px; height: 32px; background: currentColor; opacity: .5; }
 `;
