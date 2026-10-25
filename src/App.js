@@ -13,6 +13,9 @@ const SITE = {
   image: "https://fordelsjakten.no/og-image.png",
 };
 
+// Partnere med segment (f.eks. sikretlaan) vises bare i sitt eget segment, aldri i den generelle listen.
+const GENERAL_AFFILIATES = AFFILIATES.filter((affiliate) => !affiliate.segment);
+
 const FAQS = [
   {
     q: "Hva er forskjellen på nominell og effektiv rente?",
@@ -719,7 +722,7 @@ export default function App() {
             </div>
 
             <div className="offers-grid">
-              {AFFILIATES.map((affiliate) => (
+              {GENERAL_AFFILIATES.map((affiliate) => (
                 <AffiliateCard
                   key={affiliate.id}
                   affiliate={affiliate}
@@ -1142,7 +1145,7 @@ function AffiliateCard({ affiliate, onAffiliateClick }) {
       className="affiliate-card"
       href={affiliate.url}
       target="_blank"
-      rel="noopener noreferrer sponsored"
+      rel="sponsored nofollow noopener noreferrer"
       onClick={onAffiliateClick}
     >
       <div className="affiliate-topline">
@@ -1177,7 +1180,7 @@ function Footer() {
         <div className="footer-links">
           <a href="/blogg">Blogg</a>
           <a href="/personvern">Personvern og GDPR</a>
-          <span>© 2026 Fordelsjakten.no</span>
+          <span>© {new Date().getFullYear()} Fordelsjakten.no</span>
         </div>
       </div>
     </footer>

@@ -1048,7 +1048,7 @@
   <footer class="site-footer">
     <div class="footer-inner">
       <p class="footer-copy">
-        © 2026 Fordelsjakten.no
+        © <span id="footer-year"></span> Fordelsjakten.no
       </p>
 
       <a href="/" class="footer-link">
@@ -1056,5 +1056,6 @@
       </a>
     </div>
   </footer>
+  <script>document.getElementById("footer-year").textContent = new Date().getFullYear();</script>
 </body>
 </html>
