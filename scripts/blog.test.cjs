@@ -214,7 +214,9 @@ test('promo blocks reuse the shared affiliate data and stay out of schema text',
   for(const card of doc.querySelectorAll('.article-promo--affiliate .affiliate-card')) {
    const partner=affiliates.find(p=>p.url===card.getAttribute('href'));
    assert.ok(partner,a.slug);
-   assert.equal(card.getAttribute('rel'),'noopener noreferrer sponsored');
+   assert.equal(card.getAttribute('rel'),'sponsored nofollow noopener noreferrer');
+   assert.equal(card.getAttribute('target'),'_blank');
+   assert.ok(!partner.segment,a.slug);
    assert.equal(card.querySelector('.ad-label').textContent,'Annonse');
    assert.equal(card.querySelector('.legal-example').textContent,partner.renteeksempel);
    assert.match(card.querySelector('.affiliate-note').textContent,/provisjon/);
@@ -245,6 +247,8 @@ test('promo placement rules stop the build',()=>{
   withPromos([[0,'zensum']]); assert.match(build().stderr,/not allowed in section/);
   withPromos([[5,'zensum']]); assert.match(build().stderr,/not allowed in section/);
   withPromos([[4,'ukjent']]); assert.match(build().stderr,/Unknown promo/);
+  withPromos([[4,'okida']]); assert.match(build().stderr,/Unknown promo/);
+  withPromos([[4,['zensum','zensum-sikret']]]); assert.match(build().stderr,/Unknown promo/);
   withPromos([[1,'kalkulator'],[4,['zensum','motty']]]); assert.equal(build().status,0,build().stderr);
   withPromos([[1,'motty'],[4,['zensum','uno-finans']]]); assert.match(build().stderr,/Too many affiliate promos/);
   withPromos([[4,['zensum','ukjent']]]); assert.match(build().stderr,/Unknown promo/);

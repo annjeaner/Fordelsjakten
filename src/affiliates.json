@@ -3,30 +3,55 @@
     "id": "uno-finans",
     "name": "Uno Finans",
     "desc": "Sammenlign lån fra 20+ banker med én søknad.",
-    "url": "https://ormedlink.com/fordelsjakten-3",
+    "url": "https://ormedoffer.com/fordelsjakten-3",
     "cta": "Sjekk tilbud hos Uno Finans",
-    "effRente": "10,94",
+    "effRente": "10,86",
     "tag": "Mange banker",
-    "renteeksempel": "Renteeksempel: 300 000 kr over 5 år med 10,10 % nominell og 10,94 % effektiv rente koster 85 133 kr. Totalt tilbakebetalt: 385 133 kr."
+    "renteeksempel": "Et lån på 300 000 kr over 10 år med nominell rente 10,10 % gir effektiv rente 10,86 %. Totale kredittkostnader er 181 338 kr, og totalt tilbakebetalt er 481 338 kr.",
+    "oppdatert": "2026-10-21"
   },
   {
     "id": "motty",
     "name": "Motty",
     "desc": "Sammenlign muligheter for å samle og refinansiere gjeld.",
-    "url": "https://orsearchlink.com/click.track?CID=437042&AFID=560140&ADID=2612726&SID=",
+    "url": "https://ormedoffer.com/fordelsjakten-2",
     "cta": "Søk hos Motty",
-    "effRente": "14,44",
+    "effRente": "14,15",
     "tag": "Samle flere lån",
-    "renteeksempel": "Renteeksempel: 160 000 kr over 5 år med 14,44 % effektiv rente koster 60 688 kr. Totalt tilbakebetalt: 220 688 kr. Nominell rente 6–23 %."
+    "renteeksempel": "Et lån på 100 000 kr over 5 år gir effektiv rente 14,15 %. Totale kredittkostnader er 37 120 kr, og totalt tilbakebetalt er 137 120 kr. Laveste nominelle rente er 4,90 %, og høyeste rente er 26,9 %. Du kan sammenligne Mottys priser med priser fra andre selskaper på Finansportalen.no.",
+    "oppdatert": "2026-10-21",
+    "merknad": "Lenken -2 er bekreftet av Orion. Motty oppgir bare laveste og høyeste nominelle rente, ikke nominell rente for selve eksempelet."
   },
   {
     "id": "zensum",
     "name": "Zensum",
     "desc": "Sammenlign refinansiering og samle flere lån i ett.",
-    "url": "https://ormedlink.com/fordelsjakten-10",
+    "url": "https://ormedoffer.com/fordelsjakten-13",
     "cta": "Se renten hos Zensum",
     "effRente": "11,46",
     "tag": "Refinansiering",
-    "renteeksempel": "Renteeksempel: 150 000 kr over 5 år med 10,90 % nominell og 11,46 % effektiv rente, 0 kr i gebyr. Totalkostnad: 195 240 kr, som er 3 254 kr per måned."
+    "renteeksempel": "Et annuitetslån på 150 000 kr over 5 år med nominell rente 10,90 % og 0 kr i etablerings- og termingebyr gir effektiv rente 11,46 %. Totale kredittkostnader er 45 240 kr, og totalt tilbakebetalt er 195 240 kr. Kostnaden er 3 254 kr per måned. Nedbetalingstiden er 1–15 år, og 5 år dersom du ikke skal refinansiere.",
+    "oppdatert": "2026-06-12",
+    "merknad": "Uten sikkerhet, vises til alle. Kredittkostnaden er regnet ut som 195 240 minus 150 000."
+  },
+  {
+    "id": "zensum-sikret",
+    "segment": "sikretlaan",
+    "name": "Zensum",
+    "url": "https://ormedoffer.com/fordelsjakten-sikretlaan-1",
+    "effRente": "8,40",
+    "renteeksempel": "Et lån på 2 100 000 kr over 25 år med variabel nominell rente 8,10 % gir effektiv rente 8,40 %. Totale kredittkostnader er 2 832 000 kr, og totalt tilbakebetalt er 4 932 999 kr. Etablerings- og faktureringsgebyr er 1–4 %, og renten fastsettes individuelt.",
+    "oppdatert": "2026-06-12",
+    "merknad": "Sikret lån, kun for Sikretlaan-segmentet. Totalbeløpet avviker med 999 kr fra lån + kostnad. Tallene er gjengitt slik Zensum oppgir dem på egne sider, årsaken er ukjent (mulig etableringskostnad)."
+  },
+  {
+    "id": "okida",
+    "segment": "sikretlaan",
+    "name": "Okida",
+    "url": "https://ormedoffer.com/fordelsjakten-5",
+    "effRente": "8,55",
+    "renteeksempel": "Et lån på 2 000 000 kr over 25 år gir effektiv rente 8,55 %. Totale kredittkostnader er 2 622 146 kr, og totalt tilbakebetalt er 4 622 146 kr.",
+    "oppdatert": "2026-10-21",
+    "merknad": "Kun for Sikretlaan-segmentet. Okida oppgir bare dette eksempelet for omstartslån, uten nominell rente."
   }
 ]

@@ -32,7 +32,7 @@ function blockText(block) {
 // Same markup and classes as AffiliateCard in App.js, so the ad looks identical on the blog and in the calculator.
 const promoIds = block => block.ids || [block.id];
 function affiliateCard(promo, hidden) {
-  return `<a class="affiliate-card" href="${esc(safeUrl(promo.url))}" target="_blank" rel="noopener noreferrer sponsored"${hidden ? ' hidden' : ''}><div class="affiliate-topline"><span class="affiliate-tag">${esc(promo.tag)}</span><span class="ad-label">Annonse</span></div><p class="affiliate-name">${esc(promo.name)}</p><p class="affiliate-desc">${esc(promo.desc)}</p><div class="rate-example"><span>Renteeksempel</span><strong>${esc(promo.effRente)} %</strong></div><span class="affiliate-cta">${esc(promo.cta)}</span><p class="legal-example">${esc(promo.renteeksempel)}</p><p class="affiliate-note">Fordelsjakten kan få provisjon hvis du søker. Det koster ikke ekstra for deg.</p></a>`;
+  return `<a class="affiliate-card" href="${esc(safeUrl(promo.url))}" target="_blank" rel="sponsored nofollow noopener noreferrer"${hidden ? ' hidden' : ''}><div class="affiliate-topline"><span class="affiliate-tag">${esc(promo.tag)}</span><span class="ad-label">Annonse</span></div><p class="affiliate-name">${esc(promo.name)}</p><p class="affiliate-desc">${esc(promo.desc)}</p><div class="rate-example"><span>Renteeksempel</span><strong>${esc(promo.effRente)} %</strong></div><span class="affiliate-cta">${esc(promo.cta)}</span><p class="legal-example">${esc(promo.renteeksempel)}</p><p class="affiliate-note">Fordelsjakten kan få provisjon hvis du søker. Det koster ikke ekstra for deg.</p></a>`;
 }
 // A block with several ids rotates between them: the first is shown without JavaScript, promo.js picks one at random.
 function promoMarkup(block) {
@@ -55,8 +55,10 @@ const publication = a => a.datePublished ? `${a.datePublished > buildDate ? 'Pla
 const allArticles = fs.readdirSync(path.join(root, 'content/blog')).filter(name => name.endsWith('.json')).map(name => JSON.parse(fs.readFileSync(path.join(root, 'content/blog', name), 'utf8'))).sort((a,b) => (b.datePublished || '').localeCompare(a.datePublished || ''));
 // Affiliate partners are shared with App.js so rate examples stay identical on every page.
 const affiliates = JSON.parse(fs.readFileSync(path.join(root, 'src/affiliates.json'), 'utf8'));
+// Partners with a segment (e.g. sikretlaan) are never shown in the general lists, so articles cannot use them.
+for (const a of affiliates) if (!a.url || !/effektiv rente/.test(a.renteeksempel || '')) throw new Error(`Affiliate ${a.id} needs a URL and a representative rate example`);
 const promos = new Map([
-  ...affiliates.map(a => [a.id, {...a, type:'affiliate'}]),
+  ...affiliates.filter(a => !a.segment).map(a => [a.id, {...a, type:'affiliate'}]),
   ...JSON.parse(fs.readFileSync(path.join(root, 'content/promos.json'), 'utf8')).map(p => [p.id, {...p, type:'internal'}]),
 ]);
 for (const promo of promos.values()) {
@@ -119,7 +121,7 @@ const articleUrl = article => `${origin}/blogg/${article.slug}`;
 const dateLabel = date => new Intl.DateTimeFormat('nb-NO', {day:'numeric',month:'long',year:'numeric',timeZone:'UTC'}).format(new Date(date));
 const breadcrumbs = article => ({'@type':'BreadcrumbList',itemListElement:[{name:'Forside',item:origin},{name:'Blogg',item:`${origin}/blogg`},...(article ? [{name:article.title,item:articleUrl(article)}] : [])].map((item,i)=>({'@type':'ListItem',position:i+1,...item}))});
 const header = current => `<a class="skip-link" href="#innhold">Hopp til innhold</a><header class="site-header"><div class="header-inner"><a class="brand" href="/" aria-label="Fordelsjakten forside"><img src="${logo}" alt="" width="43" height="43"><span><strong>Fordelsjakten</strong><small>Finn fordelene dine</small></span></a><nav class="blog-nav" aria-label="Hovedmeny"><a href="/">Kalkulator</a><a href="/blogg" aria-current="${current}">Blogg</a></nav></div></header>`;
-const footer = `<footer class="site-footer"><div class="footer-inner"><div class="footer-brand"><img src="${logo}" alt="" width="37" height="37" loading="lazy"><div><strong>Fordelsjakten</strong><p>Enkle verktøy for bedre oversikt.</p></div></div><div class="footer-links"><a href="/blogg">Blogg</a><a href="/personvern">Personvern og GDPR</a><span>© ${new Date().getUTCFullYear()} Fordelsjakten.no</span></div></div></footer>`;
+const footer = `<footer class="site-footer"><div class="footer-inner"><div class="footer-brand"><img src="${logo}" alt="" width="37" height="37" loading="lazy"><div><strong>Fordelsjakten</strong><p>Enkle verktøy for bedre oversikt.</p></div></div><div class="footer-links"><a href="/blogg">Blogg</a><a href="/personvern">Personvern og GDPR</a><span>© ${new Date().getFullYear()} Fordelsjakten.no</span></div></div></footer>`;
 function page({title, description, url, body, schemas, article}) {
   const shareImage = article?.image ? origin + article.image.share : origin + '/og-image.png';
   const shareAlt = article?.image?.alt || 'Fordelsjakten – Finn fordelene dine';
