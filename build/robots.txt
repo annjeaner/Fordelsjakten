@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-Sitemap: https://www.fordelsjakten.no/sitemap.xml
-Content-Signal: ai-train=yes, search=yes, ai-input=yes
